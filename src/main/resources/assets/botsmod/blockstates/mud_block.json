@@ -1,0 +1,5 @@
+ {
+ "variants": {
+        "": {"model": "botsmod:block/mud_block"}
+   	}
+   }

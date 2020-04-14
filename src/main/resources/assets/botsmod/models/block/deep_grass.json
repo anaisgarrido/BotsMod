@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/deep_stone",
+        "up": "botsmod:blocks/deep_grass_top",
+        "side": "botsmod:blocks/deep_grass_up"
+    }
+}

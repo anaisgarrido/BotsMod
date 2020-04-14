@@ -1,0 +1,5 @@
+ {
+ "variants": {
+        "": [ {"model": "botsmod:block/deep_stone"}, {"model": "botsmod:block/deep_stone2"}, {"model": "botsmod:block/deep_stone3"}, {"model": "botsmod:block/deep_stone4"} ]
+   	}
+   }

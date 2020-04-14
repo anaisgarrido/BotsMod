@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/mud_grass_bottom",
+        "up": "botsmod:blocks/mud_grass_top",
+        "side": "botsmod:blocks/mud_grass"
+    }
+}

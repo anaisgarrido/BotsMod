@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "## ",
+        "#/ ",
+        " /S"
+    ],
+    "key": {
+        "#": {
+            "item": "botsmod:jade"
+        },
+        "/": {
+            "item": "botsmod:dry_wood_stick"
+        },
+        "S": {
+            "item": "botsmod:deep_stone"
+        }
+    },
+    "result": {
+        "item": "botsmod:jade_axe",
+        "count": 1
+    }
+}

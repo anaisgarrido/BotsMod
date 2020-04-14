@@ -1,0 +1,38 @@
+{
+	"item.botsmod.chisel": "Chisel",
+	"item.botsmod.long_root": "Long Root",
+	"item.botsmod.dry_wood_stick": "Dry Wood Stick",
+	"item.botsmod.jade": "Jade",
+	
+	"item.botsmod.jade_sword": "Jade Sword",
+	"item.botsmod.jade_hoe": "Jade Hoe",
+	"item.botsmod.jade_axe": "Jade Axe",
+	"item.botsmod.jade_pickaxe": "Jade Pickaxe",
+	"item.botsmod.jade_shovel": "Jade Shovel",
+	
+	"block.botsmod.dry_wood_log": "Dry Wood",
+	"block.botsmod.deep_stone": "Deep Stone",
+	"block.botsmod.deep_grass": "Deep Grass",
+	"block.botsmod.jade_ore": "Jade Ore",
+	"block.botsmod.dry_wood_planks": "Dry Wood Bricks",
+	"block.botsmod.deep_coblestone": "Deep Coblestone",
+	
+	"block.botsmod.deep_wood_log": "Deep Wood Log",
+	"block.botsmod.deep_wood_bricks": "Deep Wood Planks",
+	
+	"block.botsmod.mud_stone": "Mud Stone",
+	"block.botsmod.mud_grass": "Mud Grass",
+	"block.botsmod.cold_deep_coblestone": "Cold Deep Coblestone",
+	"block.botsmod.cold_deep_stone": "Cold Deep Stone",
+	"block.botsmod.deep_wood_leaves": "Deep Wood Leaves",
+	"block.botsmod.root_wood_log": "Root Wood Log",
+	"block.botsmod.root_wood_log_full": "Root Wood Log Full",
+	"block.botsmod.root_core": "Root Core",
+	"block.botsmod.deep_wood_chest": "Deep Wood Chest",
+	"block.botsmod.deep_wood_log_full": "Deep Wood Log Full",
+	"block.botsmod.mud": "Mud",
+		
+	"container.deep_wood_chest": "Deep Wood Chest",
+	
+	"itemGroup.botstab": "Bane Of The Sea"
+}

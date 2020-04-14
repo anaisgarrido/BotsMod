@@ -1,0 +1,61 @@
+
+
+modLoader="javafml" #mandatory
+
+
+loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+
+
+issueTrackerURL="http://my.issue.tracker/" #optional
+
+
+[[mods]] #mandatory
+
+
+modId="botsmod" #mandatory
+
+
+version="${file.jarVersion}" #mandatory
+ 
+
+displayName="Bane Of The Seekers Mod" #mandatory
+
+
+displayURL="http://example.com/" #optional
+
+
+logoFile="examplemod.png" #optional
+
+
+credits="Tanks to TurtyWurty, Creator: Th3Fr3ak , " #optional
+
+
+authors="Th3Fr3ak" #optional
+
+
+description='''
+Bane Of The Seekers yes.... I have been waiting for someone, all of those years.... You are here now Finally Someone to save us from him.
+A dimension hiden for long and long.... I will tell you This is the most ancient of the dimension did you ever thinked where dose the Bedrock come from . . . Here Try this new dimension you will see ! 
+
+Thanks to TurtyWurty For he's tutorials that made me try to make this mod And thanks for some ideas of he's community !
+
+'''
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.botsmod]] #optional
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[31,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+# Here's another dependency
+[[dependencies.botsmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
