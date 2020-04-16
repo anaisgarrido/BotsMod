@@ -1,14 +1,8 @@
 package com.thefreak.botsmod;
 
+import com.thefreak.botsmod.init.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.thefreak.botsmod.init.BlockInit;
-import com.thefreak.botsmod.init.BlockInitNew;
-import com.thefreak.botsmod.init.DimensionInit;
-import com.thefreak.botsmod.init.ModContainerTypes;
-import com.thefreak.botsmod.init.ModEntityTypes;
-import com.thefreak.botsmod.init.ModTileEntityTypes;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -42,6 +36,7 @@ public class BotsMod
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
     	BlockInitNew.BLOCKS.register(modEventBus);
+        ItemInitNew.ITEMS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
     	ModEntityTypes.ENTITY_TYPES.register(modEventBus);

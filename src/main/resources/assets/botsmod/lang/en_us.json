@@ -3,6 +3,7 @@
 	"item.botsmod.long_root": "Long Root",
 	"item.botsmod.dry_wood_stick": "Dry Wood Stick",
 	"item.botsmod.jade": "Jade",
+	"item.botsmod.ash": "Ash",
 	
 	"item.botsmod.jade_sword": "Jade Sword",
 	"item.botsmod.jade_hoe": "Jade Hoe",
@@ -37,6 +38,9 @@
 	"block.botsmod.ash_stone": "Ash Stone",
 	"block.botsmod.compacted_ash_block": "Compacted Ash Block",
 	"block.botsmod.hot_ash_block": "Hot Ash Block",
+	"block.botsmod.dust_block": "Dust Block",
+	"block.botsmod.ash_stone_bricks": "Ash Stone Bricks",
+	"block.botsmod.chiseled_ash_stone_bricks": "Chiseled Ash Stone Bricks",
 		
 	"container.deep_wood_chest": "Deep Wood Chest",
 	

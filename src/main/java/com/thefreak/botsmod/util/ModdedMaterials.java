@@ -5,10 +5,11 @@ import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.PushReaction;
 
 public class ModdedMaterials {
-    public static final Material DELTACRYSTAL = (new Material.Builder(MaterialColor.EMERALD).doesNotBlockMovement()).build();
+    public static final Material DELTA_CRYSTAL = (new Material.Builder(MaterialColor.EMERALD).build());
 
     //Falling Materials//
 
     public static final Material ASH = (new Material.Builder(MaterialColor.BLACK).build());
+    public static final Material DUST = (new Material.Builder(MaterialColor.CLAY).build());
 
 }

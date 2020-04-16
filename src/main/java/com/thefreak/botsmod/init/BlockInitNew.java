@@ -3,6 +3,7 @@ package com.thefreak.botsmod.init;
 import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.objects.blocks.ChainedDeepWoodBricksBlock;
 import com.thefreak.botsmod.objects.blocks.DeepWoodChestBlock;
+import com.thefreak.botsmod.objects.blocks.DustBlock;
 import com.thefreak.botsmod.objects.blocks.MudBlock;
 
 import com.thefreak.botsmod.util.ModdedMaterials;
@@ -34,4 +35,10 @@ public class BlockInitNew {
 	public static final RegistryObject<Block> COMPACTED_ASH_BLOCK = BLOCKS.register("compacted_ash_block", () -> new Block(Block.Properties.create(ModdedMaterials.ASH).sound(SoundType.SAND).hardnessAndResistance(3F, 5F)));
 
 	public static final RegistryObject<Block> HOT_ASH_BLOCK = BLOCKS.register("hot_ash_block", () -> new MagmaBlock(Block.Properties.create(ModdedMaterials.ASH).sound(SoundType.SAND).hardnessAndResistance(2F, 15F)));
+
+	public static final RegistryObject<Block> DUST_BLOCK = BLOCKS.register("dust_block", () -> new DustBlock(Block.Properties.create(ModdedMaterials.DUST).hardnessAndResistance(1.5F, 2F).sound(SoundType.SAND)));
+
+	public static final RegistryObject<Block> ASH_STONE_BRICKS = BLOCKS.register("ash_stone_bricks", () -> new Block(Block.Properties.create(ModdedMaterials.ASH).sound(SoundType.STONE).hardnessAndResistance(3F, 12F)));
+
+	public static final RegistryObject<Block> CHISELED_ASH_STONE_BRICKS = BLOCKS.register("chiseled_ash_stone_bricks", () -> new Block(Block.Properties.create(ModdedMaterials.ASH).sound(SoundType.STONE).hardnessAndResistance(3F, 12F)));
 }
