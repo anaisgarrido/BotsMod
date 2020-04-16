@@ -30,7 +30,13 @@
 	"block.botsmod.root_core": "Root Core",
 	"block.botsmod.deep_wood_chest": "Deep Wood Chest",
 	"block.botsmod.deep_wood_log_full": "Deep Wood Log Full",
-	"block.botsmod.mud": "Mud",
+	"block.botsmod.mud_block": "Mud",
+	"block.botsmod.chained_deep_wood_bricks": "Chained Deep Wood Bricks",
+	"_comment": "Ashes Blocks",
+	"block.botsmod.ash_block": "Ash Block",
+	"block.botsmod.ash_stone": "Ash Stone",
+	"block.botsmod.compacted_ash_block": "Compacted Ash Block",
+	"block.botsmod.hot_ash_block": "Hot Ash Block",
 		
 	"container.deep_wood_chest": "Deep Wood Chest",
 	

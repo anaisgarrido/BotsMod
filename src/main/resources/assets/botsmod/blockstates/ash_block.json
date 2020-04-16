@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "":  { "model": "botsmod:block/ash_block" }
+
+    }
+}
