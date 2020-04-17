@@ -4,6 +4,8 @@
 	"item.botsmod.dry_wood_stick": "Dry Wood Stick",
 	"item.botsmod.jade": "Jade",
 	"item.botsmod.ash": "Ash",
+	"item.botsmod.raw_poison_bull_meat": "Raw Poison Bull Meat",
+	"item.botsmod.cooked_poison_bull_meat": "Cooked Poison Bull Meat",
 	
 	"item.botsmod.jade_sword": "Jade Sword",
 	"item.botsmod.jade_hoe": "Jade Hoe",
@@ -16,14 +18,14 @@
 	"block.botsmod.deep_grass": "Deep Grass",
 	"block.botsmod.jade_ore": "Jade Ore",
 	"block.botsmod.dry_wood_planks": "Dry Wood Bricks",
-	"block.botsmod.deep_coblestone": "Deep Coblestone",
+	"block.botsmod.deep_coblestone": "Deep Cobblestone",
 	
 	"block.botsmod.deep_wood_log": "Deep Wood Log",
 	"block.botsmod.deep_wood_bricks": "Deep Wood Planks",
 	
 	"block.botsmod.mud_stone": "Mud Stone",
 	"block.botsmod.mud_grass": "Mud Grass",
-	"block.botsmod.cold_deep_coblestone": "Cold Deep Coblestone",
+	"block.botsmod.cold_deep_coblestone": "Cold Deep Cobblestone",
 	"block.botsmod.cold_deep_stone": "Cold Deep Stone",
 	"block.botsmod.deep_wood_leaves": "Deep Wood Leaves",
 	"block.botsmod.root_wood_log": "Root Wood Log",
@@ -41,6 +43,12 @@
 	"block.botsmod.dust_block": "Dust Block",
 	"block.botsmod.ash_stone_bricks": "Ash Stone Bricks",
 	"block.botsmod.chiseled_ash_stone_bricks": "Chiseled Ash Stone Bricks",
+	"block.botsmod.dust_stone": "Dust Stone",
+	"block.botsmod.cracked_ash_stone_bricks": "Cracked Ash Stone Bricks",
+
+	"block.botsmod.sulfur_powder_block": "Sulfur Powder Block",
+	"block.botsmod.sulfur_block": "Sulfur Block",
+	"block.botsmod.sulfur_glass": "Sulfur Glass",
 		
 	"container.deep_wood_chest": "Deep Wood Chest",
 	

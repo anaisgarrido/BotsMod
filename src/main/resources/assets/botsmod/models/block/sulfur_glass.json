@@ -1,0 +1,7 @@
+{
+    "parent": "botsmod:block/ctm",
+    "textures": {
+        "all": "botsmod:blocks/sulfur_glass",
+        "base": "botsmod:blocks/sulfur_glass_borderless"
+    }
+}
