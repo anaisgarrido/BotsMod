@@ -19,7 +19,10 @@
 	"block.botsmod.dry_wood_log": "Dry Wood",
 	"block.botsmod.deep_stone": "Deep Stone",
 	"block.botsmod.deep_grass": "Deep Grass",
+
 	"block.botsmod.jade_ore": "Jade Ore",
+	"block.botsmod.zinc_ore": "Zinc Ore",
+
 	"block.botsmod.dry_wood_planks": "Dry Wood Bricks",
 	"block.botsmod.deep_coblestone": "Deep Cobblestone",
 	
@@ -52,7 +55,9 @@
 	"block.botsmod.sulfur_powder_block": "Sulfur Powder Block",
 	"block.botsmod.sulfur_block": "Sulfur Block",
 	"block.botsmod.sulfur_glass": "Sulfur Glass",
-	"block.botsmod.sulfur_crystal": "sulfur_crystal",
+	"block.botsmod.sulfur_crystal": "Sulfur Crystal",
+
+	"block.botsmod.jade_block": "Jade Block",
 		
 	"container.deep_wood_chest": "Deep Wood Chest",
 
