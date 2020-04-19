@@ -35,6 +35,7 @@ public class BotsMod
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
+        EffectInitNew.EFFECTS.register(modEventBus);
     	BlockInitNew.BLOCKS.register(modEventBus);
         ItemInitNew.ITEMS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
