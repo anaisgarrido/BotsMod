@@ -52,8 +52,11 @@
 	"block.botsmod.sulfur_powder_block": "Sulfur Powder Block",
 	"block.botsmod.sulfur_block": "Sulfur Block",
 	"block.botsmod.sulfur_glass": "Sulfur Glass",
+	"block.botsmod.sulfur_crystal": "sulfur_crystal",
 		
 	"container.deep_wood_chest": "Deep Wood Chest",
+
+	"effect.botsmod.explosive_effect": "Explosive",
 	
 	"itemGroup.botstab": "Bane Of The Sea"
 }

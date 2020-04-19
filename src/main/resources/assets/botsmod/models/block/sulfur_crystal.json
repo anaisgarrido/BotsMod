@@ -1,0 +1,8 @@
+{
+    "parent": "botsmod:block/sulfur_crystal_block",
+    "textures": {
+        "all": "botsmod:blocks/sulfur_crystal",
+        "0": "botsmod:blocks/sulfur_crystal",
+        "particle": "botsmod:blocks/sulfur_crystal"
+    }
+}
