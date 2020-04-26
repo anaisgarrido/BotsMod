@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "botsmod:pilove_fruit"
+    },
+    "result": "botsmod:cooked_pilove_fruit",
+    "experience": 0.1,
+    "cookingtime": 400
+}

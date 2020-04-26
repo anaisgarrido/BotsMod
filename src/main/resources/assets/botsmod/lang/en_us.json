@@ -58,7 +58,13 @@
 	"block.botsmod.sulfur_crystal": "Sulfur Crystal",
 
 	"block.botsmod.jade_block": "Jade Block",
-		
+
+	"block.botsmod.arch_bricks": "Arch Bricks",
+	"block.botsmod.arch_lamp": "Arch Lamp",
+	"block.botsmod.polished_arch_lamp": "Polished Arch Lamp",
+	"block.botsmod.polished_arch_bricks": "Polished Arch Bricks",
+	"block.botsmod.chiseled_arch_bricks": "Chiseled Arch Bricks",
+
 	"container.deep_wood_chest": "Deep Wood Chest",
 
 	"effect.botsmod.explosive_effect": "Explosive",

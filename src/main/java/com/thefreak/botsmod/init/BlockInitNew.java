@@ -45,11 +45,21 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> SULFUR_BLOCK = BLOCKS.register("sulfur_block", () -> new Block(Block.Properties.create(ModdedMaterials.SULFUR).hardnessAndResistance(2F, 15F).harvestTool(ToolType.PICKAXE)));
 
-	public static final RegistryObject<Block> SULFUR_GLASS = BLOCKS.register("sulfur_glass", () -> new Block(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(0.5F, 3F).notSolid()));
+	public static final RegistryObject<Block> SULFUR_GLASS = BLOCKS.register("sulfur_glass", () -> new SulfurGlassBlock(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(0.5F, 3F).notSolid()));
 
-	public static final RegistryObject<Block> SULFUR_CRYSTAL = BLOCKS.register("sulfur_crystal", () -> new SulfurCrystalBlock(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(5F,-1F).notSolid()));
+	public static final RegistryObject<Block> SULFUR_CRYSTAL = BLOCKS.register("sulfur_crystal", () -> new SulfurCrystalBlock(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(5F,-1F).notSolid().variableOpacity().lightValue(1)));
 
 	public static final RegistryObject<Block> ZINC_ORE = BLOCKS.register("zinc_ore", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F, 5F)));
 
 	public static final RegistryObject<Block> JADE_BLOCK = BLOCKS.register("jade_block", () -> new Block(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(3F, 6F)));
+
+	public static final RegistryObject<Block> ARCH_BRICKS = BLOCKS.register("arch_bricks", () -> new ArchBricksBlock(Block.Properties.create(ModdedMaterials.ARCH_BLOCK).hardnessAndResistance(2F, -1F).sound(SoundType.METAL)));
+
+	public static final RegistryObject<Block> ARCH_LAMP = BLOCKS.register("arch_lamp", () -> new Block(Block.Properties.create(ModdedMaterials.DELTA_CRYSTAL).sound(SoundType.METAL).hardnessAndResistance(2F, -1F)));
+
+	public static final RegistryObject<Block> POLISHED_ARCH_LAMP = BLOCKS.register("polished_arch_lamp", () -> new Block(Block.Properties.create(ModdedMaterials.DELTA_CRYSTAL).sound(SoundType.METAL).hardnessAndResistance(2F, -1F)));
+
+	public static final RegistryObject<Block> POLISHED_ARCH_BRICKS = BLOCKS.register("polished_arch_bricks", () -> new Block(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(2F, -1F)));
+
+    public static final RegistryObject<Block> CHISELED_ARCH_BRICKS = BLOCKS.register("chiseled_arch_bricks", () -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2F, 100F).sound(SoundType.METAL)));
 }

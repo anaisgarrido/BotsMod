@@ -1,6 +1,8 @@
 package com.thefreak.botsmod;
 
 import com.thefreak.botsmod.init.*;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -55,7 +57,8 @@ public class BotsMod
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SULFUR_GLASS.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SULFUR_CRYSTAL.get(), RenderType.getCutoutMipped());
     }
 
 
