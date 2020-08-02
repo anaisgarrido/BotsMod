@@ -25,8 +25,16 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import software.bernie.geckolib.animation.builder.AnimationBuilder;
+import software.bernie.geckolib.animation.controller.AnimationController;
+import software.bernie.geckolib.animation.controller.EntityAnimationController;
+import software.bernie.geckolib.entity.IAnimatedEntity;
+import software.bernie.geckolib.event.AnimationTestEvent;
+import software.bernie.geckolib.manager.EntityAnimationManager;
 
-public class RockHopper extends TameableEntity{
+public class RockHopper extends TameableEntity implements IAnimatedEntity {
+	private EntityAnimationManager manager = new EntityAnimationManager();
+	private AnimationController controller = new EntityAnimationController(this, "moveController", 20, this::animationPredicate);
 
 	public RockHopper(EntityType<? extends TameableEntity> type, World worldIn) {
 		super(type, worldIn);
@@ -87,4 +95,16 @@ public class RockHopper extends TameableEntity{
 		      compound.putBoolean("Angry", this.isAggressive());
 	}
 
+	@Override
+	public EntityAnimationManager getAnimationManager() {
+		return manager;
+	}
+	private <E extends RockHopper> boolean animationPredicate(AnimationTestEvent<E> event) {
+		if (event.isWalking()) {
+			controller.setAnimation(new AnimationBuilder().addAnimation("animation.RockHopperEntityModel.Walk", true));
+		} else {
+			controller.setAnimation(new AnimationBuilder().addAnimation("animation.RockHopperEntityModel.Idle", true));
+		}
+
+	return true; }
 }

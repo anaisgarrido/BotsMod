@@ -108,7 +108,12 @@ dependencies {
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    //Required mods
+    implementation fg.deobf('com.github.bernie-g:geckolib:forge-1.15.2-geckolib-2.0.0-beta.7')
 
+}
+repositories {
+    maven { url 'https://jitpack.io' }
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
