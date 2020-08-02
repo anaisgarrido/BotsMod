@@ -32,5 +32,5 @@ public class ItemInitNew {
 
     public static final RegistryObject<Item> PILOVE_FRUIT = ITEMS.register("pilove_fruit", () -> new PiloveFruitItem(new Item.Properties().group(BotsMod.BotsItemGroup.instance).food(new Food.Builder().hunger(5).saturation(3F).effect( () -> new EffectInstance(EffectInitNew.EXPLOSIVE_EFFECT.get(), 400, 1),1.0F).fastToEat().build())));
 
-
+    public static final RegistryObject<Item> SWAMP_WOOD_STICK = ITEMS.register("swamp_wood_stick", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 }

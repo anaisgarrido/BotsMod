@@ -9,6 +9,7 @@
 	"item.botsmod.sulfur_powder": "Sulfur Powder",
 	"item.botsmod.cooked_pilove_fruit": "Cooked Pilove Fruit",
 	"item.botsmod.pilove_fruit": "Pilove Fruit",
+	"item.botsmod.swamp_wood_stick": "Swamp Wood Stick",
 	
 	"item.botsmod.jade_sword": "Jade Sword",
 	"item.botsmod.jade_hoe": "Jade Hoe",
@@ -31,9 +32,13 @@
 	
 	"block.botsmod.mud_stone": "Mud Stone",
 	"block.botsmod.mud_grass": "Mud Grass",
+
+	"block.botsmod.cold_debris": "Cold Debris",
 	"block.botsmod.cold_deep_coblestone": "Cold Deep Cobblestone",
 	"block.botsmod.cold_deep_stone": "Cold Deep Stone",
 	"block.botsmod.deep_wood_leaves": "Deep Wood Leaves",
+
+
 	"block.botsmod.root_wood_log": "Root Wood Log",
 	"block.botsmod.root_wood_log_full": "Root Wood Log Full",
 	"block.botsmod.root_core": "Root Core",
@@ -64,6 +69,8 @@
 	"block.botsmod.polished_arch_lamp": "Polished Arch Lamp",
 	"block.botsmod.polished_arch_bricks": "Polished Arch Bricks",
 	"block.botsmod.chiseled_arch_bricks": "Chiseled Arch Bricks",
+
+	"block.botsmod.swamp_wood_planks": "Swamp Wood Planks",
 
 	"container.deep_wood_chest": "Deep Wood Chest",
 

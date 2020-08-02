@@ -62,4 +62,10 @@ public class BlockInitNew {
 	public static final RegistryObject<Block> POLISHED_ARCH_BRICKS = BLOCKS.register("polished_arch_bricks", () -> new Block(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(2F, -1F)));
 
     public static final RegistryObject<Block> CHISELED_ARCH_BRICKS = BLOCKS.register("chiseled_arch_bricks", () -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2F, 100F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> SWAMP_WOOD_PLANKS = BLOCKS.register("swamp_wood_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1F, 2F)));
+
+    public static final RegistryObject<Block> POWER_CASE_BLOCK = BLOCKS.register("power_case", () -> new Block(Block.Properties.create(ModdedMaterials.DELTA_CRYSTAL)));
+
+	public static final RegistryObject<Block> COLD_DEBRIS = BLOCKS.register("cold_debris", () -> new ColdDebris(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7F, 3F)));
 }
