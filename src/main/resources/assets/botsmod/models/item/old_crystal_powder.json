@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "botsmod:items/old_crystal_powder"
+		}
+}

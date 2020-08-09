@@ -68,4 +68,6 @@ public class BlockInitNew {
     public static final RegistryObject<Block> POWER_CASE_BLOCK = BLOCKS.register("power_case", () -> new Block(Block.Properties.create(ModdedMaterials.DELTA_CRYSTAL)));
 
 	public static final RegistryObject<Block> COLD_DEBRIS = BLOCKS.register("cold_debris", () -> new ColdDebris(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7F, 3F)));
+
+	public static final RegistryObject<Block> OLD_ORE = BLOCKS.register("old_ore", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(2F,3F)));
 }

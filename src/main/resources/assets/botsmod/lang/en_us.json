@@ -7,8 +7,11 @@
 	"item.botsmod.raw_poison_bull_meat": "Raw Poison Bull Meat",
 	"item.botsmod.cooked_poison_bull_meat": "Cooked Poison Bull Meat",
 	"item.botsmod.sulfur_powder": "Sulfur Powder",
+
 	"item.botsmod.cooked_pilove_fruit": "Cooked Pilove Fruit",
 	"item.botsmod.pilove_fruit": "Pilove Fruit",
+	"item.botsmod.frucignis_fruit": "Frucignis Fruit",
+
 	"item.botsmod.swamp_wood_stick": "Swamp Wood Stick",
 	
 	"item.botsmod.jade_sword": "Jade Sword",
@@ -23,6 +26,11 @@
 
 	"block.botsmod.jade_ore": "Jade Ore",
 	"block.botsmod.zinc_ore": "Zinc Ore",
+
+	"item.botsmod.old_crystal": "Old Crystal",
+	"item.botsmod.old_crystal_powder": "Old Crystal Powder",
+	"item.botsmod.old_infused_ingot": "Old Infused Crystal",
+	"block.botsmod.old_ore": "Old Ore",
 
 	"block.botsmod.dry_wood_planks": "Dry Wood Bricks",
 	"block.botsmod.deep_coblestone": "Deep Cobblestone",

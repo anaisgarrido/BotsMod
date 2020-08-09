@@ -1,6 +1,7 @@
 package com.thefreak.botsmod.init;
 
 import com.thefreak.botsmod.BotsMod;
+import com.thefreak.botsmod.objects.items.FrucignisFruitItem;
 import com.thefreak.botsmod.objects.items.PiloveFruitItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
@@ -9,6 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.WeightedRandom;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -33,4 +35,13 @@ public class ItemInitNew {
     public static final RegistryObject<Item> PILOVE_FRUIT = ITEMS.register("pilove_fruit", () -> new PiloveFruitItem(new Item.Properties().group(BotsMod.BotsItemGroup.instance).food(new Food.Builder().hunger(5).saturation(3F).effect( () -> new EffectInstance(EffectInitNew.EXPLOSIVE_EFFECT.get(), 400, 1),1.0F).fastToEat().build())));
 
     public static final RegistryObject<Item> SWAMP_WOOD_STICK = ITEMS.register("swamp_wood_stick", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> FRUCIGNIS_FRUIT = ITEMS.register("frucignis_fruit", () -> new FrucignisFruitItem(new Item.Properties().group(BotsMod.BotsItemGroup.instance).food(new Food.Builder().hunger(2).saturation(5F).build())));
+
+    public static final RegistryObject<Item> OLD_CRYSTAL = ITEMS.register("old_crystal", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> OLD_CRYSTAL_POWDER = ITEMS.register("old_crystal_powder", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance).maxStackSize(32)));
+
+    public static final RegistryObject<Item> OLD_INFUSED_INGOT = ITEMS.register("old_infused_ingot", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 }
+
