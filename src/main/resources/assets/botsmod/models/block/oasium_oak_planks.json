@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "botsmod:blocks/oasium_oak_planks"
+    }
+}

@@ -27,6 +27,10 @@
 	"block.botsmod.jade_ore": "Jade Ore",
 	"block.botsmod.zinc_ore": "Zinc Ore",
 
+	"block.botsmod.oasium_oak_planks": "Oasium Oak Planks",
+	"block.botsmod.chiseled_oasium_oak_planks": "Chiseled Oasium Oak Planks",
+	"block.botsmod.oasium_oak_log": "Oasium Oak Log",
+
 	"item.botsmod.old_crystal": "Old Crystal",
 	"item.botsmod.old_crystal_powder": "Old Crystal Powder",
 	"item.botsmod.old_infused_ingot": "Old Infused Crystal",

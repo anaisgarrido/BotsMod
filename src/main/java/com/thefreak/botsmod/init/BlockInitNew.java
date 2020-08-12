@@ -6,6 +6,7 @@ import com.thefreak.botsmod.objects.blocks.*;
 import com.thefreak.botsmod.util.ModdedMaterials;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -69,5 +70,11 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> COLD_DEBRIS = BLOCKS.register("cold_debris", () -> new ColdDebris(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7F, 3F)));
 
-	public static final RegistryObject<Block> OLD_ORE = BLOCKS.register("old_ore", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(2F,3F)));
+	public static final RegistryObject<Block> OLD_ORE = BLOCKS.register("old_ore", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,3F)));
+
+	public static final RegistryObject<Block> OASIUM_OAK_PLANKS = BLOCKS.register("oasium_oak_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
+
+	public static final RegistryObject<Block> CHISELED_OASIUM_OAK_PLANKS = BLOCKS.register("chiseled_oasium_oak_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
+
+    public static final RegistryObject<Block> OASIUM_OAK_LOG = BLOCKS.register("oasium_oak_log", () -> new LogBlock(MaterialColor.WOOD,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
 }

@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/oasium_oak_log_top",
+        "side": "botsmod:blocks/oasium_oak_log"
+    }
+}

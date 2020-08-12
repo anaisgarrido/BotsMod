@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "botsmod:block/oasium_oak_log" },
+        "axis=z":   { "model": "botsmod:block/oasium_oak_log", "x": 90 },
+        "axis=x":   { "model": "botsmod:block/oasium_oak_log", "x": 90, "y": 90 }
+    }
+}
