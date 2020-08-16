@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "":  { "model": "botsmod:block/smooth_old_crystal_block" }
+
+    }
+}

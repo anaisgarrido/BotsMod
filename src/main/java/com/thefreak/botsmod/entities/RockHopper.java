@@ -33,12 +33,13 @@ import software.bernie.geckolib.event.AnimationTestEvent;
 import software.bernie.geckolib.manager.EntityAnimationManager;
 
 public class RockHopper extends TameableEntity implements IAnimatedEntity {
-	private EntityAnimationManager manager = new EntityAnimationManager();
-	private AnimationController controller = new EntityAnimationController(this, "moveController", 20, this::animationPredicate);
+	private final EntityAnimationManager manager = new EntityAnimationManager();
+	private final AnimationController controller = new EntityAnimationController(this, "moveController", 15, this::animationPredicate);
 
 	public RockHopper(EntityType<? extends TameableEntity> type, World worldIn) {
 		super(type, worldIn);
 		this.setTamed(false);
+		registerAnimationControllers();
 	}
 
 	@Override
@@ -101,10 +102,14 @@ public class RockHopper extends TameableEntity implements IAnimatedEntity {
 	}
 	private <E extends RockHopper> boolean animationPredicate(AnimationTestEvent<E> event) {
 		if (event.isWalking()) {
-			controller.setAnimation(new AnimationBuilder().addAnimation("animation.RockHopperEntityModel.Walk", true));
+			controller.setAnimation(new AnimationBuilder().addAnimation("animation.rock_hopper.Walk", true));
 		} else {
-			controller.setAnimation(new AnimationBuilder().addAnimation("animation.RockHopperEntityModel.Idle", true));
+			controller.setAnimation(new AnimationBuilder().addAnimation("animation.rock_hopper.Idle", true));
 		}
 
 	return true; }
+	private void registerAnimationControllers() {
+		manager.addAnimationController(controller);
+	}
 }
+

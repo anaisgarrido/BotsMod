@@ -15,7 +15,8 @@ public class RockHopperRender extends MobRenderer<RockHopper, RockHopperEntityMo
 			"textures/entities/rock_hopper.png");
 	
 	public RockHopperRender(EntityRendererManager renderManagerIn) {
-		super(renderManagerIn, new RockHopperEntityModel(), 0.5f);
+		super(renderManagerIn, new RockHopperEntityModel(), 1f);
+
 	}
 	
 	@Override
@@ -23,5 +24,10 @@ public class RockHopperRender extends MobRenderer<RockHopper, RockHopperEntityMo
 		return TEXTURE;
 	}
 
-
+	@Override
+	protected void preRenderCallback(RockHopper entitylivingbaseIn, MatrixStack matrixStackIn,
+									 float partialTickTime) {
+		super.preRenderCallback(entitylivingbaseIn, matrixStackIn, partialTickTime);
+		matrixStackIn.scale(2, 2, 2);
+	}
 }

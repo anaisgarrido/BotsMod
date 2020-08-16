@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "botsmod:blocks/snake_chiseled_old_crystal_block"
+    }
+}

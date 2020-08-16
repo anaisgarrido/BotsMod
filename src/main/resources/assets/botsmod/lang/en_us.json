@@ -35,6 +35,12 @@
 	"item.botsmod.old_crystal_powder": "Old Crystal Powder",
 	"item.botsmod.old_infused_ingot": "Old Infused Crystal",
 	"block.botsmod.old_ore": "Old Ore",
+	"block.botsmod.old_crystal_block": "Old Crystal Block",
+	"block.botsmod.snake_chiseled_old_crystal_block": "Chiseled Old Crystal Block",
+	"block.botsmod.chiseled_old_crystal_block": "Chiseled Old Crystal Block",
+	"block.botsmod.smooth_old_crystal_block": "Smooth Old Crystal Block",
+	"block.botsmod.old_crystal_pillar": "Old Crystal Pillar",
+	"block.botsmod.faint_chiseled_old_crystal_block": "Chiseled Old Crystal",
 
 	"block.botsmod.dry_wood_planks": "Dry Wood Bricks",
 	"block.botsmod.deep_coblestone": "Deep Cobblestone",

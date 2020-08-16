@@ -77,4 +77,16 @@ public class BlockInitNew {
 	public static final RegistryObject<Block> CHISELED_OASIUM_OAK_PLANKS = BLOCKS.register("chiseled_oasium_oak_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
 
     public static final RegistryObject<Block> OASIUM_OAK_LOG = BLOCKS.register("oasium_oak_log", () -> new LogBlock(MaterialColor.WOOD,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
+
+	public static final RegistryObject<Block> OLD_CRYSTAL_BLOCK = BLOCKS.register("old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> SNAKE_CHISELED_OLD_CRYSTAL_BLOCK = BLOCKS.register("snake_chiseled_old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> CHISELED_OLD_CRYSTAL_BLOCK = BLOCKS.register("chiseled_old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> SMOOTH_OLD_CRYSTAL_BLOCK = BLOCKS.register("smooth_old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> OLD_CRYSTAL_PILLAR = BLOCKS.register("old_crystal_pillar", () -> new LogBlock(MaterialColor.CYAN,Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> FAINT_CHISELED_OLD_CRYSTAL_BLOCK = BLOCKS.register("faint_chiseled_old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
 }

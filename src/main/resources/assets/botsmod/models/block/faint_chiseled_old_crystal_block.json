@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "botsmod:blocks/faint_chiseled_old_crystal_block"
+    }
+}
