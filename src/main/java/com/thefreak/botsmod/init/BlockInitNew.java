@@ -66,7 +66,7 @@ public class BlockInitNew {
 
     public static final RegistryObject<Block> SWAMP_WOOD_PLANKS = BLOCKS.register("swamp_wood_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1F, 2F)));
 
-    public static final RegistryObject<Block> POWER_CASE_BLOCK = BLOCKS.register("power_case", () -> new Block(Block.Properties.create(ModdedMaterials.DELTA_CRYSTAL)));
+    public static final RegistryObject<Block> POWER_CASE_BLOCK = BLOCKS.register("power_case", () -> new PowerCaseBlock(Block.Properties.create(ModdedMaterials.DELTA_CRYSTAL)));
 
 	public static final RegistryObject<Block> COLD_DEBRIS = BLOCKS.register("cold_debris", () -> new ColdDebris(Block.Properties.create(Material.ROCK).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).hardnessAndResistance(7F, 3F)));
 

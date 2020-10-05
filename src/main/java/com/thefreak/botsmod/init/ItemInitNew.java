@@ -1,6 +1,7 @@
 package com.thefreak.botsmod.init;
 
 import com.thefreak.botsmod.BotsMod;
+import com.thefreak.botsmod.objects.items.DreamBerryItem;
 import com.thefreak.botsmod.objects.items.FrucignisFruitItem;
 import com.thefreak.botsmod.objects.items.PiloveFruitItem;
 import net.minecraft.item.BlockItem;
@@ -43,5 +44,7 @@ public class ItemInitNew {
     public static final RegistryObject<Item> OLD_CRYSTAL_POWDER = ITEMS.register("old_crystal_powder", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance).maxStackSize(32)));
 
     public static final RegistryObject<Item> OLD_INFUSED_INGOT = ITEMS.register("old_infused_ingot", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> DREAM_BERRY = ITEMS.register("dream_berry", () -> new DreamBerryItem(new Item.Properties().group(BotsMod.BotsItemGroup.instance).food(new Food.Builder().hunger(4).saturation(5F).setAlwaysEdible().build())));
 }
 

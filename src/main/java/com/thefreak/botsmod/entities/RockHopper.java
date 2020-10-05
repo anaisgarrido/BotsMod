@@ -22,8 +22,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animation.builder.AnimationBuilder;
 import software.bernie.geckolib.animation.controller.AnimationController;
@@ -96,7 +98,9 @@ public class RockHopper extends TameableEntity implements IAnimatedEntity {
 		      compound.putBoolean("Angry", this.isAggressive());
 	}
 
-	@Override
+
+
+    @Override
 	public EntityAnimationManager getAnimationManager() {
 		return manager;
 	}
