@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "botsmod:blocks/sulfur_block"
+        "all": "botsmod:blocks/dripping_mogrove_rock"
     }
 }

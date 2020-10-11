@@ -100,6 +100,8 @@ public class RockHopper extends TameableEntity implements IAnimatedEntity {
 
 
 
+
+
     @Override
 	public EntityAnimationManager getAnimationManager() {
 		return manager;

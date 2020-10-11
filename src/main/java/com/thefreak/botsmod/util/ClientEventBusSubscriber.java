@@ -3,6 +3,7 @@ package com.thefreak.botsmod.util;
 import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.client.entity.render.PoisonBullRender;
 import com.thefreak.botsmod.client.entity.render.RockHopperRender;
+import com.thefreak.botsmod.client.entity.render.SoulRender;
 import com.thefreak.botsmod.client.gui.DeepWoodChestScreen;
 import com.thefreak.botsmod.init.ModContainerTypes;
 import com.thefreak.botsmod.init.ModEntityTypes;
@@ -23,6 +24,7 @@ public class ClientEventBusSubscriber {
 		ScreenManager.registerFactory(ModContainerTypes.DEEP_WOOD_CHEST.get(), DeepWoodChestScreen::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ROCK_HOPPER.get(), RockHopperRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.POISON_BULL.get(), PoisonBullRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SOUL.get(), SoulRender::new);
 	}
 	
 }

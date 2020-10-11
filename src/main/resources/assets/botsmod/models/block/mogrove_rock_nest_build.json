@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "up": "botsmod:blocks/mogrove_rock_nest",
+        "north": "botsmod:blocks/mogrove_rock_nest_build",
+        "east": "botsmod:blocks/mogrove_rock_nest_build",
+        "south": "botsmod:blocks/mogrove_rock_nest_build",
+        "west": "botsmod:blocks/mogrove_rock_nest_build",
+        "down": "botsmod:blocks/dripping_mogrove_rock"
+    }
+}

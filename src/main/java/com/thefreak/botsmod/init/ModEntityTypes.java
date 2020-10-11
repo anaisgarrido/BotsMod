@@ -4,6 +4,7 @@ import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.entities.PoisonBull;
 import com.thefreak.botsmod.entities.RockHopper;
 
+import com.thefreak.botsmod.entities.Soul;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +19,7 @@ public class ModEntityTypes {
 	public static final RegistryObject<EntityType<RockHopper>> ROCK_HOPPER = ENTITY_TYPES
 			.register("rock_hopper",
 			() -> EntityType.Builder.<RockHopper>create(RockHopper::new, EntityClassification.CREATURE)
-			.size(0.5f, 1f)
+			.size(0.7f, 1.5f)
 			.build(new ResourceLocation(BotsMod.MOD_ID, "rock_hopper").toString()));
 	
 	public static final RegistryObject<EntityType<PoisonBull>> POISON_BULL = ENTITY_TYPES
@@ -26,4 +27,10 @@ public class ModEntityTypes {
 					() -> EntityType.Builder.<PoisonBull>create(PoisonBull::new, EntityClassification.CREATURE)
 					.size(0.5f, 1f)
 					.build(new ResourceLocation(BotsMod.MOD_ID, "poison_bull").toString()));
+
+	public static final RegistryObject<EntityType<Soul>> SOUL = ENTITY_TYPES
+			.register("soul",
+					() -> EntityType.Builder.<Soul>create(Soul::new, EntityClassification.CREATURE)
+							.size(0.47f, 1.05f)
+							.build(new ResourceLocation(BotsMod.MOD_ID, "soul").toString()));
 }
