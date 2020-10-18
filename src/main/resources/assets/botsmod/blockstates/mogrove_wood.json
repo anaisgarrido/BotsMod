@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "botsmod:block/mogrove_wood" },
+        "axis=z":   { "model": "botsmod:block/mogrove_wood", "x": 90 },
+        "axis=x":   { "model": "botsmod:block/mogrove_wood", "x": 90, "y": 90 }
+    }
+}

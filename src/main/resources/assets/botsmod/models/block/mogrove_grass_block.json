@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/mogrove_dirt",
+        "up": "botsmod:blocks/mogrove_grass_block",
+        "side": "botsmod:blocks/mogrove_grass_block_sides"
+    }
+}

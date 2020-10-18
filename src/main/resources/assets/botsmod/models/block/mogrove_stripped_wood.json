@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/mogrove_stripped_wood_top",
+        "side": "botsmod:blocks/mogrove_stripped_wood_sides"
+    }
+}

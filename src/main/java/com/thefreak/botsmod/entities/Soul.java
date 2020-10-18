@@ -2,7 +2,9 @@ package com.thefreak.botsmod.entities;
 
 import com.thefreak.botsmod.init.ModEntityTypes;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.brain.task.FleeTask;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -17,13 +19,13 @@ import software.bernie.geckolib.entity.IAnimatedEntity;
 import software.bernie.geckolib.event.AnimationTestEvent;
 import software.bernie.geckolib.manager.EntityAnimationManager;
 
-public class Soul extends TameableEntity implements IAnimatedEntity {
+public class Soul extends AnimalEntity implements IAnimatedEntity {
 	private final EntityAnimationManager manager = new EntityAnimationManager();
 	private final AnimationController controller = new EntityAnimationController(this,
 			"moveController",
 			15, this::animationPredicate);
 
-	public Soul(EntityType<? extends TameableEntity> type, World worldIn) {
+	public Soul(EntityType<? extends AnimalEntity> type, World worldIn) {
 		super(type, worldIn);
 		registerAnimationControllers();
 	}
@@ -37,7 +39,6 @@ public class Soul extends TameableEntity implements IAnimatedEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new FleeSunGoal(this , 1.25D));
 		this.goalSelector.addGoal(2, new FindWaterGoal(this));
 		this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.goalSelector.addGoal(3, new MoveThroughVillageAtNightGoal(this, 5));

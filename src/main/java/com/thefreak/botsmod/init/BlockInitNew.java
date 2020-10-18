@@ -97,4 +97,16 @@ public class BlockInitNew {
 	public static final RegistryObject<Block> MOGROVE_ROCK_NEST = BLOCKS.register("mogrove_rock_nest", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
 	public static final RegistryObject<Block> MOGROVE_ROCK_NEST_BUILD = BLOCKS.register("mogrove_rock_nest_build", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+
+    public static final RegistryObject<Block> MOGROVE_DIRT = BLOCKS.register("mogrove_dirt", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> MOGROVE_WOOD = BLOCKS.register("mogrove_wood", () -> new LogBlock(MaterialColor.PINK,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> MOGROVE_STRIPPED_WOOD = BLOCKS.register("mogrove_stripped_wood", () -> new LogBlock(MaterialColor.PURPLE,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> MOGROVE_GRASS_BLOCK = BLOCKS.register("mogrove_grass_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.SLIME).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> MOGROVE_GRASS_BLOCK_FULL = BLOCKS.register("mogrove_grass_block_full", () -> new Block(Block.Properties.create(Material.ORGANIC).sound(SoundType.SLIME).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> MOGROVE_WOOD_PLANKS = BLOCKS.register("mogrove_wood_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
 }
