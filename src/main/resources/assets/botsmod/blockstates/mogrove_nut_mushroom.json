@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "nut=0": [
+            { "model": "botsmod:block/mogrove_nut_mushroom_nonut" },
+            { "model": "botsmod:block/mogrove_nut_mushroom_nonut", "y": 90 },
+            { "model": "botsmod:block/mogrove_nut_mushroom_nonut", "y": 180 },
+            { "model": "botsmod:block/mogrove_nut_mushroom_nonut", "y": 270 }
+        ],
+        "nut=1": [
+            { "model": "botsmod:block/mogrove_nut_mushroom" },
+            { "model": "botsmod:block/mogrove_nut_mushroom", "y": 90 },
+            { "model": "botsmod:block/mogrove_nut_mushroom", "y": 180 },
+            { "model": "botsmod:block/mogrove_nut_mushroom", "y": 270 }
+            ]
+
+        }
+    }

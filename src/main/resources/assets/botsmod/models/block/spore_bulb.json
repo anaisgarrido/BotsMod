@@ -1,0 +1,34 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "botsmod:blocks/spore_bulb_texture",
+		"particle": "botsmod:blocks/spore_bulb_texture"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 3],
+			"to": [13, 2, 13],
+			"faces": {
+				"north": {"uv": [4, 3.25, 6.5, 3.75], "texture": "#0"},
+				"east": {"uv": [6.5, 3.25, 9, 3.75], "texture": "#0"},
+				"south": {"uv": [8, 2.5, 10.5, 3], "texture": "#0"},
+				"west": {"uv": [8, 3.75, 10.5, 4.25], "texture": "#0"},
+				"up": {"uv": [10.5, 10.5, 8, 8], "texture": "#0"},
+				"down": {"uv": [10.5, 0, 8, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 2, 0],
+			"to": [16, 15, 16],
+			"faces": {
+				"north": {"uv": [4, 4, 8, 7.25], "texture": "#0"},
+				"east": {"uv": [4, 0, 8, 3.25], "texture": "#0"},
+				"south": {"uv": [4, 7.25, 8, 10.5], "texture": "#0"},
+				"west": {"uv": [0, 8, 4, 11.25], "texture": "#0"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#0"}
+			}
+		}
+	]
+}

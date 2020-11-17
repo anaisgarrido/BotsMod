@@ -2,6 +2,7 @@ package com.thefreak.botsmod.init;
 
 import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.objects.effect.ExplosiveEffect;
+import com.thefreak.botsmod.objects.effect.MogroveToxinsEffect;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 import net.minecraftforge.fml.RegistryObject;
@@ -12,4 +13,6 @@ public class EffectInitNew {
     public static final DeferredRegister<Effect> EFFECTS = new DeferredRegister<>(ForgeRegistries.POTIONS, BotsMod.MOD_ID);
 
     public static final RegistryObject<Effect> EXPLOSIVE_EFFECT = EFFECTS.register("explosive_effect", () -> new ExplosiveEffect(EffectType.NEUTRAL, 0x0256));
+
+    public static  final RegistryObject<Effect> MOGROVE_TOXINS = EFFECTS.register("mogrove_toxins", () -> new MogroveToxinsEffect(EffectType.HARMFUL, 0x0127));
 }

@@ -19,7 +19,7 @@
 	"item.botsmod.jade_axe": "Jade Axe",
 	"item.botsmod.jade_pickaxe": "Jade Pickaxe",
 	"item.botsmod.jade_shovel": "Jade Shovel",
-	
+
 	"block.botsmod.dry_wood_log": "Dry Wood",
 	"block.botsmod.deep_stone": "Deep Stone",
 	"block.botsmod.deep_grass": "Deep Grass",
@@ -88,6 +88,34 @@
 	"block.botsmod.polished_arch_bricks": "Polished Arch Bricks",
 	"block.botsmod.chiseled_arch_bricks": "Chiseled Arch Bricks",
 
+	"block.botsmod.mogrove_mushroom": "Mogrove Mushroom",
+	"block.botsmod.mogrove_bubble_mushroom": "Mogrove Bubble Mushroom",
+	"block.botsmod.mogrove_nut_mushroom": "Mogrove Nut Mushroom",
+	"item.botsmod.mogrove_nut": "Mogrove Nut",
+	"item.botsmod.mogrove_bubble_berry": "Mogorve Bubble Berry",
+	"block.botsmod.dripping_mogrove_rock": "Dripping Mogrove ROck",
+	"block.botsmod.mogrove_rock": "Mogrove Rock",
+	"block.botsmod.mogrove_rock_nest": "Mogrove Rock Nest",
+	"block.botsmod.mogrove_rock_nest_build": "Mogrove Rock Nest Build",
+	"block.botsmod.mogrove_dirt": "Mogrove Dirt",
+	"block.botsmod.mogrove_wood_planks": "Mogrove Wood Planks",
+	"block.botsmod.mogrove_wood": "Mogrove Wood",
+	"block.botsmod.mogrove_stripped_wood": "Mogrove Stripped Wood",
+	"block.botsmod.mogrove_grass_block": "Mogrove Grass Block",
+	"block.botsmod.mogrove_grass_block_full": "Mogrove Grass Block",
+	"block.botsmod.spore_bulb": "Spore Bulb",
+
+	"block.botsmod.ancient_bricks": "Ancient Bricks",
+	"block.botsmod.ancient_smooth_bricks": "Ancient Smooth Bricks",
+	"block.botsmod.ancient_pillar": "Acient Pillar",
+	"block.botsmod.ancient_pottery_urn": "Ancient Pottery Urn",
+	"block.botsmod.raw_ancient_pottery_urn": "Raw Ancient Pottery Urn",
+	"block.botsmod.cracked_ancient_bricks": "Cracked Ancient Bricks",
+	"block.botsmod.mossy_ancient_bricks": "Mossy Ancient Bricks",
+	"block.botsmod.raw_ancient_pottery_pot": "Raw Ancient Pottery Pot",
+	"block.botsmod.ancient_pottery_pot": "Ancient Pottery Pot",
+	"block.botsmod.trapped_ancient_bricks": "Trapped Ancient Bricks",
+
 	"block.botsmod.swamp_wood_planks": "Swamp Wood Planks",
 
 	"container.deep_wood_chest": "Deep Wood Chest",
@@ -95,6 +123,7 @@
 	"item.botsmod.dream_berry": "Dream Berry",
 
 	"effect.botsmod.explosive_effect": "Explosive",
+	"effect.botsmod.mogrove_toxins": "Mogrove Toxins",
 	
 	"itemGroup.botstab": "Bane Of The Sea"
 }

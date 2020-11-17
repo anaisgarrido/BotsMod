@@ -3,6 +3,8 @@ package com.thefreak.botsmod;
 import com.thefreak.botsmod.init.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -59,6 +61,11 @@ public class BotsMod
     private void doClientStuff(final FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(BlockInitNew.SULFUR_GLASS.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(BlockInitNew.SULFUR_CRYSTAL.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUBBLE_MUSHROOM.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORE_PAD.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUSH.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.BRONZE_ALLOY_CRYSTAL.get(), RenderType.getCutout());
+        ModelLoader.addSpecialModel(new ResourceLocation("botsmod:models/item/delta_crystal_shard"));
     }
 
 

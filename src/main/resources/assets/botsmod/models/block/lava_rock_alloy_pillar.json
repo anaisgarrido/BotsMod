@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/lava_rock_alloy_pillar_top",
+        "side": "botsmod:blocks/lava_rocks_alloy_pillar"
+    }
+}

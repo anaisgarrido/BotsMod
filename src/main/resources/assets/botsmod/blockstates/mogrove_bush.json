@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "age=1": [
+            { "model": "botsmod:block/mogrove_bush" },
+            { "model": "botsmod:block/mogrove_bush", "y": 90 },
+            { "model": "botsmod:block/mogrove_bush", "y": 180 },
+            { "model": "botsmod:block/mogrove_bush", "y": 270 }
+        ],
+        "age=2": [
+            { "model": "botsmod:block/mogrove_bush_flowered" },
+            { "model": "botsmod:block/mogrove_bush_flowered", "y": 90 },
+            { "model": "botsmod:block/mogrove_bush_flowered", "y": 180 },
+            { "model": "botsmod:block/mogrove_bush_flowered", "y": 270 }
+            ]
+
+        }
+    }

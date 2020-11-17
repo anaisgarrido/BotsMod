@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "botsmod:block/ancient_smooth_pillar" },
+        "axis=z":   { "model": "botsmod:block/ancient_smooth_pillar", "x": 90 },
+        "axis=x":   { "model": "botsmod:block/ancient_smooth_pillar", "x": 90, "y": 90 }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "botsmod:block/bronze_alloy_crystal" },
+        "facing=down": { "model": "botsmod:block/bronze_alloy_crystal", "x": 180 },
+        "facing=east": { "model": "botsmod:block/bronze_alloy_crystal", "y": 90, "x": 90 },
+        "facing=south": { "model": "botsmod:block/bronze_alloy_crystal", "y": 180, "x": 90 },
+        "facing=west": { "model": "botsmod:block/bronze_alloy_crystal", "y": 270, "x": 90 },
+        "facing=north": { "model": "botsmod:block/bronze_alloy_crystal", "y": 0, "x": 90 }
+    }
+}

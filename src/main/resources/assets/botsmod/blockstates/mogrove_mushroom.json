@@ -1,0 +1,23 @@
+{
+    "variants": {
+        "mushrooms=1": [
+            { "model": "botsmod:block/mogrove_mushroom_block1" },
+            { "model": "botsmod:block/mogrove_mushroom_block1", "y": 90 },
+            { "model": "botsmod:block/mogrove_mushroom_block1", "y": 180 },
+            { "model": "botsmod:block/mogrove_mushroom_block1", "y": 270 }
+        ],
+        "mushrooms=2": [
+            { "model": "botsmod:block/mogrove_mushroom_block2" },
+            { "model": "botsmod:block/mogrove_mushroom_block2", "y": 90 },
+            { "model": "botsmod:block/mogrove_mushroom_block2", "y": 180 },
+            { "model": "botsmod:block/mogrove_mushroom_block2", "y": 270 }
+        ],
+        "mushrooms=3": [
+            { "model": "botsmod:block/mogrove_mushroom_block3" },
+            { "model": "botsmod:block/mogrove_mushroom_block3", "y": 90 },
+            { "model": "botsmod:block/mogrove_mushroom_block3", "y": 180 },
+            { "model": "botsmod:block/mogrove_mushroom_block3", "y": 270 }
+        ]
+
+        }
+    }

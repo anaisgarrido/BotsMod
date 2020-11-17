@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/ancient_bricks_block",
+        "up": "botsmod:blocks/trapped_ancient_bricks_block",
+        "side": "botsmod:blocks/ancient_bricks_block"
+    }
+}

@@ -1,0 +1,49 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "botsmod:blocks/mogrove_bush_flowered",
+		"particle": "botsmod:blocks/mogrove_wood_sides"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 8],
+			"to": [16, 13, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 6.5, 8]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 7.25], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 3.25], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"up": {"uv": [4, 0, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 0, 0, 0], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 0, 0],
+			"to": [8, 13, 16],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 6.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"east": {"uv": [4, 7.25, 8, 10.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 3.25], "texture": "#0"},
+				"west": {"uv": [0, 8, 4, 11.25], "texture": "#0"},
+				"up": {"uv": [0, 4, 0, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 4], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 4, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 12, 8]},
+			"faces": {
+				"north": {"uv": [8, 8, 12, 11], "texture": "#0"},
+				"east": {"uv": [8, 0, 12, 3], "texture": "#0"},
+				"south": {"uv": [8, 3, 12, 6], "texture": "#0"},
+				"west": {"uv": [4, 10.5, 8, 13.5], "texture": "#0"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#0"}
+			}
+		}
+	]
+}

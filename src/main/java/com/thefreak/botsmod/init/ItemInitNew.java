@@ -1,6 +1,8 @@
 package com.thefreak.botsmod.init;
 
 import com.thefreak.botsmod.BotsMod;
+import com.thefreak.botsmod.objects.ister.DeltaCrystalISTER;
+import com.thefreak.botsmod.objects.items.DeltaCrystalShard;
 import com.thefreak.botsmod.objects.items.DreamBerryItem;
 import com.thefreak.botsmod.objects.items.FrucignisFruitItem;
 import com.thefreak.botsmod.objects.items.PiloveFruitItem;
@@ -46,5 +48,13 @@ public class ItemInitNew {
     public static final RegistryObject<Item> OLD_INFUSED_INGOT = ITEMS.register("old_infused_ingot", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 
     public static final RegistryObject<Item> DREAM_BERRY = ITEMS.register("dream_berry", () -> new DreamBerryItem(new Item.Properties().group(BotsMod.BotsItemGroup.instance).food(new Food.Builder().hunger(4).saturation(5F).setAlwaysEdible().build())));
+
+    public static final RegistryObject<Item> MOGROVE_NUT = ITEMS.register("mogrove_nut", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance).maxStackSize(16)));
+
+    public static final RegistryObject<Item> MOGROVE_BUBBLE_BERRY = ITEMS.register("mogrove_bubble_berry", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> MOGROVE_VIOLET = ITEMS.register("mogrove_violet", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> DELTA_CRYSTAL_SHARD = ITEMS.register("delta_crystal_shard", () -> new DeltaCrystalShard(new Item.Properties().group(BotsMod.BotsItemGroup.instance).setISTER(() -> DeltaCrystalISTER::new)));
 }
 
