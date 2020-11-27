@@ -9,6 +9,7 @@ import com.thefreak.botsmod.util.ModdedMaterials;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.audio.Sound;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,9 +19,7 @@ import java.rmi.registry.Registry;
 
 public class BlockInitNew {
 
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, BotsMod.MOD_ID);
-	
-	public static final RegistryObject<Block> DEEP_WOOD_CHEST = BLOCKS.register("deep_wood_chest", () -> new DeepWoodChestBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f)));
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BotsMod.MOD_ID);
 
 	public static final RegistryObject<Block> MUD_BLOCK = BLOCKS.register("mud_block", () -> new MudBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f).speedFactor(0.2F)));
 
@@ -50,7 +49,7 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> SULFUR_GLASS = BLOCKS.register("sulfur_glass", () -> new SulfurGlassBlock(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(0.5F, 3F).notSolid()));
 
-	public static final RegistryObject<Block> SULFUR_CRYSTAL = BLOCKS.register("sulfur_crystal", () -> new SulfurCrystalBlock(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(5F,-1F).notSolid().variableOpacity().lightValue(1)));
+	public static final RegistryObject<Block> SULFUR_CRYSTAL = BLOCKS.register("sulfur_crystal", () -> new SulfurCrystalBlock(Block.Properties.create(ModdedMaterials.SULFUR).sound(SoundType.GLASS).hardnessAndResistance(5F,-1F).notSolid().variableOpacity()));
 
 	public static final RegistryObject<Block> ZINC_ORE = BLOCKS.register("zinc_ore", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F, 5F)));
 
@@ -78,7 +77,7 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> CHISELED_OASIUM_OAK_PLANKS = BLOCKS.register("chiseled_oasium_oak_planks", () -> new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
 
-    public static final RegistryObject<Block> OASIUM_OAK_LOG = BLOCKS.register("oasium_oak_log", () -> new LogBlock(MaterialColor.WOOD,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
+    public static final RegistryObject<Block> OASIUM_OAK_LOG = BLOCKS.register("oasium_oak_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,1F)));
 
 	public static final RegistryObject<Block> OLD_CRYSTAL_BLOCK = BLOCKS.register("old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
 
@@ -88,7 +87,7 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> SMOOTH_OLD_CRYSTAL_BLOCK = BLOCKS.register("smooth_old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
 
-	public static final RegistryObject<Block> OLD_CRYSTAL_PILLAR = BLOCKS.register("old_crystal_pillar", () -> new LogBlock(MaterialColor.CYAN,Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
+	public static final RegistryObject<Block> OLD_CRYSTAL_PILLAR = BLOCKS.register("old_crystal_pillar", () -> new RotatedPillarBlock(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
 
 	public static final RegistryObject<Block> FAINT_CHISELED_OLD_CRYSTAL_BLOCK = BLOCKS.register("faint_chiseled_old_crystal_block", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GLASS).hardnessAndResistance(2F,4F)));
 
@@ -104,9 +103,9 @@ public class BlockInitNew {
 
     public static final RegistryObject<Block> MOGROVE_DIRT = BLOCKS.register("mogrove_dirt", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(2F,4F)));
 
-	public static final RegistryObject<Block> MOGROVE_WOOD = BLOCKS.register("mogrove_wood", () -> new LogBlock(MaterialColor.PINK,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
+	public static final RegistryObject<Block> MOGROVE_WOOD = BLOCKS.register("mogrove_wood", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
 
-	public static final RegistryObject<Block> MOGROVE_STRIPPED_WOOD = BLOCKS.register("mogrove_stripped_wood", () -> new LogBlock(MaterialColor.PURPLE,Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
+	public static final RegistryObject<Block> MOGROVE_STRIPPED_WOOD = BLOCKS.register("mogrove_stripped_wood", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F,4F)));
 
 	public static final RegistryObject<Block> MOGROVE_GRASS_BLOCK = BLOCKS.register("mogrove_grass_block", () -> new SustainablePlantType(Block.Properties.create(Material.ROCK).sound(SoundType.SLIME).hardnessAndResistance(2F,4F)));
 
@@ -136,7 +135,7 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> ANCIENT_BRICKS = BLOCKS.register("ancient_bricks", () -> new Block(Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
-	public static final RegistryObject<Block> ANCIENT_PILLAR = BLOCKS.register("ancient_pillar", () -> new LogBlock(MaterialColor.GRAY_TERRACOTTA,Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+	public static final RegistryObject<Block> ANCIENT_PILLAR = BLOCKS.register("ancient_pillar", () -> new RotatedPillarBlock(Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
 	public static final RegistryObject<Block> CRACKED_ANCIENT_BRICKS = BLOCKS.register("cracked_ancient_bricks", () -> new Block(Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
@@ -146,7 +145,7 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> ANCIENT_SMOOTH_BRICKS = BLOCKS.register("ancient_smooth_bricks", () -> new Block(Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
-	public static final RegistryObject<Block> ANCIENT_SMOOTH_PILLAR = BLOCKS.register("ancient_smooth_pillar", () -> new LogBlock(MaterialColor.GRAY_TERRACOTTA,Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+	public static final RegistryObject<Block> ANCIENT_SMOOTH_PILLAR = BLOCKS.register("ancient_smooth_pillar", () -> new RotatedPillarBlock(Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
 	public static final RegistryObject<Block> ANCIENT_CHISELED_SMOOTH_BRICKS = BLOCKS.register("ancient_chiseled_smooth_bricks", () -> new Block(Block.Properties.create(Material.CLAY).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
 
@@ -166,10 +165,12 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> BRONZE_ALLOY_CHUNK_CRACKED = BLOCKS.register("bronze_alloy_chunk_cracked", () -> new Block(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(2.5F,5.5F).tickRandomly()));
 
-    public static final RegistryObject<Block> LAVA_ROCK_ALLOY = BLOCKS.register("lava_rock_alloy", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(1.5F,0.5F).tickRandomly()));
+    public static final RegistryObject<Block> LAVA_ROCK_ALLOY = BLOCKS.register("lava_rock_alloy", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(1.5F,0.5F)));
 
-    public static final RegistryObject<Block> LAVA_ROCK_ALLOY_BRICKS = BLOCKS.register("lava_rock_alloy_bricks", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(2.5F,2F).tickRandomly()));
+    public static final RegistryObject<Block> LAVA_ROCK_ALLOY_BRICKS = BLOCKS.register("lava_rock_alloy_bricks", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(2.5F,2F)));
 
-    public static final RegistryObject<Block> LAVA_ROCK_ALLOY_PILLAR = BLOCKS.register("lava_rock_alloy_pillar", () -> new LogBlock(MaterialColor.RED_TERRACOTTA ,Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(1.5F,0.5F).tickRandomly()));
+    public static final RegistryObject<Block> LAVA_ROCK_ALLOY_PILLAR = BLOCKS.register("lava_rock_alloy_pillar", () -> new RotatedPillarBlock(Block.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(1.5F,0.5F)));
 
+    public static final RegistryObject<Block> COAL_LAVA_ROCK_ALLOY = BLOCKS.register("coal_lava_rock_alloy", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.GROUND).hardnessAndResistance(1.7F,0.6F).tickRandomly()));
 }
+

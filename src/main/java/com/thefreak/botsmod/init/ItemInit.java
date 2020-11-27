@@ -53,7 +53,7 @@ public class ItemInit
 			event.getRegistry().register(new SwordItem(ModItemTier.JADE, 5, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_sword"));
 			event.getRegistry().register(new AxeItem(ModItemTier.JADE, 7, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_axe"));
 			event.getRegistry().register(new PickaxeItem(ModItemTier.JADE, 2, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_pickaxe"));
-			event.getRegistry().register(new HoeItem(ModItemTier.JADE, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_hoe"));
+			event.getRegistry().register(new HoeItem(ModItemTier.JADE, 1,1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_hoe"));
 			event.getRegistry().register(new ShovelItem(ModItemTier.JADE, 2, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_shovel"));
 
 	}

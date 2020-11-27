@@ -41,7 +41,7 @@ public class FallingBushBlock extends Block implements net.minecraftforge.common
     }
     @Override
     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        return type == PathType.AIR && !this.blocksMovement || super.allowsMovement(state, worldIn, pos, type);
+        return type == PathType.AIR && !this.canCollide ? true : super.allowsMovement(state, worldIn, pos, type);
     }
 
 

@@ -41,6 +41,13 @@ public class TrappedAncientBricks extends Block {
         }
         super.tick(state, worldIn, pos, rand);
     }
+
+
+    @Override
+    public void updateDiagonalNeighbors(BlockState state, IWorld worldIn, BlockPos pos, int flags, int recursionLeft) {
+        super.updateDiagonalNeighbors(state, worldIn, pos, flags, recursionLeft);
+    }
+
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return blockState.get(POWERED) ? 15 : 0;
     }
@@ -56,12 +63,6 @@ public class TrappedAncientBricks extends Block {
 
 
     @Override
-    public void updateNeighbors(BlockState stateIn, IWorld worldIn, BlockPos pos, int flags) {
-        worldIn.notifyNeighbors(pos, this);
-        super.updateNeighbors(stateIn, worldIn, pos, flags);
-    }
-
-    @Override
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         BlockPos up = currentPos.up();
         if (worldIn.getBlockState(up).getBlock() instanceof AncientUrnCooked) {
@@ -70,6 +71,7 @@ public class TrappedAncientBricks extends Block {
             worldIn.setBlockState(currentPos, stateIn.with(POWERED, false), 2);
             worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, 2);
         }
+
         return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 }

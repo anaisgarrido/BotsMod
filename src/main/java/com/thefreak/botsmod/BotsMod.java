@@ -46,8 +46,7 @@ public class BotsMod
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
     	ModEntityTypes.ENTITY_TYPES.register(modEventBus);
     	
-    
-    	DimensionInit.MOD_DIMENSIONS.register(modEventBus);
+
 
         instance = this;
         MinecraftForge.EVENT_BUS.register(this);
@@ -65,7 +64,7 @@ public class BotsMod
         RenderTypeLookup.setRenderLayer(BlockInitNew.SPORE_PAD.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.BRONZE_ALLOY_CRYSTAL.get(), RenderType.getCutout());
-        ModelLoader.addSpecialModel(new ResourceLocation("botsmod:models/item/delta_crystal_shard"));
+        ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
     }
 
 

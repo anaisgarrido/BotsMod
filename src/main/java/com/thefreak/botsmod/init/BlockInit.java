@@ -3,7 +3,7 @@ package com.thefreak.botsmod.init;
 import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.BotsMod.BotsItemGroup;
 import net.minecraft.block.Block;
-import net.minecraft.block.LogBlock;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -40,20 +40,20 @@ public class BlockInit {
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event)
 	{
-		event.getRegistry().register(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 12.0f)).setRegistryName("dry_wood_log"));
+		event.getRegistry().register(new RotatedPillarBlock( Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 12.0f)).setRegistryName("dry_wood_log"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(10.5f, 12.0f)).setRegistryName("deep_stone"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(10.5f, 12.0f)).setRegistryName("deep_grass"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(11f, 12.0f)).setRegistryName("jade_ore"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1f, 12.0f)).setRegistryName("dry_wood_planks"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(9.5f, 12.0f)).setRegistryName("deep_coblestone"));
-		event.getRegistry().register(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 12.0f)).setRegistryName("deep_wood_log"));
+		event.getRegistry().register(new RotatedPillarBlock( Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 12.0f)).setRegistryName("deep_wood_log"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(1f, 12.0f)).setRegistryName("deep_wood_bricks"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(11f, 12.0f)).setRegistryName("mud_stone"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.PLANT).hardnessAndResistance(11f, 12.0f)).setRegistryName("mud_grass"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(10.5f, 12.0f)).setRegistryName("cold_deep_stone"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(9.5f, 12.0f)).setRegistryName("cold_deep_coblestone"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(9.5f, 12.0f)).setRegistryName("deep_wood_leaves"));
-		event.getRegistry().register(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f)).setRegistryName("root_wood_log"));
+		event.getRegistry().register(new RotatedPillarBlock( Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f)).setRegistryName("root_wood_log"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f)).setRegistryName("root_wood_log_full"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f)).setRegistryName("root_core"));
 		event.getRegistry().register(new Block(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(4f, 12.0f)).setRegistryName("deep_wood_log_full"));

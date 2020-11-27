@@ -6,6 +6,9 @@ modLoader="javafml" #mandatory
 loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 
 
+license="All rights reserved"
+
+
 issueTrackerURL="http://my.issue.tracker/" #optional
 
 
@@ -56,6 +59,6 @@ Thanks to TurtyWurty For he's tutorials that made me try to make this mod And th
 [[dependencies.botsmod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.2]"
+    versionRange="[1.16.4]"
     ordering="NONE"
     side="BOTH"

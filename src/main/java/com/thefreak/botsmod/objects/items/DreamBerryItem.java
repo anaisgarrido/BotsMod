@@ -15,7 +15,6 @@ public class DreamBerryItem extends Item {
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
         entityLiving.startSleeping(entityLiving.getPosition());
         entityLiving.isSleeping();
-        worldIn.setGameTime(6000);
         return super.onItemUseFinish(stack, worldIn, entityLiving);
     }
 }

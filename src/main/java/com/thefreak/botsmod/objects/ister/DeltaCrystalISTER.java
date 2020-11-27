@@ -4,29 +4,35 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.model.IBakedModel;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.model.ModelManager;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
+import net.minecraft.inventory.container.PlayerContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.data.EmptyModelData;
+
+import java.util.Random;
 
 public class DeltaCrystalISTER extends ItemStackTileEntityRenderer {
     public DeltaCrystalISTER() {
         super();
     }
+    private Random random = new Random();
 
     @Override
-    public void render(ItemStack itemStackIn, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
-
-        super.render(itemStackIn, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
-        Minecraft.getInstance().getModelManager();
-        Minecraft.getInstance().getItemRenderer().renderItem(itemStackIn, ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND ,true,matrixStackIn,bufferIn,0,1,);
-
-
-    }
+    public void func_239207_a_(ItemStack stack, ItemCameraTransforms.TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+        super.func_239207_a_(stack, p_239207_2_, matrixStack, buffer, combinedLight, combinedOverlay);
+        IBakedModel model = Minecraft.getInstance().getModelManager().getModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
+        IVertexBuilder vertexBuilder = buffer
+                .getBuffer(RenderType.getEntityTranslucentCull(PlayerContainer.LOCATION_BLOCKS_TEXTURE));
+        MatrixStack.Entry entry = matrixStack.getLast();
+        for (int i = 0; i < model.getQuads(null, null, random, EmptyModelData.INSTANCE).size(); i++) {
+            vertexBuilder.addVertexData(entry, model.getQuads(null, null, random, EmptyModelData.INSTANCE).get(i), 1, 1, 1, 1, 2,1, true);
+        }
+   }
 
 
 }

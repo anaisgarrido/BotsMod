@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -44,6 +43,7 @@ public class MogroveBubbleMushroom extends BushBlock implements IGrowable {
         int i = state.get(BERRY);
         boolean t = i == 6;
         boolean j = i == 0;
+
         if (!t && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (!j) {

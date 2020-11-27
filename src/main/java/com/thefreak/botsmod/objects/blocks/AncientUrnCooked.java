@@ -25,18 +25,10 @@ public class AncientUrnCooked extends FallingBlock {
         return BASE;
     }
 
-    @Override
-    public void updateNeighbors(BlockState stateIn, IWorld worldIn, BlockPos pos, int flags) {
-        worldIn.notifyNeighbors(pos, this);
-        super.updateNeighbors(stateIn, worldIn, pos, flags);
-    }
+
     protected void onStartFalling(FallingBlockEntity fallingEntity) {
         fallingEntity.setHurtEntities(true);
     }
 
-    @Override
-    public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState) {
-        worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
-        super.onEndFalling(worldIn, pos, fallingState, hitState);
-    }
+
 }

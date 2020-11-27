@@ -30,7 +30,6 @@ public class ColdDebris extends Block {
     @Override
     public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
             player.addPotionEffect(new EffectInstance(Effects.HASTE,100,2));
-            worldIn.setGameTime(200);
         super.onBlockHarvested(worldIn, pos, state, player);
     }
 
