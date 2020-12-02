@@ -42,6 +42,9 @@ public class TrappedAncientBricks extends Block {
         super.tick(state, worldIn, pos, rand);
     }
 
+    protected void updateNeighborsInFront(World worldIn, BlockPos pos, BlockState state) {
+        worldIn.neighborChanged(pos, this, pos);
+    }
 
     @Override
     public void updateDiagonalNeighbors(BlockState state, IWorld worldIn, BlockPos pos, int flags, int recursionLeft) {

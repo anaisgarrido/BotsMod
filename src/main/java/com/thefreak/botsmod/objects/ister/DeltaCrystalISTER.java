@@ -25,6 +25,7 @@ public class DeltaCrystalISTER extends ItemStackTileEntityRenderer {
     @Override
     public void func_239207_a_(ItemStack stack, ItemCameraTransforms.TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
         super.func_239207_a_(stack, p_239207_2_, matrixStack, buffer, combinedLight, combinedOverlay);
+        matrixStack.push();
         IBakedModel model = Minecraft.getInstance().getModelManager().getModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
         IVertexBuilder vertexBuilder = buffer
                 .getBuffer(RenderType.getEntityTranslucentCull(PlayerContainer.LOCATION_BLOCKS_TEXTURE));
@@ -32,6 +33,7 @@ public class DeltaCrystalISTER extends ItemStackTileEntityRenderer {
         for (int i = 0; i < model.getQuads(null, null, random, EmptyModelData.INSTANCE).size(); i++) {
             vertexBuilder.addVertexData(entry, model.getQuads(null, null, random, EmptyModelData.INSTANCE).get(i), 1, 1, 1, 1, 2,1, true);
         }
+        matrixStack.pop();
    }
 
 
