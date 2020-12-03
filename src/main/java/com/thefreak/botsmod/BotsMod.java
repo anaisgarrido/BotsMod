@@ -30,6 +30,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(modid = BotsMod.MOD_ID, bus = Bus.MOD)
 public class BotsMod
 {
+    //aa
     // Directly reference a log4j logger.
 	private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "botsmod";
