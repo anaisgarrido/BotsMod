@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "rocky=false": [
+            { "model": "botsmod:block/lava_rock_alloy_dirt" }
+        ],
+        "rocky=true": [
+            { "model": "botsmod:block/lava_rock_alloy_rocky_dirt" }
+        ]
+    }
+}

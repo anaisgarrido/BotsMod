@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/polished_lava_rock_alloy",
+        "up": "botsmod:blocks/polished_lava_rock_alloy",
+        "side": "botsmod:blocks/chiseled_polished_lava_rock_alloy"
+    }
+}

@@ -56,5 +56,10 @@ public class ItemInitNew {
     public static final RegistryObject<Item> MOGROVE_VIOLET = ITEMS.register("mogrove_violet", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 
     public static final RegistryObject<Item> DELTA_CRYSTAL_SHARD = ITEMS.register("delta_crystal_shard", () -> new DeltaCrystalShard(new Item.Properties().group(BotsMod.BotsItemGroup.instance).setISTER(() -> DeltaCrystalISTER::new)));
+
+    public static final RegistryObject<Item> SPORIAN_MANGROVE_TREE_BARK = ITEMS.register("sporian_mangrove_tree_bark", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> SPORIAN_SPIKY_LONGUS_FRUIT = ITEMS.register("sporian_spiky_longus_fruit", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
 }
 

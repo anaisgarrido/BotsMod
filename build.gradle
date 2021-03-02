@@ -94,7 +94,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.16.4-35.0.18'
+    minecraft 'net.minecraftforge:forge:1.16.4-35.1.35'
 
     compile fg.deobf('com.github.LOLatom:DeltaLib:50523a98bc')
 
@@ -116,7 +116,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
     //Required mods
-    implementation fg.deobf('software.bernie.geckolib:forge-1.16.3-geckolib:2.1.1')
+    implementation fg.deobf('software.bernie.geckolib:forge-1.16.4-geckolib:3.0.0')
 
 }
 repositories {

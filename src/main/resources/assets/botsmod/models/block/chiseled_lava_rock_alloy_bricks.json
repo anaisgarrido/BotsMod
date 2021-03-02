@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "botsmod:blocks/chiseled_lava_rock_alloy_bricks"
+    }
+}

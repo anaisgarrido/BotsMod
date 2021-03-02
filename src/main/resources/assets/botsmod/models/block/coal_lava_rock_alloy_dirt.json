@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "botsmod:blocks/coal_lava_rock_alloy_dirt"
+    }
+}

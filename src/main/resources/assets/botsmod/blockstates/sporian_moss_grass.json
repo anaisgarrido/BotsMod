@@ -1,0 +1,21 @@
+{
+    "variants": {
+        "": [
+            {
+                "model": "botsmod:block/sporian_moss_grass_block_item"
+            },
+            {
+                "model": "botsmod:block/sporian_moss_grass_block_item",
+                "y": 90
+            },
+            {
+                "model": "botsmod:block/sporian_moss_grass_block_item",
+                "y": 180
+            },
+            {
+                "model": "botsmod:block/sporian_moss_grass_block_item",
+                "y": 270
+            }
+        ]
+    }
+}

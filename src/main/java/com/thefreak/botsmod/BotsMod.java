@@ -1,8 +1,10 @@
 package com.thefreak.botsmod;
 
+import com.thefreak.botsmod.entities.GiantTardigradeEntity;
 import com.thefreak.botsmod.init.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import org.apache.logging.log4j.LogManager;
@@ -45,7 +47,7 @@ public class BotsMod
         ItemInitNew.ITEMS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
-    	ModEntityTypes.ENTITY_TYPES.register(modEventBus);
+    	ModEntityTypes.ENTITY.register(modEventBus);
     	
 
 
@@ -55,24 +57,31 @@ public class BotsMod
 
     private void setup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(() -> {
+            GlobalEntityTypeAttributes.put(ModEntityTypes.GIANT_TARDIGRADE.get(), GiantTardigradeEntity.setCustomAttributes().create());
+        });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SULFUR_GLASS.get(), RenderType.getTranslucent());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SULFUR_CRYSTAL.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUBBLE_MUSHROOM.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.SPORE_PAD.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUSH.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.BRONZE_ALLOY_CRYSTAL.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_SPIKY_LONGUS.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_SPIKY_LONGUS_PLANT.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MOSS_GRASS.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_BULB.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES_TOP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES.get(), RenderType.getCutout());
         ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
     }
 
 
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
-
     }
+
+
     @SubscribeEvent
     public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
@@ -99,7 +108,7 @@ public class BotsMod
     	@Override
     	public ItemStack createIcon()
     	{
-    		return new ItemStack(BlockInit.dry_wood_log);
+    		return new ItemStack(BlockInitNew.BRONZE_ALLOY_BRICKS.get());
     	}
     }
 

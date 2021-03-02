@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "fruit=false": [
+            { "model": "botsmod:block/sporian_spiky_longus" }
+        ],
+        "fruit=true": [
+            { "model": "botsmod:block/sporian_spiky_longus_fruit" }
+        ]
+    }
+}

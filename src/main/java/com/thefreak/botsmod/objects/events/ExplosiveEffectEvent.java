@@ -32,10 +32,10 @@ public class ExplosiveEffectEvent {
         LivingEntity livingEntity = event.getEntityLiving();
         World world = livingEntity.getEntityWorld();
 
-        if (livingEntity.getType() == EntityType.PLAYER && entityHasEffect(livingEntity, EffectInitNew.EXPLOSIVE_EFFECT.get())) {
+        if (entityHasEffect(livingEntity, EffectInitNew.EXPLOSIVE_EFFECT.get())) {
             System.out.println("EXPLODE !");
             System.out.println(livingEntity.getActivePotionEffects().contains(new EffectInstance(EffectInitNew.EXPLOSIVE_EFFECT.get())));
-            world.createExplosion(livingEntity, livingEntity.lastTickPosX, livingEntity.lastTickPosY, livingEntity.lastTickPosZ, 10.0F, true, Explosion.Mode.BREAK);
+            world.createExplosion(livingEntity, livingEntity.lastTickPosX, livingEntity.lastTickPosY, livingEntity.lastTickPosZ, 4.0F, false, Explosion.Mode.BREAK);
         }
     }
 }

@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "pollen=false": [
+            { "model": "botsmod:block/sporian_dandelion_blewed" }
+        ],
+        "pollen=true": [
+            { "model": "botsmod:block/sporian_dandelion" }
+        ]
+    }
+}

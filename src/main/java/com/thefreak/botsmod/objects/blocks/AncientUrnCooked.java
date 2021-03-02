@@ -25,6 +25,16 @@ public class AncientUrnCooked extends FallingBlock {
         return BASE;
     }
 
+    @Override
+    public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState, FallingBlockEntity fallingBlock) {
+        super.onEndFalling(worldIn, pos, fallingState, hitState, fallingBlock);
+        FallingBlockEntity Entity = fallingBlock;
+            if (Entity.fallTime > 10){
+
+
+            worldIn.destroyBlock(pos, false);
+            }
+    }
 
     protected void onStartFalling(FallingBlockEntity fallingEntity) {
         fallingEntity.setHurtEntities(true);

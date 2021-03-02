@@ -1,0 +1,21 @@
+{
+    "variants": {
+        "": [
+            {
+                "model": "botsmod:block/sporian_mangrove_tree_root_top"
+            },
+            {
+                "model": "botsmod:block/sporian_mangrove_tree_root_top",
+                "y": 90
+            },
+            {
+                "model": "botsmod:block/sporian_mangrove_tree_root_top",
+                "y": 180
+            },
+            {
+                "model": "botsmod:block/sporian_mangrove_tree_root_top",
+                "y": 270
+            }
+        ]
+    }
+}

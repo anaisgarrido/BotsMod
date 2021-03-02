@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/tinted_cross",
+    "textures": {
+        "cross": "botsmod:blocks/sporian_mangrove_tree_vines"
+    }
+}
