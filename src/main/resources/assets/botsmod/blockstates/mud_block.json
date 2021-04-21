@@ -1,5 +1,0 @@
- {
- "variants": {
-        "": [{"model": "botsmod:block/mud_block"}, {"model": "botsmod:block/mud_block2"}, {"model": "botsmod:block/mud_block3"} ]
-   	}
-   }

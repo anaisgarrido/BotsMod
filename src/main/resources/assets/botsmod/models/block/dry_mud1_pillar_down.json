@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/dry_mud1_pillar_top",
+        "side": "botsmod:blocks/dry_mud1_pillar_down"
+    }
+}

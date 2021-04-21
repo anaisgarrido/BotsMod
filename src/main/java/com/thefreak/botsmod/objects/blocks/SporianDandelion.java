@@ -8,6 +8,7 @@ import net.minecraft.block.BushBlock;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleType;
 import net.minecraft.particles.ParticleTypes;
@@ -16,10 +17,13 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class SporianDandelion extends BushBlock {
     public static final BooleanProperty POLLEN = BooleanProperty.create("pollen");
@@ -28,6 +32,8 @@ public class SporianDandelion extends BushBlock {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(POLLEN, true));
     }
+
+    Random rand = new Random();
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -49,8 +55,30 @@ public class SporianDandelion extends BushBlock {
             worldIn.addParticle(ParticleTypes.CLOUD, x, y, z, 0D, 0.3D, 0);
             worldIn.setBlockState(pos, state.with(POLLEN, false), 2);
             worldIn.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_WOOL_FALL, SoundCategory.BLOCKS, 1F, 0.25F);
+
+            if (rand.nextInt(10) == 0) {
+                worldIn.destroyBlock(pos,false);
+            }
         }
         super.onEntityCollision(state, worldIn, pos, entityIn);
+    }
+
+    @Override
+    public void onProjectileCollision(World worldIn, BlockState state, BlockRayTraceResult hit, ProjectileEntity projectile) {
+        boolean a = state.get(POLLEN) == false;
+        if (!a) {
+            double x = projectile.getPosX() + 0.5D;
+            double y = projectile.getPosY() + 0.5D;
+            double z = projectile.getPosZ() + 0.5D;
+            worldIn.addParticle(ParticleTypes.CLOUD, x, y, z, 0D, 0.3D, 0);
+            worldIn.setBlockState(projectile.getPosition(), state.with(POLLEN, false), 2);
+            worldIn.playSound((PlayerEntity)null, projectile.getPosition(), SoundEvents.BLOCK_WOOL_FALL, SoundCategory.BLOCKS, 1F, 0.25F);
+            if (rand.nextInt(10) == 0) {
+            worldIn.destroyBlock(projectile.getPosition(),false);
+            }
+
+        }
+        super.onProjectileCollision(worldIn, state, hit, projectile);
     }
 
     @Override

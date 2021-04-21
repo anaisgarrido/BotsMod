@@ -5,10 +5,8 @@ import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.entity.passive.WaterMobEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.EntityPredicates;
+import net.minecraft.pathfinding.GroundPathNavigator;
+import net.minecraft.pathfinding.Path;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -18,25 +16,37 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-import java.util.List;
-
 public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
     public static AnimationBuilder IDLE_ANIM = new AnimationBuilder().addAnimation("animation.giant_tardigrade.idle");
     public static AnimationBuilder WALK_ANIM = new AnimationBuilder().addAnimation("animation.giant_tardigrade.walk");
     public static AnimationBuilder JUMP = new AnimationBuilder().addAnimation("animation.giant_tardigrade.jump");
+    //Inner Variables
+    public static boolean Sleeping;
+    public static double FoodLevel = 20.0D;
+    public static boolean Flying;
+    public static double MoveSpeed = 1.5D;
+    //
+
+
+    GroundPathNavigator pathNavigator;
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes()
     {
+
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 320.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 1.5D)
+                .createMutableAttribute(Attributes.MOVEMENT_SPEED, MoveSpeed)
                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2D)
                 .createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 0D);
     }
 
     public GiantTardigradeEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
+
         super(type, worldIn);
+        pathNavigator = new GroundPathNavigator(this, this.world);
+
+
     }
 
     @Override
@@ -54,8 +64,7 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
-        this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 0.15));
+
     }
 
 
@@ -97,8 +106,23 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
 
     }
 
+    public boolean shouldRepathfind() {
+        return this.ticksExisted % 200 <= 10;
+    }
+
+
+    
+
+
+
     @Override
     public void tick() {
+
+        if (this.isAlive()) {
+
+        } else {
+
+        }
 
         doBlockCollisions();
         this.doBlockCollisions();

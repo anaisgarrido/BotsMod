@@ -1,19 +1,13 @@
 package com.thefreak.botsmod.init;
 
 import com.thefreak.botsmod.BotsMod;
-import com.thefreak.botsmod.objects.ister.DeltaCrystalISTER;
-import com.thefreak.botsmod.objects.items.DeltaCrystalShard;
 import com.thefreak.botsmod.objects.items.DreamBerryItem;
 import com.thefreak.botsmod.objects.items.FrucignisFruitItem;
 import com.thefreak.botsmod.objects.items.PiloveFruitItem;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.WeightedRandom;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,8 +48,6 @@ public class ItemInitNew {
     public static final RegistryObject<Item> MOGROVE_BUBBLE_BERRY = ITEMS.register("mogrove_bubble_berry", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 
     public static final RegistryObject<Item> MOGROVE_VIOLET = ITEMS.register("mogrove_violet", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
-
-    public static final RegistryObject<Item> DELTA_CRYSTAL_SHARD = ITEMS.register("delta_crystal_shard", () -> new DeltaCrystalShard(new Item.Properties().group(BotsMod.BotsItemGroup.instance).setISTER(() -> DeltaCrystalISTER::new)));
 
     public static final RegistryObject<Item> SPORIAN_MANGROVE_TREE_BARK = ITEMS.register("sporian_mangrove_tree_bark", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 
