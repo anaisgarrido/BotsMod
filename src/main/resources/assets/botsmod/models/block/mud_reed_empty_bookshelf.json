@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/mud_reed_planks",
+        "side": "botsmod:blocks/mud_reed_bookshelf1",
+        "up": "botsmod:blocks/mud_reed_planks"
+    }
+}

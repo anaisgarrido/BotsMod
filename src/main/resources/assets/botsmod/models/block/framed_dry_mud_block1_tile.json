@@ -1,0 +1,6 @@
+{
+  "loader": "deltalib:connected_textures",
+  "border": "botsmod:blocks/framed_dry_mud1_tile",
+  "base": "botsmod:blocks/dry_mud1_tile",
+  "padding": 2
+}

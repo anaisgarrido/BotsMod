@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "half=lower": {
+            "model": "botsmod:block/cattail_down"
+        },
+        "half=upper": {
+            "model": "botsmod:block/cattail"
+        }
+    }
+}

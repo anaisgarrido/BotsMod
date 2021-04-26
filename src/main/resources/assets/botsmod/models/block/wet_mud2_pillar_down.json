@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/wet_mud2_pillar_top",
+        "side": "botsmod:blocks/wet_mud2_pillar_down"
+    }
+}

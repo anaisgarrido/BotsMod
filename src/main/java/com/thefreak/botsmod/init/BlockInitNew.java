@@ -146,27 +146,75 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> SPORIAN_MANGROVE_TREE_LEAVES = BLOCKS.register("sporian_mangrove_tree_leaves", () -> new SporianMangroveTreeLeaves(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(1.0F, 1.0F)));
 
-	public static final RegistryObject<Block> WET_MUD_BLOCK1 = BLOCKS.register("wet_mud_block1", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+	public static final RegistryObject<Block> WET_MUD_BLOCK1 = BLOCKS.register("wet_mud_block1", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 1.0f)));
 
-	public static final RegistryObject<Block> WET_MUD_BLOCK2 = BLOCKS.register("wet_mud_block2", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+	public static final RegistryObject<Block> WET_MUD_BLOCK2 = BLOCKS.register("wet_mud_block2", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 1.0f)));
 
-	public static final RegistryObject<Block> DRY_MUD_BLOCK1 = BLOCKS.register("dry_mud_block1", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> WET_MUD_BLOCK2_GLIDED = BLOCKS.register("wet_mud_block2_glided", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-		public static final RegistryObject<Block> DRY_MUD_BLOCK1_GLIDED = BLOCKS.register("dry_mud_block1_glided", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> WET_MUD_BLOCK2_BRICKS = BLOCKS.register("wet_mud_block2_bricks", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-		public static final RegistryObject<Block> DRY_MUD_BLOCK1_BRICKS = BLOCKS.register("dry_mud_block1_bricks", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> CHISELED_WET_MUD_BLOCK2 = BLOCKS.register("chiseled_wet_mud_block2", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-		public static final RegistryObject<Block> DRY_MUD_BLOCK1_TILE = BLOCKS.register("dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> POLISHED_WET_MUD_BLOCK2 = BLOCKS.register("polished_wet_mud_block2", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-		public static final RegistryObject<Block> POLISHED_DRY_MUD_BLOCK1_TILE = BLOCKS.register("polished_dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> DOUBLED_WET_MUD_BLOCK2 = BLOCKS.register("doubled_wet_mud_block2", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-		public static final RegistryObject<Block> CHISELED_DRY_MUD_BLOCK1_TILE = BLOCKS.register("chiseled_dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> WET_MUD_BLOCK2_PILLAR = BLOCKS.register("wet_mud_block2_pillar", () -> new ConnectedTexturePillar(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-		public static final RegistryObject<Block> DRY_MUD_BLOCK1_PILLAR = BLOCKS.register("dry_mud_block1_pillar", () -> new ConnectedTexturePillar(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+	public static final RegistryObject<Block> DRY_MUD_BLOCK1 = BLOCKS.register("dry_mud_block1", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-	public static final RegistryObject<Block> DRY_MUD_BLOCK2 = BLOCKS.register("dry_mud_block2", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> DRY_MUD_BLOCK1_GLIDED = BLOCKS.register("dry_mud_block1_glided", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-	public static final RegistryObject<Block> DRY_MUD_BLOCK3 = BLOCKS.register("dry_mud_block3", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> CHISELED_DRY_MUD_BLOCK1 = BLOCKS.register("chiseled_dry_mud_block1", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
 
-	public static final RegistryObject<Block> DRY_MUD_BLOCK4 = BLOCKS.register("dry_mud_block4", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 12.0f)));
+			public static final RegistryObject<Block> DRY_MUD_BLOCK1_BRICKS = BLOCKS.register("dry_mud_block1_bricks", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
+
+			public static final RegistryObject<Block> DRY_MUD_BLOCK1_TILE = BLOCKS.register("dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
+
+			public static final RegistryObject<Block> FRAMED_DRY_MUD_BLOCK1_TILE = BLOCKS.register("framed_dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
+
+			public static final RegistryObject<Block> POLISHED_DRY_MUD_BLOCK1_TILE = BLOCKS.register("polished_dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
+
+			public static final RegistryObject<Block> CHISELED_DRY_MUD_BLOCK1_TILE = BLOCKS.register("chiseled_dry_mud_block1_tile", () -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
+
+			public static final RegistryObject<Block> DRY_MUD_BLOCK1_PILLAR = BLOCKS.register("dry_mud_block1_pillar", () -> new ConnectedTexturePillar(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(4f, 1.0f)));
+
+	public static final RegistryObject<Block> DRY_MUD_BLOCK2 = BLOCKS.register("dry_mud_block2", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 1.0f)));
+
+	public static final RegistryObject<Block> DRY_MUD_BLOCK3 = BLOCKS.register("dry_mud_block3", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 1.0f)));
+
+	public static final RegistryObject<Block> DRY_MUD_BLOCK4 = BLOCKS.register("dry_mud_block4", () -> new Block(Block.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(4f, 1.0f)));
+
+	public static final RegistryObject<Block> MUD_REED = BLOCKS.register("mud_reed", () -> new MudReeds(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.BAMBOO).hardnessAndResistance(2F, 1F).tickRandomly()));
+
+    public static final RegistryObject<Block> MUD_REED_LEAVES = BLOCKS.register("mud_reed_leaves", () -> new Block(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F, 0F).notSolid()));
+
+    public static final RegistryObject<Block> MUD_REED_PLANKS = BLOCKS.register("mud_reed_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.5F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> MUD_REED_PLANKS_SLAB = BLOCKS.register("mud_reed_slab", () -> new SlabBlock(AbstractBlock.Properties.from(MUD_REED_PLANKS.get())));
+
+	public static final RegistryObject<Block> MUD_REED_PLANKS_STAIRS = BLOCKS.register("mud_reed_stairs", () -> new StairsBlock(MUD_REED_PLANKS.get().getDefaultState(), AbstractBlock.Properties.from(MUD_REED_PLANKS.get())));
+
+	public static final RegistryObject<Block> MUD_REED_DOOR = BLOCKS.register("mud_reed_door", () -> new DoorBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.5F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> MUD_REED_TRAPDOOR = BLOCKS.register("mud_reed_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.5F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> MUD_REED_EMPTY_BOOKSHELF = BLOCKS.register("mud_reed_empty_bookshelf", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.5F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> MUD_REED_BOOKSHELF = BLOCKS.register("mud_reed_bookshelf", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.5F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> CATTAIL = BLOCKS.register("cattail", () -> new Cattail(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0F, 0F).notSolid().doesNotBlockMovement()));
+
+	public static final RegistryObject<Block> SPROUTED_MUD = BLOCKS.register("sprouted_mud", () -> new SproutedMud(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(2F, 0.5F).notSolid().tickRandomly()));
+
+	public static final RegistryObject<Block> LONG_SPROUTED_MUD = BLOCKS.register("long_sprouted_mud", () -> new LongSproutedMud(AbstractBlock.Properties.create(Material.EARTH).sound(SoundType.GROUND).hardnessAndResistance(2F, 0.5F).notSolid().tickRandomly()));
+
+	public static final RegistryObject<Block> TRUFFLE_BLOCK = BLOCKS.register("truffle_block", () -> new Truffle(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.25F, 0F).notSolid()));
+
+	public static final RegistryObject<Block> TUBER_CROP = BLOCKS.register("tuber_crop", () -> new TuberCrop(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.25F, 0F).notSolid().doesNotBlockMovement().tickRandomly()));
+
+	public static final RegistryObject<Block> TUBER_BUSH = BLOCKS.register("tuber_bush", () -> new TuberBush(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.25F, 0F).notSolid().tickRandomly()));
+
+
 }

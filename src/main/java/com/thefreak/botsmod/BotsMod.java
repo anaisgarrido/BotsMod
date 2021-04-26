@@ -73,6 +73,13 @@ public class BotsMod
         RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_BULB.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES_TOP.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED_LEAVES.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED_PLANKS.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPROUTED_MUD.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.LONG_SPROUTED_MUD.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_BUSH.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_CROP.get(), RenderType.getCutoutMipped());
         ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
     }
 

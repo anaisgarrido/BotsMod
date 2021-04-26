@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "half=lower": {
+            "model": "botsmod:block/mud_tuber_crop5_down"
+        },
+        "half=upper,berries=false": {
+            "model": "botsmod:block/mud_tuber_crop5_up"
+        },
+        "half=upper,berries=true": {
+            "model": "botsmod:block/mud_tuber_crop5_up_berries"
+        }
+    }
+}

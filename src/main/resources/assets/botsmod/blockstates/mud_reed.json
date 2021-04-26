@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "axis=y,branches=0":   { "model": "botsmod:block/mud_reeds1" },
+        "axis=z,branches=0":   { "model": "botsmod:block/mud_reeds1", "x": 90 },
+        "axis=x,branches=0":   { "model": "botsmod:block/mud_reeds1", "x": 90, "y": 90 },
+        "axis=y,branches=1":   { "model": "botsmod:block/mud_reeds2" },
+        "axis=z,branches=1":   { "model": "botsmod:block/mud_reeds2", "x": 90 },
+        "axis=x,branches=1":   { "model": "botsmod:block/mud_reeds2", "x": 90, "y": 90 },
+        "axis=y,branches=2":   { "model": "botsmod:block/mud_reeds3" },
+        "axis=z,branches=2":   { "model": "botsmod:block/mud_reeds3", "x": 90 },
+        "axis=x,branches=2":   { "model": "botsmod:block/mud_reeds3", "x": 90, "y": 90 }
+    }
+}

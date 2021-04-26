@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "truffle=false":  { "model": "botsmod:block/sprouted_mud1" },
+        "truffle=true":  { "model": "botsmod:block/sprouted_mud_wtruffle1" }
+
+    }
+}

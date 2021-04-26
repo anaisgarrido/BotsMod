@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/long_sprouted_mud",
+        "up": "botsmod:blocks/wet_mud2",
+        "side": "botsmod:blocks/long_sprouted_mud"
+    }
+}

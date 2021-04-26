@@ -14,8 +14,8 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 public class ConnectedTexturePillar extends RotatedPillarBlock {
-    public static final BooleanProperty C_UP = BooleanProperty.create("cup");
-    public static final BooleanProperty C_DOWN = BooleanProperty.create("cdown");
+    public static final BooleanProperty C_UP = BooleanProperty.create("c_up");
+    public static final BooleanProperty C_DOWN = BooleanProperty.create("c_down");
 
     public ConnectedTexturePillar(Properties properties) {
         super(properties);
@@ -86,7 +86,7 @@ public class ConnectedTexturePillar extends RotatedPillarBlock {
         }
         return super.updatePostPlacement(stateIn, facing, facingState, worldIn, pos, facingPos);
     }
-
+    @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(C_DOWN).add(C_UP).add(AXIS);
     }

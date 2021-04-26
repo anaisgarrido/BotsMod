@@ -4,6 +4,7 @@ import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.objects.items.DreamBerryItem;
 import com.thefreak.botsmod.objects.items.FrucignisFruitItem;
 import com.thefreak.botsmod.objects.items.PiloveFruitItem;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.potion.EffectInstance;
@@ -52,6 +53,17 @@ public class ItemInitNew {
     public static final RegistryObject<Item> SPORIAN_MANGROVE_TREE_BARK = ITEMS.register("sporian_mangrove_tree_bark", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
 
     public static final RegistryObject<Item> SPORIAN_SPIKY_LONGUS_FRUIT = ITEMS.register("sporian_spiky_longus_fruit", () -> new Item(new Item.Properties().group(BotsMod.BotsItemGroup.instance)));
+
+    public static final RegistryObject<Item> TRUFFLE = ITEMS.register("truffle", () -> new Item(new Item.Properties()
+            .group(BotsMod.BotsItemGroup.instance)
+            .food(new Food.Builder().hunger(2).saturation(0.5F)
+                    .effect(() -> new EffectInstance(Effects.ABSORPTION, 200, 2 ), 3).build())));
+
+    public static final RegistryObject<Item> TUBER_BERRIES = ITEMS.register("tuber_berries", () -> new Item(new Item.Properties()
+            .group(BotsMod.BotsItemGroup.instance)
+            .food(new Food.Builder().hunger(5).saturation(0.5F)
+                    .effect(() -> new EffectInstance(Effects.NAUSEA, 600, 3 ), 3).build())));
+
 
 }
 
