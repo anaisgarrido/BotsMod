@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "botsmod:blocks/slightly_weathered_limestone_bricks",
+    "top": "botsmod:blocks/slightly_weathered_limestone_bricks",
+    "side": "botsmod:blocks/slightly_weathered_limestone_bricks"
+  }
+}

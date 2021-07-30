@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "botsmod:blocks/gold_bricks_slab"
+    }
+}

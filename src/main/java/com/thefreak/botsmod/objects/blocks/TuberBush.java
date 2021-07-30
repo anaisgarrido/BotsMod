@@ -1,5 +1,6 @@
 package com.thefreak.botsmod.objects.blocks;
 
+import com.thefreak.botsmod.init.BlockInitNew;
 import com.thefreak.botsmod.init.ItemInitNew;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
@@ -17,7 +18,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -25,8 +25,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -40,6 +39,9 @@ public class TuberBush extends BushBlock{
     public TuberBush(AbstractBlock.Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(BERRIES, false));
+    }
+    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.isIn(Blocks.GRASS_BLOCK) || state.isIn(Blocks.DIRT) || state.isIn(Blocks.COARSE_DIRT) || state.isIn(Blocks.PODZOL) || state.isIn(Blocks.FARMLAND) || state.isIn(BlockInitNew.WET_MUD_BLOCK1.get()) || state.isIn(BlockInitNew.WET_MUD_BLOCK2.get())|| state.isIn(BlockInitNew.SPROUTED_MUD.get())|| state.isIn(BlockInitNew.LONG_SPROUTED_MUD.get());
     }
 
 
@@ -139,6 +141,11 @@ public class TuberBush extends BushBlock{
             }
         }
 
+    }
+
+    @Override
+    public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
+        return false;
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

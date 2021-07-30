@@ -3,7 +3,6 @@ package com.thefreak.botsmod.init;
 import com.thefreak.botsmod.BotsMod;
 
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 

@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "botsmod:blocks/moldenwood_beam_x_attach",
+		"particle": "botsmod:blocks/moldenwood_beam_x_attach"
+	},
+	"elements": [
+		{
+			"from": [0, 5, 4],
+			"to": [16, 15, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2.5], "texture": "#0"},
+				"east": {"uv": [4, 4, 6, 6.5], "texture": "#0"},
+				"south": {"uv": [0, 2.5, 4, 5], "texture": "#0"},
+				"west": {"uv": [0, 5, 2, 7.5], "texture": "#0"},
+				"up": {"uv": [8, 2, 4, 0], "texture": "#0"},
+				"down": {"uv": [8, 2, 4, 4], "texture": "#0"}
+			}
+		}
+	]
+}

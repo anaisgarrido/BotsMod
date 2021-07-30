@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "botsmod:blocks/moldenwood_beam_x_attach",
+		"particle": "botsmod:blocks/moldenwood_beam_x_attach"
+	},
+	"elements": [
+		{
+			"from": [0, 5, 4],
+			"to": [16, 15, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -1, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2.5], "texture": "#0"},
+				"east": {"uv": [4, 4, 6, 6.5], "texture": "#0"},
+				"south": {"uv": [0, 2.5, 4, 5], "texture": "#0"},
+				"west": {"uv": [0, 5, 2, 7.5], "texture": "#0"},
+				"up": {"uv": [8, 2, 4, 0], "texture": "#0"},
+				"down": {"uv": [8, 2, 4, 4], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, 1, 7],
+			"to": [19, 3, 9],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [16, -1, 0]},
+			"faces": {
+				"north": {"uv": [6, 4, 9.5, 4.5], "texture": "#0"},
+				"east": {"uv": [2, 5, 2.5, 5.5], "texture": "#0"},
+				"south": {"uv": [6, 4.5, 9.5, 5], "texture": "#0"},
+				"west": {"uv": [2.5, 5, 3, 5.5], "texture": "#0"},
+				"up": {"uv": [9.5, 5.5, 6, 5], "texture": "#0"},
+				"down": {"uv": [9.5, 5.5, 6, 6], "texture": "#0"}
+			}
+		}
+	]
+}

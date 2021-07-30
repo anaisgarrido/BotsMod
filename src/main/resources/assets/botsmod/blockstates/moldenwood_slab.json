@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "botsmod:block/moldenwood_slab"
+    },
+    "type=double": {
+      "model": "botsmod:block/moldenwood_planks"
+    },
+    "type=top": {
+      "model": "botsmod:block/moldenwood_slab_top"
+    }
+  }
+}

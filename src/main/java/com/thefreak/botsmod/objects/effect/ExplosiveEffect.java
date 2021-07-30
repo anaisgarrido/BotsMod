@@ -1,6 +1,5 @@
 package com.thefreak.botsmod.objects.effect;
 
-import com.thefreak.botsmod.objects.events.ExplosiveEffectEvent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
@@ -15,4 +14,7 @@ public class ExplosiveEffect extends Effect {
 
         super.performEffect(entityLivingBaseIn, amplifier);
     }
+
+
+
 }

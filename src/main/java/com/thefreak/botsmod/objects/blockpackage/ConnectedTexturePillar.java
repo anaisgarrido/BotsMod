@@ -10,8 +10,6 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
 
 public class ConnectedTexturePillar extends RotatedPillarBlock {
     public static final BooleanProperty C_UP = BooleanProperty.create("c_up");

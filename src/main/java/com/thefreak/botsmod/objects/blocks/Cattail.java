@@ -1,5 +1,6 @@
 package com.thefreak.botsmod.objects.blocks;
 
+import com.thefreak.botsmod.init.BlockInitNew;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -31,6 +32,9 @@ public class Cattail extends DoublePlantBlock{
         super(properties);
 
 
+    }
+    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.isIn(Blocks.GRASS_BLOCK) || state.isIn(Blocks.DIRT) || state.isIn(Blocks.COARSE_DIRT) || state.isIn(Blocks.PODZOL) || state.isIn(Blocks.FARMLAND) || state.isIn(BlockInitNew.WET_MUD_BLOCK1.get()) || state.isIn(BlockInitNew.WET_MUD_BLOCK2.get())|| state.isIn(BlockInitNew.SPROUTED_MUD.get())|| state.isIn(BlockInitNew.LONG_SPROUTED_MUD.get());
     }
 
     @Override

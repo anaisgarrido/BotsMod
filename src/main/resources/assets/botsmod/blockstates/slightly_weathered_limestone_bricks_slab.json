@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "botsmod:block/slightly_weathered_limestone_bricks_slab"
+    },
+    "type=double": {
+      "model": "botsmod:block/slightly_weathered_limestone_bricks"
+    },
+    "type=top": {
+      "model": "botsmod:block/slightly_weathered_limestone_bricks_slab_top"
+    }
+  }
+}

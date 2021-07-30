@@ -4,7 +4,6 @@ import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.objects.items.DreamBerryItem;
 import com.thefreak.botsmod.objects.items.FrucignisFruitItem;
 import com.thefreak.botsmod.objects.items.PiloveFruitItem;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.potion.EffectInstance;
@@ -63,6 +62,11 @@ public class ItemInitNew {
             .group(BotsMod.BotsItemGroup.instance)
             .food(new Food.Builder().hunger(5).saturation(0.5F)
                     .effect(() -> new EffectInstance(Effects.NAUSEA, 600, 3 ), 3).build())));
+
+    public static final RegistryObject<Item> BRUTE_CHALK = ITEMS.register("brute_chalk", () -> new Item(new Item.Properties()
+            .group(BotsMod.BotsItemGroup.instance)
+            .food(new Food.Builder().hunger(0).saturation(1.0F)
+                    .build())));
 
 
 }

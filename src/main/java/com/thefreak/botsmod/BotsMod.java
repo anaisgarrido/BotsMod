@@ -80,6 +80,7 @@ public class BotsMod
         RenderTypeLookup.setRenderLayer(BlockInitNew.LONG_SPROUTED_MUD.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_BUSH.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_CROP.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MOLDENWOOD_DOOR.get(), RenderType.getCutoutMipped());
         ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
     }
 

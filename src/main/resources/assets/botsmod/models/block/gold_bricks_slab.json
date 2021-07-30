@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "botsmod:blocks/gold_bricks_slab",
+    "top": "botsmod:blocks/gold_bricks_slab",
+    "side": "botsmod:blocks/gold_bricks_slab"
+  }
+}

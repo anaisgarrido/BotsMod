@@ -13,4 +13,9 @@ public class GiantTardigradeRender extends GeoEntityRenderer<GiantTardigradeEnti
         super(renderManager, new GiantTardigradeModel());
         this.shadowSize = 4F;
     }
+
+    @Override
+    protected float getDeathMaxRotation(GiantTardigradeEntity entityLivingBaseIn) {
+        return 0F;
+    }
 }

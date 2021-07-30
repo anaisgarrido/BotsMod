@@ -2,21 +2,20 @@ package com.thefreak.botsmod.init;
 
 import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.objects.blockpackage.ConnectedTexturePillar;
-import com.thefreak.botsmod.objects.blockpackage.FallingBushBlock;
+import com.thefreak.botsmod.objects.blockpackage.ConnectedWoodBeam;
+import com.thefreak.botsmod.objects.blockpackage.HeatBlock;
 import com.thefreak.botsmod.objects.blockpackage.SustainablePlantType;
 import com.thefreak.botsmod.objects.blocks.*;
 
-import com.thefreak.botsmod.util.ModdedMaterials;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.client.audio.Sound;
-import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.rmi.registry.Registry;
+import java.awt.*;
+
 
 public class BlockInitNew {
 
@@ -216,5 +215,122 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> TUBER_BUSH = BLOCKS.register("tuber_bush", () -> new TuberBush(AbstractBlock.Properties.create(Material.TALL_PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.25F, 0F).notSolid().tickRandomly()));
 
+	public static final RegistryObject<Block> TUBER_LOG = BLOCKS.register("tuber_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F, 0.5F).notSolid().tickRandomly()));
+
+	public static final RegistryObject<Block> STRIPPED_TUBER_LOG = BLOCKS.register("stripped_tuber_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F, 0.5F).notSolid().tickRandomly()));
+
+	public static final RegistryObject<Block> TUBER_PLANKS = BLOCKS.register("tuber_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2F, 0.5F).notSolid().tickRandomly()));
+
+	public static final RegistryObject<Block> LIMESTONE = BLOCKS.register("limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> LIMESTONE_SLAB = BLOCKS.register("limestone_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+	public static final RegistryObject<Block> LIMESTONE_STAIRS = BLOCKS.register("limestone_stairs", () -> new StairsBlock(LIMESTONE.get().getDefaultState(), AbstractBlock.Properties.from(LIMESTONE.get())));
+
+
+	public static final RegistryObject<Block> LIMESTONE_BRICKS = BLOCKS.register("limestone_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> LIMESTONE_BRICKS_SLAB = BLOCKS.register("limestone_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+	public static final RegistryObject<Block> LIMESTONE_BRICKS_STAIRS = BLOCKS.register("limestone_bricks_stairs", () -> new StairsBlock(LIMESTONE_BRICKS.get().getDefaultState(), AbstractBlock.Properties.from(LIMESTONE_BRICKS.get())));
+
+
+	public static final RegistryObject<Block> LIMESTONE_PILLAR = BLOCKS.register("limestone_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> COBBLED_LIMESTONE = BLOCKS.register("cobbled_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> LIMESTONE_TILES = BLOCKS.register("limestone_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> POLISHED_LIMESTONE = BLOCKS.register("polished_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> SMOOTH_LIMESTONE = BLOCKS.register("smooth_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 6.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESOTNE = BLOCKS.register("slightly_weathered_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+    public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESOTNE_SLAB = BLOCKS.register("slightly_weathered_limestone_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESTONE_STAIRS = BLOCKS.register("slightly_weathered_limestone_stairs", () -> new StairsBlock(SLIGHTLY_WEATHERED_LIMESOTNE.get().getDefaultState(), AbstractBlock.Properties.from(SLIGHTLY_WEATHERED_LIMESOTNE.get())));
+
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESOTNE_BRICKS = BLOCKS.register("slightly_weathered_limestone_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+    public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESOTNE_BRICKS_SLAB = BLOCKS.register("slightly_weathered_limestone_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESTONE_BRICKS_STAIRS = BLOCKS.register("slightly_weathered_limestone_bricks_stairs", () -> new StairsBlock(SLIGHTLY_WEATHERED_LIMESOTNE_BRICKS.get().getDefaultState(), AbstractBlock.Properties.from(SLIGHTLY_WEATHERED_LIMESOTNE_BRICKS.get())));
+
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESOTNE_TILES = BLOCKS.register("slightly_weathered_limestone_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_SMOOTH_LIMESOTNE = BLOCKS.register("slightly_weathered_smooth_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_POLISHED_LIMESOTNE = BLOCKS.register("slightly_weathered_polished_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_COBBLED_LIMESOTNE = BLOCKS.register("slightly_weathered_cobbled_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> SLIGHTLY_WEATHERED_LIMESOTNE_PILLAR = BLOCKS.register("slightly_weathered_limestone_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 4.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_LIMESOTNE = BLOCKS.register("weathered_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+    public static final RegistryObject<Block> WEATHERED_LIMESOTNE_SLAB = BLOCKS.register("weathered_limestone_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_LIMESTONE_STAIRS = BLOCKS.register("weathered_limestone_stairs", () -> new StairsBlock(WEATHERED_LIMESOTNE.get().getDefaultState(), AbstractBlock.Properties.from(WEATHERED_LIMESOTNE.get())));
+
+
+	public static final RegistryObject<Block> WEATHERED_LIMESOTNE_BRICKS = BLOCKS.register("weathered_limestone_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+    public static final RegistryObject<Block> WEATHERED_LIMESOTNE_BRICKS_SLAB = BLOCKS.register("weathered_limestone_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_LIMESTONE_BRICKS_STAIRS = BLOCKS.register("weathered_limestone_bricks_stairs", () -> new StairsBlock(WEATHERED_LIMESOTNE_BRICKS.get().getDefaultState(), AbstractBlock.Properties.from(WEATHERED_LIMESOTNE_BRICKS.get())));
+
+
+	public static final RegistryObject<Block> WEATHERED_LIMESOTNE_TILES = BLOCKS.register("weathered_limestone_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_SMOOTH_LIMESOTNE = BLOCKS.register("weathered_smooth_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_POLISHED_LIMESOTNE = BLOCKS.register("weathered_polished_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_COBBLED_LIMESOTNE = BLOCKS.register("weathered_cobbled_limestone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> WEATHERED_LIMESOTNE_PILLAR = BLOCKS.register("weathered_limestone_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F, 2.0F)));
+
+	public static final RegistryObject<Block> MOLDENWOOD_LOG = BLOCKS.register("moldenwood_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F)));
+
+	public static final RegistryObject<Block> MOLDENWOOD_PLANKS = BLOCKS.register("moldenwood_planks", () -> new Block(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F)));
+
+	public static final RegistryObject<Block> MOLDENWOOD_SLAB = BLOCKS.register("moldenwood_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F)));
+
+	public static final RegistryObject<Block> MOLDENWOOD_STAIRS = BLOCKS.register("moldenwood_stairs", () -> new StairsBlock(MOLDENWOOD_PLANKS.get().getDefaultState(), AbstractBlock.Properties.from(MOLDENWOOD_PLANKS.get())));
+
+    public static final RegistryObject<Block> MOLDENWOOD_BEAM = BLOCKS.register("moldenwood_beam", () -> new ConnectedWoodBeam(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F).notSolid()));
+
+	public static final RegistryObject<Block> MOLDENWOOD_DOOR = BLOCKS.register("moldenwood_door", () -> new DoorBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2F).notSolid()));
+
+	public static final RegistryObject<Block> MOLDENWOOD_TRAPDOOR = BLOCKS.register("moldenwood_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2F).notSolid()));
+
+	public static final RegistryObject<Block> STRIPPED_MOLDENWOOD_LOG = BLOCKS.register("stripped_moldenwood_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F)));
+
+	public static final RegistryObject<Block> DARK_PEGMATITE_STONE = BLOCKS.register("dark_pegmatite_stone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> DARK_PEGMATITE_STONE_BRICKS = BLOCKS.register("dark_pegmatite_stone_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> DARK_PEGMATITE_STONE_TILES = BLOCKS.register("dark_pegmatite_stone_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> DARK_PEGMATITE_STONE_VERTICAL_BRICKS = BLOCKS.register("dark_pegmatite_stone_vertical_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> DARK_PEGMATITE_STONE_PILLAR = BLOCKS.register("dark_pegmatite_stone_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2F,4F)));
+
+	public static final RegistryObject<Block> CHALK_ORE = BLOCKS.register("chalk_ore", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(2.5F,1F)));
+
+	public static final RegistryObject<Block> CHALK_BLOCK = BLOCKS.register("chalk_block", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).sound(SoundType.BONE).hardnessAndResistance(1F,1F)));
+
+	public static final RegistryObject<Block> GOLD_BRICKS = BLOCKS.register("gold_bricks", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+
+	public static final RegistryObject<Block> GOLD_BRICKS_SLAB = BLOCKS.register("gold_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+
+	public static final RegistryObject<Block> POLISHED_GOLD_BLOCK = BLOCKS.register("polished_gold_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+
+	public static final RegistryObject<Block> CHISELED_GOLD_BLOCK = BLOCKS.register("chiseled_gold_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+
+	public static final RegistryObject<Block> GOLD_PILLAR = BLOCKS.register("gold_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
 
 }

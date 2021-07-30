@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/weathered_polished_limestone",
+        "side": "botsmod:blocks/weathered_limestone_pillar_middle"
+    }
+}

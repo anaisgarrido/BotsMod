@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/polished_gold_block",
+        "side": "botsmod:blocks/gold_pillar_middle"
+    }
+}

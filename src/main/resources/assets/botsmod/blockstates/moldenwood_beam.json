@@ -1,0 +1,11 @@
+{
+    "variants": {
+            "axis=y,attach=false":  { "model": "botsmod:block/moldenwood_beam_y" },
+            "axis=y,attach=true":  { "model": "botsmod:block/moldenwood_beam_y_attach" },
+
+            "axis=z":   { "model": "botsmod:block/moldenwood_beam_x", "y": 90 },
+            "axis=x":   { "model": "botsmod:block/moldenwood_beam_x"}
+
+
+    }
+}

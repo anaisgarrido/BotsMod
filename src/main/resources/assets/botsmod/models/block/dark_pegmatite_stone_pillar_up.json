@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/dark_pegmatite_stone",
+        "side": "botsmod:blocks/dark_pegmatite_stone_pillar_top"
+    }
+}
