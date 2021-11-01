@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "botsmod:blocks/brimstone",
+    "top": "botsmod:blocks/brimstone",
+    "side": "botsmod:blocks/brimstone"
+  }
+}

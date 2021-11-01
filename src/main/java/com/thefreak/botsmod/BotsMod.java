@@ -43,8 +43,8 @@ public class BotsMod
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
         EffectInitNew.EFFECTS.register(modEventBus);
-    	BlockInitNew.BLOCKS.register(modEventBus);
         ItemInitNew.ITEMS.register(modEventBus);
+    	BlockInitNew.BLOCKS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
     	ModEntityTypes.ENTITY.register(modEventBus);
@@ -81,6 +81,8 @@ public class BotsMod
         RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_BUSH.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_CROP.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.MOLDENWOOD_DOOR.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.AUTUMN_TREE_LEAVES.get(), RenderType.getCutoutMipped());
+
         ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
     }
 

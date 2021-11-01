@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "botsmod:blocks/shale_rock",
+    "top": "botsmod:blocks/shale_rock",
+    "side": "botsmod:blocks/shale_rock"
+  }
+}

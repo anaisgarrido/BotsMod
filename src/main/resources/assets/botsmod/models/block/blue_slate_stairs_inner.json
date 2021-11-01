@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "botsmod:blocks/blue_slate",
+    "top": "botsmod:blocks/blue_slate",
+    "side": "botsmod:blocks/blue_slate"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "botsmod:blocks/cobbled_oily_shale_rock",
+    "top": "botsmod:blocks/cobbled_oily_shale_rock",
+    "side": "botsmod:blocks/cobbled_oily_shale_rock"
+  }
+}

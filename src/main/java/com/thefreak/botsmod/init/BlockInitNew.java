@@ -333,4 +333,146 @@ public class BlockInitNew {
 
 	public static final RegistryObject<Block> GOLD_PILLAR = BLOCKS.register("gold_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
 
+	public static final RegistryObject<Block> BRIMSTONE = BLOCKS.register("brimstone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SLIGHTLY_RUSTED_BRIMSTONE = BLOCKS.register("slightly_rusted_brimstone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> RUSTED_BRIMSTONE = BLOCKS.register("rusted_brimstone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SULFURIC_DIRT = BLOCKS.register("sulfuric_dirt", () -> new Block(AbstractBlock.Properties.create(Material.GOURD, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+	public static final RegistryObject<Block> EMPTY_SULFURIC_DIRT = BLOCKS.register("empty_sulfuric_dirt", () -> new Block(AbstractBlock.Properties.create(Material.GOURD, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+	public static final RegistryObject<Block> SULFUR_ORE = BLOCKS.register("sulfur_ore", () -> new Block(AbstractBlock.Properties.create(Material.GOURD, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+	public static final RegistryObject<Block> BRIMSTONE_BRICKS = BLOCKS.register("brimstone_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> POLISHED_BRIMSTONE = BLOCKS.register("polished_brimstone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> CHISELED_BRIMSTONE = BLOCKS.register("chiseled_brimstone", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BRIMSTONE_PILLAR = BLOCKS.register("brimstone_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BRIMSTONE_STAIRS = BLOCKS.register("brimstone_stairs", () -> new StairsBlock(BRIMSTONE.get().getDefaultState(), AbstractBlock.Properties.from(BRIMSTONE.get())));
+
+	public static final RegistryObject<Block> BRIMSTONE_SLAB = BLOCKS.register("brimstone_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BRIMSTONE_BRICKS_STAIRS = BLOCKS.register("brimstone_bricks_stairs", () -> new StairsBlock(BRIMSTONE.get().getDefaultState(), AbstractBlock.Properties.from(BRIMSTONE.get())));
+
+	public static final RegistryObject<Block> BRIMSTONE_BRICKS_SLAB = BLOCKS.register("brimstone_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.GRAY).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE = BLOCKS.register("blue_slate", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_SLAB = BLOCKS.register("blue_slate_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_STAIRS = BLOCKS.register("blue_slate_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> BLUE_SLATE_BRICKS = BLOCKS.register("blue_slate_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_BRICKS_SLAB = BLOCKS.register("blue_slate_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_BRICKS_STAIRS = BLOCKS.register("blue_slate_bricks_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> SLIGHTLY_DIRTY_BLUE_SLATE_BRICKS = BLOCKS.register("slightly_dirty_blue_slate_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SLIGHTLY_DIRTY_BLUE_SLATE_BRICKS_SLAB = BLOCKS.register("slightly_dirty_blue_slate_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SLIGHTLY_DIRTY_BLUE_SLATE_BRICKS_STAIRS = BLOCKS.register("slightly_dirty_blue_slate_bricks_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> DIRTY_BLUE_SLATE_BRICKS = BLOCKS.register("dirty_blue_slate_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DIRTY_BLUE_SLATE_BRICKS_SLAB = BLOCKS.register("dirty_blue_slate_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DIRTY_BLUE_SLATE_BRICKS_STAIRS = BLOCKS.register("dirty_blue_slate_bricks_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> CHISELED_BLUE_SLATE = BLOCKS.register("chiseled_blue_slate", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> POLISHED_BLUE_SLATE = BLOCKS.register("polished_blue_slate", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_TILES = BLOCKS.register("blue_slate_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_TILES_SLAB = BLOCKS.register("blue_slate_tiles_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> BLUE_SLATE_TILES_STAIRS = BLOCKS.register("blue_slate_tiles_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> SLIGHTLY_DIRTY_BLUE_SLATE_TILES = BLOCKS.register("slightly_dirty_blue_slate_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SLIGHTLY_DIRTY_BLUE_SLATE_TILES_SLAB = BLOCKS.register("slightly_dirty_blue_slate_tiles_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SLIGHTLY_DIRTY_BLUE_SLATE_TILES_STAIRS = BLOCKS.register("slightly_dirty_blue_slate_tiles_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> DIRTY_BLUE_SLATE_TILES = BLOCKS.register("dirty_blue_slate_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DIRTY_BLUE_SLATE_TILES_SLAB = BLOCKS.register("dirty_blue_slate_tiles_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DIRTY_BLUE_SLATE_TILES_STAIRS = BLOCKS.register("dirty_blue_slate_tiles_stairs", () -> new StairsBlock(BLUE_SLATE.get().getDefaultState(), AbstractBlock.Properties.from(BLUE_SLATE.get())));
+
+	public static final RegistryObject<Block> BLUE_SLATE_PILLAR = BLOCKS.register("blue_slate_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+
+    public static final RegistryObject<Block> SHALE_ROCK = BLOCKS.register("shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SHALE_ROCK_SLAB = BLOCKS.register("shale_rock_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SHALE_ROCK_STAIRS = BLOCKS.register("shale_rock_stairs", () -> new StairsBlock(SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> COBBLED_SHALE_ROCK = BLOCKS.register("cobbled_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> COBBLED_SHALE_ROCK_SLAB = BLOCKS.register("cobbled_shale_rock_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> COBBLED_SHALE_ROCK_STAIRS = BLOCKS.register("cobbled_shale_rock_stairs", () -> new StairsBlock(SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(SHALE_ROCK.get())));
+
+    public static final RegistryObject<Block> SHALE_ROCK_BRICKS = BLOCKS.register("shale_rock_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SHALE_ROCK_BRICKS_SLAB = BLOCKS.register("shale_rock_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> SHALE_ROCK_BRICKS_STAIRS = BLOCKS.register("shale_rock_bricks_stairs", () -> new StairsBlock(SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(SHALE_ROCK.get())));
+
+    public static final RegistryObject<Block> POLISHED_SHALE_ROCK = BLOCKS.register("polished_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> CHISELED_SHALE_ROCK = BLOCKS.register("chiseled_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> SHALE_ROCK_PILLAR = BLOCKS.register("shale_rock_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK = BLOCKS.register("oily_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK_SLAB = BLOCKS.register("oily_shale_rock_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK_STAIRS = BLOCKS.register("oily_shale_rock_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> COBBLED_OILY_SHALE_ROCK = BLOCKS.register("cobbled_oily_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> COBBLED_OILY_SHALE_ROCK_SLAB = BLOCKS.register("cobbled_oily_shale_rock_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> COBBLED_OILY_SHALE_ROCK_STAIRS = BLOCKS.register("cobbled_oily_shale_rock_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK_BRICKS = BLOCKS.register("oily_shale_rock_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK_BRICKS_SLAB = BLOCKS.register("oily_shale_rock_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK_BRICKS_STAIRS = BLOCKS.register("oily_shale_rock_bricks_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> POLISHED_OILY_SHALE_ROCK = BLOCKS.register("polished_oily_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> CHISELED_OILY_SHALE_ROCK = BLOCKS.register("chiseled_oily_shale_rock", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> OILY_SHALE_ROCK_PILLAR = BLOCKS.register("oily_shale_rock_pillar", () -> new ConnectedTexturePillar(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+
+	public static final RegistryObject<Block> AUTUMN_TREE_LOG = BLOCKS.register("autumn_tree_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F)));
+
+	public static final RegistryObject<Block> STRIPPED_AUTUMN_TREE_LOG = BLOCKS.register("stripped_autumn_tree_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2.0F, 2.0F)));
+
+	public static final RegistryObject<Block> AUTUMN_TREE_PLANKS = BLOCKS.register("autumn_tree_planks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> AUTUMN_TREE_LEAVES = BLOCKS.register("autumn_tree_leaves", () -> new Block(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.PLANT).hardnessAndResistance(0.5F, 0F).notSolid()));
+
+	public static final RegistryObject<Block> DEAD_AUTUMN_GRASS_BLOCK = BLOCKS.register("dead_autumn_grass_block", () -> new Block(AbstractBlock.Properties.create(Material.EARTH, MaterialColor.BROWN_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+	public static final RegistryObject<Block> BROWN_OCHER_DIRT = BLOCKS.register("brown_ocher_dirt", () -> new Block(AbstractBlock.Properties.create(Material.EARTH, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+	public static final RegistryObject<Block> ROOTED_BROWN_OCHER_DIRT = BLOCKS.register("rooted_brown_ocher_dirt", () -> new Block(AbstractBlock.Properties.create(Material.EARTH, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+
 }

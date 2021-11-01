@@ -21,7 +21,7 @@ modId="botsmod" #mandatory
 version="${file.jarVersion}" #mandatory
  
 
-displayName="Bane Of The Seekers Mod" #mandatory
+displayName="Bane Of The Souls" #mandatory
 
 
 displayURL="http://example.com/" #optional
@@ -30,17 +30,21 @@ displayURL="http://example.com/" #optional
 logoFile="examplemod.png" #optional
 
 
-credits="Tanks to TurtyWurty, Creator: Th3Fr3ak , " #optional
+credits="Creator: Th3Fr3ak , " #optional
 
 
 authors="Th3Fr3ak" #optional
 
 
 description='''
-Bane Of The Seekers yes.... I have been waiting for someone, all of those years.... You are here now Finally Someone to save us from him.
-A dimension hiden for long and long.... I will tell you This is the most ancient of the dimension did you ever thinked where dose the Bedrock come from . . . Here Try this new dimension you will see ! 
+Bane Of The Souls yes.... A long time ago the nether was a beneath world , a world only populated by many greenish feature , same complexity as the 'Overworld' just sometime a little bit more twisted , That twist was caused by 3 primal Crystals mainly called by the name ('(Delta, Eldritch, Heat)'Those are called primordial crystal cause they were the first, and so same as the plant , they evolved)
+                          Every form of life on this Strange place was evolved to be able to live in those caverns, some emitted light, some hided from the light , and well some denied the light.
+                          Those many forms of evolution leaded to a new type of Fauna and Flora, many concept were created by many evolved forms of life , At this point they were more evolved then a current villager or player , in their own ways .
+                          But this verdish place , took a bad turn , many forms of life empty their souls and banished them, to gain more power over some, forcing them to do the same, rare were the survivors , they just evolved in their new hellish environment and became many of the creatures we see in the nether now .
 
-Thanks to TurtyWurty For he's tutorials that made me try to make this mod And thanks for some ideas of he's community !
+                          Good thing tho since i made that the player can go back to the old dimension now called The Banned Lands
+                          With the help of the time Goddess Krasía (Pronunciation: [Kræshïa]) , you'll be able to know how to achieve this journey to The Banned Lands, defeating the gate keeper and creating a way to The Banned Lands to find out what this new dimension can offer you .
+
 
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.

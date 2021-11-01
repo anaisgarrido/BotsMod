@@ -44,9 +44,6 @@ public class ItemInit
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event)
 	{
-			event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.TOOLS).maxStackSize(1)).setRegistryName("chisel"));
-			event.getRegistry().register(new Item(new Item.Properties().group(BotsItemGroup.instance).food(new Food.Builder().hunger(7).saturation(1.3f).setAlwaysEdible().effect(new EffectInstance(Effects.HASTE, 100, 5), 0.5f).build())).setRegistryName("long_root"));
-			event.getRegistry().register(new Item(new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("dry_wood_stick"));
 			event.getRegistry().register(new Item(new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade"));
 			
 			//tools

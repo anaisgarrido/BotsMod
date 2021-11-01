@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/polished_shale_rock",
+        "side": "botsmod:blocks/shale_rock_pillar_middle"
+    }
+}

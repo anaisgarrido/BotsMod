@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/polished_blue_slate",
+        "side": "botsmod:blocks/blue_slate_pillar_top"
+    }
+}

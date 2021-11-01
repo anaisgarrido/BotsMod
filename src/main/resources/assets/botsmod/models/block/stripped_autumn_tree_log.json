@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/stripped_autumn_tree_log_top",
+        "side": "botsmod:blocks/stripped_autumn_tree_log_side"
+    }
+}

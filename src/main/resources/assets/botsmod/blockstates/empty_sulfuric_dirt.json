@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "":  { "model": "botsmod:block/empty_sulfuric_dirt" }
+
+    }
+}
