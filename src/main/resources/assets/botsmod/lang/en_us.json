@@ -124,6 +124,9 @@
 
 	"effect.botsmod.explosive_effect": "Explosive",
 	"effect.botsmod.mogrove_toxins": "Mogrove Toxins",
-	
+	"effect.botsmod.possesion_effect": "Possesion",
+
+	"entity.botsmod.wandering_specter": "Wandering Specter",
+
 	"itemGroup.botstab": "Bane Of The Souls"
 }

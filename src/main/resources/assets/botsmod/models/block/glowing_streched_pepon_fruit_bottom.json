@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/orientable",
+    "textures": {
+        "top": "botsmod:blocks/streched_pepon_fruit_bottom_texture",
+        "front": "botsmod:blocks/glowing_streched_pepon_fruit_face_texture",
+        "side": "botsmod:blocks/streched_pepon_fruit_side_texture"
+    }
+}

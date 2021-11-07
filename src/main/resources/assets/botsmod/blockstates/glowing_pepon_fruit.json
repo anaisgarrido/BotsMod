@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "botsmod:block/glowing_pepon_fruit",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "botsmod:block/glowing_pepon_fruit"
+        },
+        "facing=south": {
+            "model": "botsmod:block/glowing_pepon_fruit",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "botsmod:block/glowing_pepon_fruit",
+            "y": 270
+        }
+    }
+}

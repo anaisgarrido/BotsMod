@@ -1,6 +1,8 @@
 package com.thefreak.botsmod;
 
+import com.thefreak.botsmod.entities.BansheeScreamEntity;
 import com.thefreak.botsmod.entities.GiantTardigradeEntity;
+import com.thefreak.botsmod.entities.WanderingSpecterEntity;
 import com.thefreak.botsmod.init.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -59,6 +61,9 @@ public class BotsMod
     {
         event.enqueueWork(() -> {
             GlobalEntityTypeAttributes.put(ModEntityTypes.GIANT_TARDIGRADE.get(), GiantTardigradeEntity.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.WANDERING_SPECTER.get(), WanderingSpecterEntity.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.BANSHEE_SCREAM.get(), BansheeScreamEntity.setCustomAttributes().create());
+
         });
     }
 
@@ -82,6 +87,19 @@ public class BotsMod
         RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_CROP.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.MOLDENWOOD_DOOR.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockInitNew.AUTUMN_TREE_LEAVES.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.STRECHED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_STRECHED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_STRECHED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_GROWTH.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_HALF_GROWN.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_SPROUT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_TINY_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_TINY_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+
 
         ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
     }

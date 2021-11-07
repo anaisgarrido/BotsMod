@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/tinted_cross",
+    "textures": {
+        "cross": "botsmod:blocks/tiny_pepon_fruit_sprout_bottom"
+    }
+}

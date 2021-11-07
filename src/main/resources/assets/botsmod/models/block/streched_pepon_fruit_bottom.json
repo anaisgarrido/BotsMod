@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/streched_pepon_fruit_bottom_texture",
+        "up": "botsmod:blocks/streched_pepon_fruit_top_texture",
+        "side": "botsmod:blocks/streched_pepon_fruit_side_texture"
+    }
+}

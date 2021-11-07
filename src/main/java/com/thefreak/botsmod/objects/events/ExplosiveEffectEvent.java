@@ -28,14 +28,11 @@ public class ExplosiveEffectEvent {
     }
     @SubscribeEvent
     public static void testEvent(LivingDeathEvent event) {
-        System.out.println("DIED !");
         LivingEntity livingEntity = event.getEntityLiving();
         World world = livingEntity.getEntityWorld();
 
         if (entityHasEffect(livingEntity, EffectInitNew.EXPLOSIVE_EFFECT.get())) {
-            System.out.println("EXPLODE !");
-            System.out.println(livingEntity.getActivePotionEffects().contains(new EffectInstance(EffectInitNew.EXPLOSIVE_EFFECT.get())));
-            world.createExplosion(livingEntity, livingEntity.lastTickPosX, livingEntity.lastTickPosY, livingEntity.lastTickPosZ, 4.0F, false, Explosion.Mode.BREAK);
+          world.createExplosion(livingEntity, livingEntity.lastTickPosX, livingEntity.lastTickPosY, livingEntity.lastTickPosZ, 4.0F, false, Explosion.Mode.BREAK);
         }
     }
 }

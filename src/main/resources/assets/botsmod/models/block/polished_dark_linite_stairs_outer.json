@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "botsmod:blocks/polished_dark_linite",
+    "top": "botsmod:blocks/polished_dark_linite",
+    "side": "botsmod:blocks/polished_dark_linite"
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "variants": {
+        "facing=east,half=upper": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_top",
+            "y": 90
+        },
+        "facing=north,half=upper": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_top"
+        },
+        "facing=south,half=upper": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_top",
+            "y": 180
+        },
+        "facing=west,half=upper": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_top",
+            "y": 270
+        },"facing=east,half=lower": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_bottom",
+            "y": 90
+        },
+        "facing=north,half=lower": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_bottom"
+        },
+        "facing=south,half=lower": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_bottom",
+            "y": 180
+        },
+        "facing=west,half=lower": {
+            "model": "botsmod:block/carved_streched_pepon_fruit_bottom",
+            "y": 270
+        }
+    }
+}

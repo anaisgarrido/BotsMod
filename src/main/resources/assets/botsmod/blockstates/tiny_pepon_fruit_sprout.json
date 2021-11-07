@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "half=lower": {
+            "model": "botsmod:block/tiny_pepon_fruit_sprout_bottom"
+        },
+        "half=upper,pumpkin=true": {
+            "model": "botsmod:block/tiny_pepon_fruit_sprout_top_pumpkin"
+        },
+        "half=upper,pumpkin=false": {
+            "model": "botsmod:block/tiny_pepon_fruit_sprout_top"
+        }
+    }
+}

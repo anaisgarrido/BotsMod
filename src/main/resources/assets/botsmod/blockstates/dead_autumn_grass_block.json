@@ -1,6 +1,6 @@
 {
     "variants": {
-        "":  { "model": "botsmod:block/dead_autumn_grass_block" }
+        "":  [ { "model": "botsmod:block/dead_autumn_grass_block" }, { "model": "botsmod:block/dead_autumn_grass_block2" },{ "model": "botsmod:block/dead_autumn_grass_block" },{ "model": "botsmod:block/dead_autumn_grass_block" },{ "model": "botsmod:block/dead_autumn_grass_block" } ]
 
     }
 }

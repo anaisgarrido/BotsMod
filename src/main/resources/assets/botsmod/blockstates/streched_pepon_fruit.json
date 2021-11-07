@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "half=lower": {
+            "model": "botsmod:block/streched_pepon_fruit_bottom"
+        },
+        "half=upper": {
+            "model": "botsmod:block/streched_pepon_fruit_top"
+        }
+    }
+}

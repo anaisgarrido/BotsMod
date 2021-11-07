@@ -7,6 +7,7 @@ import com.thefreak.botsmod.objects.blockpackage.HeatBlock;
 import com.thefreak.botsmod.objects.blockpackage.SustainablePlantType;
 import com.thefreak.botsmod.objects.blocks.*;
 
+import com.thefreak.botsmod.objects.blocks.pumpkins.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -473,6 +474,64 @@ public class BlockInitNew {
 	public static final RegistryObject<Block> BROWN_OCHER_DIRT = BLOCKS.register("brown_ocher_dirt", () -> new Block(AbstractBlock.Properties.create(Material.EARTH, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
 
 	public static final RegistryObject<Block> ROOTED_BROWN_OCHER_DIRT = BLOCKS.register("rooted_brown_ocher_dirt", () -> new Block(AbstractBlock.Properties.create(Material.EARTH, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.GROUND)));
+
+
+	public static final RegistryObject<Block> DARK_LINITE = BLOCKS.register("dark_linite", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DARK_LINITE_SLAB = BLOCKS.register("dark_linite_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DARK_LINITE_STAIRS = BLOCKS.register("dark_linite_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> DARK_LINITE_BRICKS = BLOCKS.register("dark_linite_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DARK_LINITE_BIRKCS_SLAB = BLOCKS.register("dark_linite_bricks_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DARK_LINITE_BRICKS_STAIRS = BLOCKS.register("dark_linite_bricks_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> DARK_LINITE_TILES = BLOCKS.register("dark_linite_tiles", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DARK_LINITE_TILES_SLAB = BLOCKS.register("dark_linite_tiles_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> DARK_LINITE_TILES_STAIRS = BLOCKS.register("dark_linite_tiles_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+	public static final RegistryObject<Block> POLISHED_DARK_LINITE = BLOCKS.register("polished_dark_linite", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLUE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> POLISHED_DARK_LINITE_SLAB = BLOCKS.register("polished_dark_linite_slab", () -> new SlabBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.ORANGE_TERRACOTTA).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.STONE)));
+
+	public static final RegistryObject<Block> POLISHED_DARK_LINITE_STAIRS = BLOCKS.register("polished_dark_linite_stairs", () -> new StairsBlock(OILY_SHALE_ROCK.get().getDefaultState(), AbstractBlock.Properties.from(OILY_SHALE_ROCK.get())));
+
+
+	public static final RegistryObject<Block> PEPON_FRUIT = BLOCKS.register("pepon_fruit", () -> new PeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> CARVED_PEPON_FRUIT = BLOCKS.register("carved_pepon_fruit", () -> new CarvedPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> GLOWING_PEPON_FRUIT = BLOCKS.register("glowing_pepon_fruit", () -> new CarvedPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid().setLightLevel((state) -> {
+		return 15;
+	})));
+
+
+	public static final RegistryObject<Block> STRECHED_PEPON_FRUIT = BLOCKS.register("streched_pepon_fruit", () -> new StrechedPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> CARVED_STRECHED_PEPON_FRUIT = BLOCKS.register("carved_streched_pepon_fruit", () -> new CarvedStrechedPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> GLOWING_STRECHED_PEPON_FRUIT = BLOCKS.register("glowing_streched_pepon_fruit", () -> new CarvedStrechedPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid().setLightLevel((state) -> {
+		return 15;
+	})));
+
+
+	public static final RegistryObject<Block> TINY_PEPON_FRUIT_SPROUT = BLOCKS.register("tiny_pepon_fruit_sprout", () -> new TinyPeponFruitSprout(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.WET_GRASS).hardnessAndResistance(1F, 1F).notSolid().doesNotBlockMovement().tickRandomly()));
+
+	public static final RegistryObject<Block> TINY_PEPON_FRUIT_GROWTH = BLOCKS.register("tiny_pepon_fruit_growth", () -> new TinyPeponFruitGrowth(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> TINY_PEPON_FRUIT_HALF_GROWN = BLOCKS.register("tiny_pepon_fruit_half_grown", () -> new TinyPeponFruitHalfGrown(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> TINY_PEPON_FRUIT = BLOCKS.register("tiny_pepon_fruit", () -> new TinyPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> CARVED_TINY_PEPON_FRUIT = BLOCKS.register("carved_tiny_pepon_fruit", () -> new CarvedTinyPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid()));
+
+	public static final RegistryObject<Block> GLOWING_TINY_PEPON_FRUIT = BLOCKS.register("glowing_tiny_pepon_fruit", () -> new CarvedTinyPeponFruit(AbstractBlock.Properties.create(Material.ORGANIC).sound(SoundType.SHROOMLIGHT).hardnessAndResistance(1F, 1F).notSolid().setLightLevel((state) -> {
+		return 8;
+	})));
 
 
 }

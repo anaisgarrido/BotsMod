@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "botsmod:block/polished_dark_linite_slab"
+    },
+    "type=double": {
+      "model": "botsmod:block/polished_dark_linite"
+    },
+    "type=top": {
+      "model": "botsmod:block/polished_dark_linite_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "botsmod:block/dark_linite_tiles_slab"
+    },
+    "type=double": {
+      "model": "botsmod:block/dark_linite_tiles"
+    },
+    "type=top": {
+      "model": "botsmod:block/dark_linite_tiles_slab_top"
+    }
+  }
+}
