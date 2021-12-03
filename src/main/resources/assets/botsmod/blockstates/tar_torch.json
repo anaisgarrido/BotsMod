@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "lighted=false": [
+            { "model": "botsmod:block/tar_torch" }
+        ],
+        "lighted=true": [
+            { "model": "botsmod:block/tar_torch_lighted" }
+        ]
+    }
+}

@@ -11,8 +11,8 @@ public class MogroveToxinsEffect extends Effect {
     }
 
     @Override
-    public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
+    public void applyEffectTick(LivingEntity entityLivingBaseIn, int amplifier) {
 
-        super.performEffect(entityLivingBaseIn, amplifier);
+        super.applyEffectTick(entityLivingBaseIn, amplifier);
     }
 }

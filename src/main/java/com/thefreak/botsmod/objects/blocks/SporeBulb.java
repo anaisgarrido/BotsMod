@@ -15,19 +15,21 @@ import org.lwjgl.system.CallbackI;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SporeBulb extends BushBlock implements IGrowable {
-    public static VoxelShape SHAPE = Block.makeCuboidShape(0,2,0,16,15,16);
+    public static VoxelShape SHAPE = Block.box(0,2,0,16,15,16);
     public SporeBulb(Properties properties) {
         super(properties);
     }
 
 
     @Override
-    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+    public void fallOn(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
         if (entityIn.isSuppressingBounce()) {
-            entityIn.onLivingFall(fallDistance, 0.0F);
+            entityIn.causeFallDamage(fallDistance, 0.0F);
         } else {
-            super.onFallenUpon(worldIn, pos, entityIn, fallDistance);
+            super.fallOn(worldIn, pos, entityIn, fallDistance);
         }
     }
 
@@ -37,17 +39,17 @@ public class SporeBulb extends BushBlock implements IGrowable {
     }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return false;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return false;
     }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 
     }
 }

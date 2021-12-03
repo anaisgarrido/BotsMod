@@ -16,20 +16,22 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SporianMangroveTreeLog extends RotatedPillarBlock {
     public SporianMangroveTreeLog(Properties properties) {
         super(properties);
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        ItemStack HeldItemIn = player.getHeldItem(handIn);
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        ItemStack HeldItemIn = player.getItemInHand(handIn);
         if (HeldItemIn.getItem() instanceof AxeItem  ) {
-        worldIn.setBlockState(pos, BlockInitNew.STRIPPED_SPORIAN_MANGROVE_TREE_LOG.get().getDefaultState());
-        worldIn.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1F, 1F);
-        spawnAsEntity(worldIn,pos, new ItemStack(ItemInitNew.SPORIAN_MANGROVE_TREE_BARK.get(), 1));
+        worldIn.setBlockAndUpdate(pos, BlockInitNew.STRIPPED_SPORIAN_MANGROVE_TREE_LOG.get().defaultBlockState());
+        worldIn.playSound(player, pos, SoundEvents.AXE_STRIP, SoundCategory.BLOCKS, 1F, 1F);
+        popResource(worldIn,pos, new ItemStack(ItemInitNew.SPORIAN_MANGROVE_TREE_BARK.get(), 1));
         }
 
-        return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+        return super.use(state, worldIn, pos, player, handIn, hit);
     }
 }

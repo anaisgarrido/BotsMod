@@ -17,8 +17,10 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class MudBlock extends Block {
-	   protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
+	   protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
 	   		public MudBlock(Properties properties) {
 	   			super(properties);
@@ -27,16 +29,16 @@ public class MudBlock extends Block {
 		      return SHAPE;
 		   }
 	   		@Override
-	   		public float getSlipperiness() {
+	   		public float getFriction() {
 	   			return -10F;
 	   		}
 
 		   public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-		      BubbleColumnBlock.placeBubbleColumn(worldIn, pos.up(), false);
+		      BubbleColumnBlock.growColumn(worldIn, pos.above(), false);
 		   }
 
 		   public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-		      worldIn.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(worldIn));
+		      worldIn.getBlockTicks().scheduleTick(pos, this, this.tickRate(worldIn));
 		   }
 
 		   public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
@@ -50,11 +52,11 @@ public class MudBlock extends Block {
 		      return 20;
 		   }
 
-		   public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
-		      worldIn.getPendingBlockTicks().scheduleTick(pos, this, this.tickRate(worldIn));
+		   public void onPlace(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+		      worldIn.getBlockTicks().scheduleTick(pos, this, this.tickRate(worldIn));
 		   }
 
-		   public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+		   public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
 		      return false;
 		   }
 

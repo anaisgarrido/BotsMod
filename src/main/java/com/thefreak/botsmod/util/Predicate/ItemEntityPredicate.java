@@ -21,7 +21,7 @@ public class ItemEntityPredicate extends  EntityPredicate{
     private boolean useVisibilityModifier = true;
     private Predicate<ItemEntity> customPredicate;
 
-    public ItemEntityPredicate setDistance(double distanceIn) {
+    public ItemEntityPredicate range(double distanceIn) {
         this.distance = distanceIn;
         return this;
     }
@@ -31,22 +31,22 @@ public class ItemEntityPredicate extends  EntityPredicate{
         return this;
     }
 
-    public ItemEntityPredicate allowFriendlyFire() {
+    public ItemEntityPredicate allowSameTeam() {
         this.friendlyFire = true;
         return this;
     }
 
-    public ItemEntityPredicate setLineOfSiteRequired() {
+    public ItemEntityPredicate allowUnseeable() {
         this.requireLineOfSight = true;
         return this;
     }
 
-    public ItemEntityPredicate setSkipAttackChecks() {
+    public ItemEntityPredicate allowNonAttackable() {
         this.skipAttackChecks = true;
         return this;
     }
 
-    public ItemEntityPredicate setUseInvisibilityCheck() {
+    public ItemEntityPredicate ignoreInvisibilityTesting() {
         this.useVisibilityModifier = false;
         return this;
     }

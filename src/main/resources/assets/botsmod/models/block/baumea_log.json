@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/baumea_log_top",
+        "side": "botsmod:blocks/baumea_log_side"
+    }
+}

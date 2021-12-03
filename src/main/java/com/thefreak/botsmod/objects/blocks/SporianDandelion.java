@@ -25,12 +25,14 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SporianDandelion extends BushBlock {
     public static final BooleanProperty POLLEN = BooleanProperty.create("pollen");
-    public static VoxelShape SHAPE = Block.makeCuboidShape(1,0,1,15,12,15);
+    public static VoxelShape SHAPE = Block.box(1,0,1,15,12,15);
     public SporianDandelion(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(POLLEN, true));
+        this.registerDefaultState(this.stateDefinition.any().setValue(POLLEN, true));
     }
 
     Random rand = new Random();
@@ -41,48 +43,48 @@ public class SporianDandelion extends BushBlock {
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        super.fillStateContainer(builder.add(POLLEN));
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder.add(POLLEN));
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        boolean a = state.get(POLLEN) == false;
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        boolean a = state.getValue(POLLEN) == false;
         if (!a) {
             double x = pos.getX() + 0.5D;
             double y = pos.getY() + 0.5D;
             double z = pos.getZ() + 0.5D;
             worldIn.addParticle(ParticleTypes.CLOUD, x, y, z, 0D, 0.3D, 0);
-            worldIn.setBlockState(pos, state.with(POLLEN, false), 2);
-            worldIn.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_WOOL_FALL, SoundCategory.BLOCKS, 1F, 0.25F);
+            worldIn.setBlock(pos, state.setValue(POLLEN, false), 2);
+            worldIn.playSound((PlayerEntity)null, pos, SoundEvents.WOOL_FALL, SoundCategory.BLOCKS, 1F, 0.25F);
 
             if (rand.nextInt(10) == 0) {
                 worldIn.destroyBlock(pos,false);
             }
         }
-        super.onEntityCollision(state, worldIn, pos, entityIn);
+        super.entityInside(state, worldIn, pos, entityIn);
     }
 
     @Override
-    public void onProjectileCollision(World worldIn, BlockState state, BlockRayTraceResult hit, ProjectileEntity projectile) {
-        boolean a = state.get(POLLEN) == false;
+    public void onProjectileHit(World worldIn, BlockState state, BlockRayTraceResult hit, ProjectileEntity projectile) {
+        boolean a = state.getValue(POLLEN) == false;
         if (!a) {
-            double x = projectile.getPosX() + 0.5D;
-            double y = projectile.getPosY() + 0.5D;
-            double z = projectile.getPosZ() + 0.5D;
+            double x = projectile.getX() + 0.5D;
+            double y = projectile.getY() + 0.5D;
+            double z = projectile.getZ() + 0.5D;
             worldIn.addParticle(ParticleTypes.CLOUD, x, y, z, 0D, 0.3D, 0);
-            worldIn.setBlockState(projectile.getPosition(), state.with(POLLEN, false), 2);
-            worldIn.playSound((PlayerEntity)null, projectile.getPosition(), SoundEvents.BLOCK_WOOL_FALL, SoundCategory.BLOCKS, 1F, 0.25F);
+            worldIn.setBlock(projectile.blockPosition(), state.setValue(POLLEN, false), 2);
+            worldIn.playSound((PlayerEntity)null, projectile.blockPosition(), SoundEvents.WOOL_FALL, SoundCategory.BLOCKS, 1F, 0.25F);
             if (rand.nextInt(10) == 0) {
-            worldIn.destroyBlock(projectile.getPosition(),false);
+            worldIn.destroyBlock(projectile.blockPosition(),false);
             }
 
         }
-        super.onProjectileCollision(worldIn, state, hit, projectile);
+        super.onProjectileHit(worldIn, state, hit, projectile);
     }
 
     @Override
-    protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.isIn(Blocks.GRASS_BLOCK) || state.isIn(Blocks.DIRT) || state.isIn(Blocks.COARSE_DIRT) || state.isIn(Blocks.PODZOL) || state.isIn(Blocks.FARMLAND) || state.isIn(BlockInitNew.SPORIAN_MOSS_GRASS.get());
+    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT) || state.is(Blocks.PODZOL) || state.is(Blocks.FARMLAND) || state.is(BlockInitNew.SPORIAN_MOSS_GRASS.get());
     }
 }

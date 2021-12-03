@@ -12,11 +12,11 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class GiantTardigradeRender extends GeoEntityRenderer<GiantTardigradeEntity> {
     public GiantTardigradeRender(EntityRendererManager renderManager) {
         super(renderManager, new GiantTardigradeModel());
-        this.shadowSize = 4F;
+        this.shadowRadius = 4F;
     }
 
     @Override
-    public ResourceLocation getEntityTexture(GiantTardigradeEntity entity) {
+    public ResourceLocation getTextureLocation(GiantTardigradeEntity entity) {
         return null;
     }
 

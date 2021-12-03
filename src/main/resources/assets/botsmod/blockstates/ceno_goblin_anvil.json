@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "botsmod:block/ceno_goblin_anvil"
+        },
+        "facing=north": {
+            "model": "botsmod:block/ceno_goblin_anvil",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "botsmod:block/ceno_goblin_anvil",
+            "y": 90
+        },
+        "facing=west": {
+            "model": "botsmod:block/ceno_goblin_anvil"
+
+        }
+    }
+}

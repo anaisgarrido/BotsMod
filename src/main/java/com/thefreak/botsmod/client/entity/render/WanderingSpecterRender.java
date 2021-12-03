@@ -18,19 +18,13 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class WanderingSpecterRender extends GeoEntityRenderer<WanderingSpecterEntity> {
     public WanderingSpecterRender(EntityRendererManager renderManager) {
         super(renderManager, new WanderingSpecterModel());
-        this.shadowSize = 0F;
+        this.shadowRadius = 0F;
 
     }
 
     @Override
     public RenderType getRenderType(WanderingSpecterEntity animatable, float partialTicks, MatrixStack stack,IRenderTypeBuffer renderTypeBuffer,IVertexBuilder vertexBuilder, int packedLightIn, ResourceLocation textureLocation) {
-        return animatable.getSpecterTransparentState() == true ? RenderType.getEntityTranslucent(new ResourceLocation("botsmod:textures/entities/transparent_wandering_specter_texture.png")) : RenderType.getEntityCutout(new ResourceLocation("botsmod:textures/entities/wandering_specter_texture.png"));
-    }
-
-
-    @Override
-    public ResourceLocation getEntityTexture(WanderingSpecterEntity entity) {
-        return null;
+        return animatable.getSpecterTransparentState() == true ? RenderType.entityTranslucent(new ResourceLocation("botsmod:textures/entities/transparent_wandering_specter_texture.png")) : RenderType.entityCutout(new ResourceLocation("botsmod:textures/entities/wandering_specter_texture.png"));
     }
 
     @Override

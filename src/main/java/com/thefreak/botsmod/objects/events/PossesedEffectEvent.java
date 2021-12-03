@@ -42,9 +42,9 @@ import static net.minecraft.entity.ai.attributes.Attributes.ATTACK_KNOCKBACK;
 @Mod.EventBusSubscriber(modid = BotsMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PossesedEffectEvent {
     private static boolean entityHasEffect(LivingEntity entity, Effect effect) {
-        Collection<EffectInstance> entityEffects = entity.getActivePotionEffects();
+        Collection<EffectInstance> entityEffects = entity.getActiveEffects();
         for (EffectInstance entityEffect : entityEffects) {
-            if (entityEffect.getPotion() == effect) {
+            if (entityEffect.getEffect() == effect) {
                 return true;
             }
         }
@@ -69,13 +69,13 @@ public class PossesedEffectEvent {
         final ClientPlayerEntity playerEntity = mc.player;
         if (playerEntity != null) {
             if (entityHasEffect((LivingEntity) playerEntity.getEntity(), EffectInitNew.POSSESION.get())) {
-                    playerEntity.rotationYaw += Math.sin(playerEntity.ticksExisted /5) / 5;
-                    playerEntity.rotationPitch += Math.cos(playerEntity.ticksExisted /5) / 5;
+                    playerEntity.yRot += Math.sin(playerEntity.tickCount /5) / 5;
+                    playerEntity.xRot += Math.cos(playerEntity.tickCount /5) / 5;
                     Random random = new Random();
-                    BlockPos pos = playerEntity.getPosition();
-                    World world = playerEntity.world;
+                    BlockPos pos = playerEntity.blockPosition();
+                    World world = playerEntity.level;
                     if (random.nextInt(100)==2) {
-                        playerEntity.jump();
+                        playerEntity.jumpFromGround();
                     }
 
 
@@ -89,15 +89,15 @@ public class PossesedEffectEvent {
         System.out.println("DIED !");
         LivingEntity livingEntity = event.getEntityLiving();
         Entity entity = event.getEntity();
-        BlockPos pos = entity.getPosition();
-        World world = livingEntity.getEntityWorld();
+        BlockPos pos = entity.blockPosition();
+        World world = livingEntity.getCommandSenderWorld();
         boolean isInstanceOfPlayer = livingEntity.getEntity() instanceof PlayerEntity;
 
         if (entityHasEffect(livingEntity, EffectInitNew.POSSESION.get())) {
             WanderingSpecterEntity wanderingSpecterEntity = ModEntityTypes.WANDERING_SPECTER.get().create(world);
-            wanderingSpecterEntity.setPosition(pos.getX(),pos.getY(),pos.getZ());
+            wanderingSpecterEntity.setPos(pos.getX(),pos.getY(),pos.getZ());
 
-            world.addEntity(wanderingSpecterEntity);
+            world.addFreshEntity(wanderingSpecterEntity);
         }
     }
 }

@@ -10,8 +10,10 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SporianMangroveTreeLeaves extends Block {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     public SporianMangroveTreeLeaves(Properties properties) {
         super(properties);
     }
@@ -24,14 +26,14 @@ public class SporianMangroveTreeLeaves extends Block {
     }
 
     @Override
-    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-        entityIn.onLivingFall(fallDistance, 0.0F);
-        super.onFallenUpon(worldIn, pos, entityIn, fallDistance);
+    public void fallOn(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+        entityIn.causeFallDamage(fallDistance, 0.0F);
+        super.fallOn(worldIn, pos, entityIn, fallDistance);
     }
 
     @Override
-    public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.setMotion(new Vector3d(0D,0.75D,0D));
-        super.onEntityWalk(worldIn, pos, entityIn);
+    public void stepOn(World worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.setDeltaMovement(new Vector3d(0D,0.75D,0D));
+        super.stepOn(worldIn, pos, entityIn);
     }
 }

@@ -44,14 +44,14 @@ public class ItemInit
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event)
 	{
-			event.getRegistry().register(new Item(new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade"));
+			event.getRegistry().register(new Item(new Item.Properties().tab(BotsItemGroup.instance)).setRegistryName("jade"));
 			
 			//tools
-			event.getRegistry().register(new SwordItem(ModItemTier.JADE, 5, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_sword"));
-			event.getRegistry().register(new AxeItem(ModItemTier.JADE, 7, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_axe"));
-			event.getRegistry().register(new PickaxeItem(ModItemTier.JADE, 2, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_pickaxe"));
-			event.getRegistry().register(new HoeItem(ModItemTier.JADE, 1,1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_hoe"));
-			event.getRegistry().register(new ShovelItem(ModItemTier.JADE, 2, 1.5F, new Item.Properties().group(BotsItemGroup.instance)).setRegistryName("jade_shovel"));
+			event.getRegistry().register(new SwordItem(ModItemTier.JADE, 5, 1.5F, new Item.Properties().tab(BotsItemGroup.instance)).setRegistryName("jade_sword"));
+			event.getRegistry().register(new AxeItem(ModItemTier.JADE, 7, 1.5F, new Item.Properties().tab(BotsItemGroup.instance)).setRegistryName("jade_axe"));
+			event.getRegistry().register(new PickaxeItem(ModItemTier.JADE, 2, 1.5F, new Item.Properties().tab(BotsItemGroup.instance)).setRegistryName("jade_pickaxe"));
+			event.getRegistry().register(new HoeItem(ModItemTier.JADE, 1,1.5F, new Item.Properties().tab(BotsItemGroup.instance)).setRegistryName("jade_hoe"));
+			event.getRegistry().register(new ShovelItem(ModItemTier.JADE, 2, 1.5F, new Item.Properties().tab(BotsItemGroup.instance)).setRegistryName("jade_shovel"));
 
 	}
 	public enum ModItemTier implements IItemTier
@@ -59,10 +59,10 @@ public class ItemInit
 		// \int\ harvestLevel, \int\ maxUses, \float\ efficiency, \float\ attackDamage, \int\
         // enchantability, Supplier<Ingredient> repairMaterial
 		JADE(4, 2500, 13.0F, 5.0F, 250, () -> {
-			return Ingredient.fromItems(ItemInit.jade);
+			return Ingredient.of(ItemInit.jade);
 		}),
 		DSTONE(3, 2000, 10.0F, 5.0F, 250, () -> {
-			return Ingredient.fromItems(ItemInit.jade);
+			return Ingredient.of(ItemInit.jade);
 		});
 		
 		
@@ -86,38 +86,38 @@ public class ItemInit
 
 
 		@Override
-		public int getMaxUses() {
+		public int getUses() {
 			return this.maxUses;
 		}
 
 
 		@Override
-		public float getEfficiency() {
+		public float getSpeed() {
 			return this.efficiency;
 		}
 
 
 		@Override
-		public float getAttackDamage() {
+		public float getAttackDamageBonus() {
 			return this.attackDamage;
 		}
 
 
 		@Override
-		public int getHarvestLevel() {
+		public int getLevel() {
 			return this.harvestLevel;
 		}
 
 
 		@Override
-		public int getEnchantability() {
+		public int getEnchantmentValue() {
 			return this.enchantability;
 		}
 
 
 		@Override
-		public Ingredient getRepairMaterial() {
-			return this.repairMaterial.getValue();
+		public Ingredient getRepairIngredient() {
+			return this.repairMaterial.get();
 		}
 	}
 

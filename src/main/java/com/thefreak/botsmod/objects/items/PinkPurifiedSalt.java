@@ -18,14 +18,16 @@ import net.minecraft.world.World;
 
 import java.util.Collection;
 
+import net.minecraft.item.Item.Properties;
+
 public class PinkPurifiedSalt extends Item {
     public PinkPurifiedSalt(Properties properties) {
         super(properties);
     }
     private static boolean entityHasEffect(LivingEntity entity, Effect effect) {
-        Collection<EffectInstance> entityEffects = entity.getActivePotionEffects();
+        Collection<EffectInstance> entityEffects = entity.getActiveEffects();
         for (EffectInstance entityEffect : entityEffects) {
-            if (entityEffect.getPotion() == effect) {
+            if (entityEffect.getEffect() == effect) {
                 return true;
             }
         }
@@ -33,15 +35,15 @@ public class PinkPurifiedSalt extends Item {
     }
 
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entityLiving) {
-        BlockPos pos = entityLiving.getPosition();
+    public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entityLiving) {
+        BlockPos pos = entityLiving.blockPosition();
         if (entityHasEffect(entityLiving, EffectInitNew.POSSESION.get())) {
             WanderingSpecterEntity wanderingSpecterEntity = ModEntityTypes.WANDERING_SPECTER.get().create(world);
-            wanderingSpecterEntity.setPosition(pos.getX(),pos.getY(),pos.getZ());
-            world.addEntity(wanderingSpecterEntity);
-            entityLiving.removePotionEffect(EffectInitNew.POSSESION.get());
+            wanderingSpecterEntity.setPos(pos.getX(),pos.getY(),pos.getZ());
+            world.addFreshEntity(wanderingSpecterEntity);
+            entityLiving.removeEffect(EffectInitNew.POSSESION.get());
         }
-        return super.onItemUseFinish(stack, world, entityLiving);
+        return super.finishUsingItem(stack, world, entityLiving);
     }
 
     @Override
@@ -53,9 +55,9 @@ public class PinkPurifiedSalt extends Item {
 
     public PinkPurifiedSaltItemEntity createEntity(World world, Entity location, ItemStack itemstack)
     {
-        return new PinkPurifiedSaltItemEntity(world, location.getPosX(), location.getPosY(), location.getPosZ(), itemstack) {
+        return new PinkPurifiedSaltItemEntity(world, location.getX(), location.getY(), location.getZ(), itemstack) {
             @Override
-            public boolean cannotPickup() {
+            public boolean hasPickUpDelay() {
                 return true;
             }
 

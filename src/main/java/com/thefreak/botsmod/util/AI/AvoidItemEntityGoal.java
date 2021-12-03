@@ -34,13 +34,13 @@ public class AvoidItemEntityGoal<T extends ItemEntity> extends Goal {
     /** Class of entity this behavior seeks to avoid */
     protected final Class<T> classToAvoid;
     protected final Predicate<ItemEntity> avoidTargetSelector;
-    protected final Predicate<ItemEntity> field_203784_k;
+    protected final Predicate<ItemEntity> predicateOnAvoidEntity;
     private final EntityPredicate builtTargetSelector;
 
     public AvoidItemEntityGoal(CreatureEntity entityIn, Class<T> classToAvoidIn, float avoidDistanceIn, double farSpeedIn, double nearSpeedIn) {
         this(entityIn, classToAvoidIn, (p_200828_0_) -> {
             return true;
-        }, avoidDistanceIn, farSpeedIn, nearSpeedIn, EntityPredicates.CAN_AI_TARGET::test);
+        }, avoidDistanceIn, farSpeedIn, nearSpeedIn, EntityPredicates.NO_CREATIVE_OR_SPECTATOR::test);
     }
 
     public AvoidItemEntityGoal(CreatureEntity entityIn, Class<T> avoidClass, Predicate<ItemEntity> targetPredicate, float distance, double nearSpeedIn, double farSpeedIn, Predicate<ItemEntity> p_i48859_9_) {
@@ -50,10 +50,10 @@ public class AvoidItemEntityGoal<T extends ItemEntity> extends Goal {
         this.avoidDistance = distance;
         this.farSpeed = nearSpeedIn;
         this.nearSpeed = farSpeedIn;
-        this.field_203784_k = p_i48859_9_;
-        this.navigation = entityIn.getNavigator();
-        this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
-        this.builtTargetSelector = (new ItemEntityPredicate()).setDistance((double)distance).setCustomItemPredicate(p_i48859_9_.and(targetPredicate));
+        this.predicateOnAvoidEntity = p_i48859_9_;
+        this.navigation = entityIn.getNavigation();
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+        this.builtTargetSelector = (new ItemEntityPredicate()).range((double)distance).setCustomItemPredicate(p_i48859_9_.and(targetPredicate));
     }
 
     public AvoidItemEntityGoal(CreatureEntity entityIn, Class<T> avoidClass, float distance, double nearSpeedIn, double farSpeedIn, Predicate<ItemEntity> targetPredicate) {
@@ -62,23 +62,20 @@ public class AvoidItemEntityGoal<T extends ItemEntity> extends Goal {
         }, distance, nearSpeedIn, farSpeedIn, targetPredicate);
     }
 
-    /**
-     * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-     * method as well.
-     */
-    public boolean shouldExecute() {
-        this.avoidTarget = this.entity.world.getEntitiesWithinAABB(classToAvoid, this.entity.getBoundingBox().grow(8.0D, 8.0D, 8.0D));
+
+    public boolean canUse() {
+        this.avoidTarget = this.entity.level.getEntitiesOfClass(classToAvoid, this.entity.getBoundingBox().inflate(8.0D, 8.0D, 8.0D));
         for (ItemEntity itemEntity : this.avoidTarget) {
             if (itemEntity == null) {
                 return false;
             } else {
-                Vector3d vector3d = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.entity, 16, 7, itemEntity.getPositionVec());
+                Vector3d vector3d = RandomPositionGenerator.getPosAvoid(this.entity, 16, 7, itemEntity.position());
                 if (vector3d == null) {
                     return false;
-                } else if (itemEntity.getDistanceSq(vector3d.x, vector3d.y, vector3d.z) < itemEntity.getDistanceSq(this.entity)) {
+                } else if (itemEntity.distanceToSqr(vector3d.x, vector3d.y, vector3d.z) < itemEntity.distanceToSqr(this.entity)) {
                     return false;
                 } else {
-                    this.path = this.navigation.getPathToPos(vector3d.x, vector3d.y, vector3d.z, 0);
+                    this.path = this.navigation.createPath(vector3d.x, vector3d.y, vector3d.z, 0);
                     return this.path != null;
                 }
             }
@@ -88,25 +85,19 @@ public class AvoidItemEntityGoal<T extends ItemEntity> extends Goal {
     }
 
 
-
-    /**
-     * Returns whether an in-progress EntityAIBase should continue executing
-     */
-    public boolean shouldContinueExecuting() {
-        return !this.navigation.noPath();
+    public boolean canContinueToUse() {
+        return !this.navigation.isDone();
     }
 
-    /**
-     * Execute a one shot task or start executing a continuous task
-     */
-    public void startExecuting() {
-        this.navigation.setPath(this.path, this.farSpeed);
+
+    public void start() {
+        this.navigation.moveTo(this.path, this.farSpeed);
     }
 
     /**
      * Reset the task's internal state. Called when this task is interrupted by another one
      */
-    public void resetTask() {
+    public void stop() {
         this.avoidTarget = null;
     }
 
@@ -115,10 +106,10 @@ public class AvoidItemEntityGoal<T extends ItemEntity> extends Goal {
      */
     public void tick() {
         for (ItemEntity itemEntity : this.avoidTarget) {
-            if (this.entity.getDistanceSq(itemEntity) < 49.0D) {
-                this.entity.getNavigator().setSpeed(this.nearSpeed);
+            if (this.entity.distanceToSqr(itemEntity) < 49.0D) {
+                this.entity.getNavigation().setSpeedModifier(this.nearSpeed);
             } else {
-                this.entity.getNavigator().setSpeed(this.farSpeed);
+                this.entity.getNavigation().setSpeedModifier(this.farSpeed);
             }
         }
 

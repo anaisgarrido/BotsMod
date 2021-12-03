@@ -16,6 +16,8 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class PeponFruit extends FallingBlock {
 
     public PeponFruit(Properties properties) {

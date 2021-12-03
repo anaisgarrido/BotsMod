@@ -6,15 +6,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
+import net.minecraft.item.Item.Properties;
+
 public class DreamBerryItem extends Item {
     public DreamBerryItem(Properties properties) {
         super(properties);
     }
 
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        entityLiving.startSleeping(entityLiving.getPosition());
+    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+        entityLiving.startSleeping(entityLiving.blockPosition());
         entityLiving.isSleeping();
-        return super.onItemUseFinish(stack, worldIn, entityLiving);
+        return super.finishUsingItem(stack, worldIn, entityLiving);
     }
 }

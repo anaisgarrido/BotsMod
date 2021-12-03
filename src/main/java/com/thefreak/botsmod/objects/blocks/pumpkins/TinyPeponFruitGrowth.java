@@ -9,8 +9,10 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class TinyPeponFruitGrowth extends FallingBlock {
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(10.5D, 0.0D, 10.5D, 5.5D, 6, 5.5D);
+    protected static final VoxelShape SHAPE = Block.box(10.5D, 0.0D, 10.5D, 5.5D, 6, 5.5D);
 
     public TinyPeponFruitGrowth(Properties properties) {
         super(properties);

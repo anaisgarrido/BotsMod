@@ -1,0 +1,26 @@
+{
+    "variants": {
+        "facing=down": {
+            "model": "botsmod:block/baumea_branch_down",
+            "x": 180
+        },
+        "facing=east": {
+            "model": "botsmod:block/baumea_branch_side",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "botsmod:block/baumea_branch_side"
+        },
+        "facing=south": {
+            "model": "botsmod:block/baumea_branch_side",
+            "y": 180
+        },
+        "facing=up": {
+            "model": "botsmod:block/baumea_branch_down"
+        },
+        "facing=west": {
+            "model": "botsmod:block/baumea_branch_side",
+            "y": 270
+        }
+    }
+}

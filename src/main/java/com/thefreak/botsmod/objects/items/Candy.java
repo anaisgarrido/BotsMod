@@ -10,6 +10,8 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+import net.minecraft.item.Item.Properties;
+
 public class Candy extends Item {
 
     public Candy(Properties properties) {
@@ -17,10 +19,10 @@ public class Candy extends Item {
     }
 
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        PlayerEntity playerEntity = entityLiving instanceof PlayerEntity ? worldIn.getClosestPlayer(entityLiving, 0.1D) : null;
+    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+        PlayerEntity playerEntity = entityLiving instanceof PlayerEntity ? worldIn.getNearestPlayer(entityLiving, 0.1D) : null;
 
 
-        return super.onItemUseFinish(stack, worldIn, entityLiving);
+        return super.finishUsingItem(stack, worldIn, entityLiving);
     }
 }

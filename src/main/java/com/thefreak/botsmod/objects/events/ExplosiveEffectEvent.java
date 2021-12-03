@@ -18,9 +18,9 @@ import java.util.Collection;
 @Mod.EventBusSubscriber(modid = BotsMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ExplosiveEffectEvent {
     private static boolean entityHasEffect(LivingEntity entity, Effect effect) {
-        Collection<EffectInstance> entityEffects = entity.getActivePotionEffects();
+        Collection<EffectInstance> entityEffects = entity.getActiveEffects();
         for (EffectInstance entityEffect : entityEffects) {
-            if (entityEffect.getPotion() == effect) {
+            if (entityEffect.getEffect() == effect) {
                 return true;
             }
         }
@@ -29,10 +29,10 @@ public class ExplosiveEffectEvent {
     @SubscribeEvent
     public static void testEvent(LivingDeathEvent event) {
         LivingEntity livingEntity = event.getEntityLiving();
-        World world = livingEntity.getEntityWorld();
+        World world = livingEntity.getCommandSenderWorld();
 
         if (entityHasEffect(livingEntity, EffectInitNew.EXPLOSIVE_EFFECT.get())) {
-          world.createExplosion(livingEntity, livingEntity.lastTickPosX, livingEntity.lastTickPosY, livingEntity.lastTickPosZ, 4.0F, false, Explosion.Mode.BREAK);
+          world.explode(livingEntity, livingEntity.xOld, livingEntity.yOld, livingEntity.zOld, 4.0F, false, Explosion.Mode.BREAK);
         }
     }
 }

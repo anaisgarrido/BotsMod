@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "botsmod:blocks/oxyne_rock_pillar_top",
+        "side": "botsmod:blocks/oxyne_rock_pillar_upper"
+    }
+}

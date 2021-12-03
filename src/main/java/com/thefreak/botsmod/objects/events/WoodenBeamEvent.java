@@ -30,22 +30,22 @@ import net.minecraftforge.fml.common.Mod;
     @SubscribeEvent
     public static void WoodenBeamAddedRessistance(PlayerEvent.BreakSpeed event) {
         BlockPos pos = event.getPos();
-        World world = event.getEntity().world;
+        World world = event.getEntity().level;
 
-        if (world.getBlockState(pos.down()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.up()).getBlock() instanceof ConnectedWoodBeam ||
+        if (world.getBlockState(pos.below()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.above()).getBlock() instanceof ConnectedWoodBeam ||
                 world.getBlockState(pos.east()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.west()).getBlock() instanceof ConnectedWoodBeam ||
                 world.getBlockState(pos.south()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.north()).getBlock() instanceof ConnectedWoodBeam ||
 
-                world.getBlockState(pos.down(2)).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.up(2)).getBlock() instanceof ConnectedWoodBeam ||
+                world.getBlockState(pos.below(2)).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.above(2)).getBlock() instanceof ConnectedWoodBeam ||
                 world.getBlockState(pos.east(2)).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.west(2)).getBlock() instanceof ConnectedWoodBeam ||
                 world.getBlockState(pos.south(2)).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.north(2)).getBlock() instanceof ConnectedWoodBeam||
 
-                world.getBlockState(pos.down().south()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.up().south()).getBlock() instanceof ConnectedWoodBeam ||
-                world.getBlockState(pos.east().up()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.west().down()).getBlock() instanceof ConnectedWoodBeam ||
+                world.getBlockState(pos.below().south()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.above().south()).getBlock() instanceof ConnectedWoodBeam ||
+                world.getBlockState(pos.east().above()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.west().below()).getBlock() instanceof ConnectedWoodBeam ||
                 world.getBlockState(pos.south().east()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.north().west()).getBlock() instanceof ConnectedWoodBeam||
 
-                world.getBlockState(pos.down().north()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.up().north()).getBlock() instanceof ConnectedWoodBeam ||
-                world.getBlockState(pos.east().down()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.west().up()).getBlock() instanceof ConnectedWoodBeam ||
+                world.getBlockState(pos.below().north()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.above().north()).getBlock() instanceof ConnectedWoodBeam ||
+                world.getBlockState(pos.east().below()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.west().above()).getBlock() instanceof ConnectedWoodBeam ||
                 world.getBlockState(pos.south().west()).getBlock() instanceof ConnectedWoodBeam || world.getBlockState(pos.north().east()).getBlock() instanceof ConnectedWoodBeam ) {
 
             BlockState block = world.getBlockState(pos);

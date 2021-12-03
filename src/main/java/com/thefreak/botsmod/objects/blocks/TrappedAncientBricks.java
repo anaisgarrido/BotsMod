@@ -18,6 +18,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class TrappedAncientBricks extends Block {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
     public TrappedAncientBricks(Properties properties) {
@@ -25,19 +27,19 @@ public class TrappedAncientBricks extends Block {
     }
 
     @Override
-    public boolean canProvidePower(BlockState state) {
+    public boolean isSignalSource(BlockState state) {
         return true;
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        BlockPos up = pos.up();
-        boolean i = state.get(POWERED);
+        BlockPos up = pos.above();
+        boolean i = state.getValue(POWERED);
         if (worldIn.getBlockState(up).getBlock() instanceof AncientUrnCooked) {
-            worldIn.setBlockState(pos, state.with(POWERED, true), 2);
+            worldIn.setBlock(pos, state.setValue(POWERED, true), 2);
         } else {
-            worldIn.setBlockState(pos, state.with(POWERED, false), 2);
-            worldIn.getPendingBlockTicks().scheduleTick(pos, this, 2);
+            worldIn.setBlock(pos, state.setValue(POWERED, false), 2);
+            worldIn.getBlockTicks().scheduleTick(pos, this, 2);
         }
         super.tick(state, worldIn, pos, rand);
     }
@@ -47,34 +49,34 @@ public class TrappedAncientBricks extends Block {
     }
 
     @Override
-    public void updateDiagonalNeighbors(BlockState state, IWorld worldIn, BlockPos pos, int flags, int recursionLeft) {
-        super.updateDiagonalNeighbors(state, worldIn, pos, flags, recursionLeft);
+    public void updateIndirectNeighbourShapes(BlockState state, IWorld worldIn, BlockPos pos, int flags, int recursionLeft) {
+        super.updateIndirectNeighbourShapes(state, worldIn, pos, flags, recursionLeft);
     }
 
-    public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
-        return blockState.get(POWERED) ? 15 : 0;
+    public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+        return blockState.getValue(POWERED) ? 15 : 0;
     }
 
-    public int getStrongPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
-        return blockState.get(POWERED) ? 15 : 0;
+    public int getDirectSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+        return blockState.getValue(POWERED) ? 15 : 0;
     }
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        super.fillStateContainer(builder.add(POWERED));
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder.add(POWERED));
     }
 
 
 
     @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        BlockPos up = currentPos.up();
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        BlockPos up = currentPos.above();
         if (worldIn.getBlockState(up).getBlock() instanceof AncientUrnCooked) {
-            worldIn.setBlockState(currentPos, stateIn.with(POWERED, true), 2);
+            worldIn.setBlock(currentPos, stateIn.setValue(POWERED, true), 2);
         } else {
-            worldIn.setBlockState(currentPos, stateIn.with(POWERED, false), 2);
-            worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, 2);
+            worldIn.setBlock(currentPos, stateIn.setValue(POWERED, false), 2);
+            worldIn.getBlockTicks().scheduleTick(currentPos, this, 2);
         }
 
-        return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 }

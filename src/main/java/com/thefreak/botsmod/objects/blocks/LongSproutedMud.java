@@ -21,53 +21,55 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class LongSproutedMud extends Block implements IGrowable {
     public static final BooleanProperty TRUFFLEHERE = BooleanProperty.create("truffle");
     public LongSproutedMud(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(TRUFFLEHERE, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(TRUFFLEHERE, false));
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        ItemStack ItemHanded = player.getHeldItem(handIn);
-        boolean nothingdown = worldIn.getBlockState(pos.down()).getBlock() instanceof AirBlock;
-        if (ItemHanded.getItem() instanceof ShearsItem && state.get(TRUFFLEHERE) == true && worldIn.getBlockState(pos.down()).getBlock() instanceof AirBlock) {
-            worldIn.setBlockState(pos, state.with(TRUFFLEHERE, false));
-            worldIn.setBlockState(pos.down(), BlockInitNew.TRUFFLE_BLOCK.get().getDefaultState());
-            worldIn.setBlockState(pos, BlockInitNew.WET_MUD_BLOCK2.get().getDefaultState());
-        } else if (ItemHanded.getItem() instanceof ShearsItem && state.get(TRUFFLEHERE) == true && !nothingdown) {
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemInitNew.TRUFFLE.get()));
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        ItemStack ItemHanded = player.getItemInHand(handIn);
+        boolean nothingdown = worldIn.getBlockState(pos.below()).getBlock() instanceof AirBlock;
+        if (ItemHanded.getItem() instanceof ShearsItem && state.getValue(TRUFFLEHERE) == true && worldIn.getBlockState(pos.below()).getBlock() instanceof AirBlock) {
+            worldIn.setBlockAndUpdate(pos, state.setValue(TRUFFLEHERE, false));
+            worldIn.setBlockAndUpdate(pos.below(), BlockInitNew.TRUFFLE_BLOCK.get().defaultBlockState());
+            worldIn.setBlockAndUpdate(pos, BlockInitNew.WET_MUD_BLOCK2.get().defaultBlockState());
+        } else if (ItemHanded.getItem() instanceof ShearsItem && state.getValue(TRUFFLEHERE) == true && !nothingdown) {
+            popResource(worldIn, pos, new ItemStack(ItemInitNew.TRUFFLE.get()));
         }
-        return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+        return super.use(state, worldIn, pos, player, handIn, hit);
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(10) == 0)) {
-            worldIn.setBlockState(pos, state.with(TRUFFLEHERE, true));
+            worldIn.setBlockAndUpdate(pos, state.setValue(TRUFFLEHERE, true));
         }
         super.tick(state, worldIn, pos, rand);
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        super.fillStateContainer(builder);
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
         builder.add(TRUFFLEHERE);
     }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return false;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return false;
     }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 
     }
 }

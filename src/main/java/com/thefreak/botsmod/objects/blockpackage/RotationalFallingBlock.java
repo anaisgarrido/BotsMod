@@ -22,28 +22,30 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class RotationalFallingBlock extends HorizontalBlock {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
 
     protected RotationalFallingBlock(Properties builder) {
         super(builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
-    public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
-        worldIn.getPendingBlockTicks().scheduleTick(pos, this, this.getFallDelay());
+    public void onPlace(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+        worldIn.getBlockTicks().scheduleTick(pos, this, this.getFallDelay());
     }
 
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        worldIn.getPendingBlockTicks().scheduleTick(currentPos, this, this.getFallDelay());
-        return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        worldIn.getBlockTicks().scheduleTick(currentPos, this, this.getFallDelay());
+        return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (worldIn.isAirBlock(pos.down()) || canFallThrough(worldIn.getBlockState(pos.down())) && pos.getY() >= 0) {
+        if (worldIn.isEmptyBlock(pos.below()) || canFallThrough(worldIn.getBlockState(pos.below())) && pos.getY() >= 0) {
             FallingBlockEntity fallingblockentity = new FallingBlockEntity(worldIn, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, worldIn.getBlockState(pos));
             this.onStartFalling(fallingblockentity);
-            worldIn.addEntity(fallingblockentity);
+            worldIn.addFreshEntity(fallingblockentity);
         }
     }
 
@@ -56,7 +58,7 @@ public class RotationalFallingBlock extends HorizontalBlock {
 
     public static boolean canFallThrough(BlockState state) {
         Material material = state.getMaterial();
-        return state.isAir() || state.isIn(BlockTags.FIRE) || material.isLiquid() || material.isReplaceable();
+        return state.isAir() || state.is(BlockTags.FIRE) || material.isLiquid() || material.isReplaceable();
     }
 
     public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState, FallingBlockEntity fallingBlock) {
@@ -69,8 +71,8 @@ public class RotationalFallingBlock extends HorizontalBlock {
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if (rand.nextInt(16) == 0) {
-            BlockPos blockpos = pos.down();
-            if (worldIn.isAirBlock(blockpos) || canFallThrough(worldIn.getBlockState(blockpos))) {
+            BlockPos blockpos = pos.below();
+            if (worldIn.isEmptyBlock(blockpos) || canFallThrough(worldIn.getBlockState(blockpos))) {
                 double d0 = (double)pos.getX() + rand.nextDouble();
                 double d1 = (double)pos.getY() - 0.05D;
                 double d2 = (double)pos.getZ() + rand.nextDouble();
@@ -80,10 +82,10 @@ public class RotationalFallingBlock extends HorizontalBlock {
 
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 

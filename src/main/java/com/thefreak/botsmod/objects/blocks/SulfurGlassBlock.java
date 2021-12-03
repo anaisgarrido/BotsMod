@@ -10,6 +10,8 @@ import net.minecraft.world.IWorld;
 
 import javax.swing.text.Position;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SulfurGlassBlock extends AbstractGlassBlock implements IBeaconBeamColorProvider {
     public SulfurGlassBlock(Properties p_i49999_1_) {
         super(p_i49999_1_);

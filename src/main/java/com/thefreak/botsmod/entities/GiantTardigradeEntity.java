@@ -43,18 +43,18 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
     public static AttributeModifierMap.MutableAttribute setCustomAttributes()
     {
 
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 320.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, MoveSpeed)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2D)
-                .createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 0D);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 320.0D)
+                .add(Attributes.MOVEMENT_SPEED, MoveSpeed)
+                .add(Attributes.ATTACK_DAMAGE, 2D)
+                .add(Attributes.ATTACK_KNOCKBACK, 0D);
     }
 
     public GiantTardigradeEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
 
         super(type, worldIn);
-        this.pathNavigator = new GroundPathNavigator(this, this.world);
-        this.moveController = new FlyingMovementController(this, 1, true);
+        this.pathNavigator = new GroundPathNavigator(this, this.level);
+        this.moveControl = new FlyingMovementController(this, 1, true);
 
 
     }
@@ -66,12 +66,12 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
         data.addAnimationController(new AnimationController(this, "controller", 5, this::predicate));
     }
 
-    public boolean canCollide(Entity entity) {
-        return func_242378_a(this, entity);
+    public boolean canCollideWith(Entity entity) {
+        return canVehicleCollide(this, entity);
     }
 
-    public static boolean func_242378_a(Entity p_242378_0_, Entity entity) {
-        return (entity.func_241845_aY() || entity.canBePushed()) && !p_242378_0_.isRidingSameEntity(entity);
+    public static boolean canVehicleCollide(Entity p_242378_0_, Entity entity) {
+        return (entity.canBeCollidedWith() || entity.isPushable()) && !p_242378_0_.isPassengerOfSameVehicle(entity);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
         if (event.isMoving()) {
             anim = WALK_ANIM;
         }
-        if ((this.dead || this.getHealth() < 0.01 || this.getShouldBeDead())) {
+        if ((this.dead || this.getHealth() < 0.01 || this.isDeadOrDying())) {
             anim = DEATH;
         }
         controller.setAnimation(anim);
@@ -91,53 +91,53 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
     }
 
     @Override
-    protected void doBlockCollisions() {
-        super.doBlockCollisions();
+    protected void checkInsideBlocks() {
+        super.checkInsideBlocks();
     }
-    public boolean canBeCollidedWith() {
+    public boolean isPickable() {
         return !this.removed;
     }
-    public boolean canBePushed() {
+    public boolean isPushable() {
         return false;
     }
 
     @Override
-    public boolean func_241845_aY() {
+    public boolean canBeCollidedWith() {
         return this.isAlive();
     }
 
-    public void applyEntityCollision(Entity entityIn) {
+    public void push(Entity entityIn) {
         if (entityIn instanceof GiantTardigradeEntity) {
             if (entityIn.getBoundingBox().minY < this.getBoundingBox().maxY) {
-                super.applyEntityCollision(entityIn);
+                super.push(entityIn);
             }
         } else if (entityIn.getBoundingBox().minY <= this.getBoundingBox().minY) {
-            super.applyEntityCollision(entityIn);
+            super.push(entityIn);
         }
 
     }
 
     @Override
-    public boolean canDespawn(double distanceToClosestPlayer) {
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
     }
 
     public boolean shouldRepathfind() {
-        return this.ticksExisted % 200 <= 10;
+        return this.tickCount % 200 <= 10;
     }
 
 
     @Override
-    protected void onDeathUpdate() {
-        super.onDeathUpdate();
+    protected void tickDeath() {
+        super.tickDeath();
         ++this.deathTime;
         if (this.deathTime == 200) {
             this.remove();
             for(int i = 0; i < 20; ++i) {
-                double d0 = this.rand.nextGaussian() * 0.02D;
-                double d1 = this.rand.nextGaussian() * 0.02D;
-                double d2 = this.rand.nextGaussian() * 0.02D;
-                this.world.addParticle(ParticleTypes.POOF, this.getPosXRandom(1.0D), this.getPosYRandom(), this.getPosZRandom(1.0D), d0, d1, d2);
+                double d0 = this.random.nextGaussian() * 0.02D;
+                double d1 = this.random.nextGaussian() * 0.02D;
+                double d2 = this.random.nextGaussian() * 0.02D;
+                this.level.addParticle(ParticleTypes.POOF, this.getRandomX(1.0D), this.getRandomY(), this.getRandomZ(1.0D), d0, d1, d2);
             }
             for (int i = 0; i < 20; ++i) {
 
@@ -145,14 +145,14 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
 
         }
     }
-    public boolean hasNoGravity() {
+    public boolean isNoGravity() {
         return this.isAlive()? true : false;
     }
 
 
     @Override
-    protected AxisAlignedBB getBoundingBox(Pose pose) {
-        return super.getBoundingBox(pose);
+    protected AxisAlignedBB getBoundingBoxForPose(Pose pose) {
+        return super.getBoundingBoxForPose(pose);
     }
 
     @Override
@@ -164,8 +164,8 @@ public class GiantTardigradeEntity extends CreatureEntity implements IAnimatable
 
         }
 
-        doBlockCollisions();
-        this.doBlockCollisions();
+        checkInsideBlocks();
+        this.checkInsideBlocks();
 
         super.tick();
     }

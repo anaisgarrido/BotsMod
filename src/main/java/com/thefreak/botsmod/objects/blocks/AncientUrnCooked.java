@@ -14,8 +14,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class AncientUrnCooked extends FallingBlock {
-    public static VoxelShape BASE = Block.makeCuboidShape(5,0,5,11,12,11);
+    public static VoxelShape BASE = Block.box(5,0,5,11,12,11);
     public AncientUrnCooked(Properties properties) {
         super(properties);
     }
@@ -26,18 +28,18 @@ public class AncientUrnCooked extends FallingBlock {
     }
 
     @Override
-    public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState, FallingBlockEntity fallingBlock) {
-        super.onEndFalling(worldIn, pos, fallingState, hitState, fallingBlock);
+    public void onLand(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState, FallingBlockEntity fallingBlock) {
+        super.onLand(worldIn, pos, fallingState, hitState, fallingBlock);
         FallingBlockEntity Entity = fallingBlock;
-            if (Entity.fallTime > 10){
+            if (Entity.time > 10){
 
 
             worldIn.destroyBlock(pos, false);
             }
     }
 
-    protected void onStartFalling(FallingBlockEntity fallingEntity) {
-        fallingEntity.setHurtEntities(true);
+    protected void falling(FallingBlockEntity fallingEntity) {
+        fallingEntity.setHurtsEntities(true);
     }
 
 

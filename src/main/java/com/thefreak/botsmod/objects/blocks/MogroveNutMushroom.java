@@ -24,41 +24,43 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class MogroveNutMushroom extends BushBlock implements IGrowable {
     public static IntegerProperty NUT = IntegerProperty.create("nut",0,1);
-    public static VoxelShape FIRST_SHAPE = Block.makeCuboidShape(2,0,2,14,15,14);
-    public static VoxelShape SECOND_SHAPE = Block.makeCuboidShape(2,0,2,14,19,14);
+    public static VoxelShape FIRST_SHAPE = Block.box(2,0,2,14,15,14);
+    public static VoxelShape SECOND_SHAPE = Block.box(2,0,2,14,19,14);
     public MogroveNutMushroom(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(NUT, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(NUT, Integer.valueOf(0)));
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        int i = state.get(NUT);
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        int i = state.getValue(NUT);
         boolean t = i == 1;
-        if (!t && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
+        if (!t && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (i == 1) {
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemInitNew.MOGROVE_NUT.get(), 1));
-            worldIn.setBlockState(pos, state.with(NUT, Integer.valueOf(0)), 2);
+            popResource(worldIn, pos, new ItemStack(ItemInitNew.MOGROVE_NUT.get(), 1));
+            worldIn.setBlock(pos, state.setValue(NUT, Integer.valueOf(0)), 2);
         }
-            return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+            return super.use(state, worldIn, pos, player, handIn, hit);
 
 
     }
 
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         super.tick(state, worldIn, pos, rand);
-        int i = state.get(NUT);
+        int i = state.getValue(NUT);
         if (i < 1 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(5) == 0)) {
-            worldIn.setBlockState(pos, state.with(NUT, Integer.valueOf(i + 1)), 2);
+            worldIn.setBlock(pos, state.setValue(NUT, Integer.valueOf(i + 1)), 2);
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
         }
 
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch(state.get(NUT)) {
+        switch(state.getValue(NUT)) {
             case 0:
             default:
                 return FIRST_SHAPE;
@@ -68,22 +70,22 @@ public class MogroveNutMushroom extends BushBlock implements IGrowable {
         }
     }
 
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(NUT);
     }
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(NUT) < 1;
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return state.getValue(NUT) < 1;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        int i = Math.min(1, state.get(NUT) + 1);
-        worldIn.setBlockState(pos, state.with(NUT, Integer.valueOf(i)), 2);
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+        int i = Math.min(1, state.getValue(NUT) + 1);
+        worldIn.setBlock(pos, state.setValue(NUT, Integer.valueOf(i)), 2);
     }
 }

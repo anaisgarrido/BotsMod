@@ -13,8 +13,10 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class AncientUrnRaw extends Block {
-    public static VoxelShape BASE = Block.makeCuboidShape(5,0,5,11,12,11);
+    public static VoxelShape BASE = Block.box(5,0,5,11,12,11);
     public AncientUrnRaw(Properties properties) {
         super(properties);
     }
@@ -25,16 +27,16 @@ public class AncientUrnRaw extends Block {
     }
 
     @Override
-    public boolean ticksRandomly(BlockState state) {
+    public boolean isRandomlyTicking(BlockState state) {
         return true;
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        BlockPos down = pos.down();
-        BlockPos downplus = pos.down(2);
+        BlockPos down = pos.below();
+        BlockPos downplus = pos.below(2);
         if (worldIn.getBlockState(down).getBlock() instanceof FireBlock || worldIn.getBlockState(downplus).getBlock() instanceof FireBlock) {
-        worldIn.setBlockState(pos, BlockInitNew.ANCIENT_POTTERY_URN.get().getDefaultState());
+        worldIn.setBlockAndUpdate(pos, BlockInitNew.ANCIENT_POTTERY_URN.get().defaultBlockState());
         }
         super.tick(state, worldIn, pos, rand);
     }

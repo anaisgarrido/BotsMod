@@ -11,8 +11,10 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SporePad extends BushBlock {
-    public static VoxelShape SHAPE = Block.makeCuboidShape(0D,0D,0D,16D,0.5D,16D);
+    public static VoxelShape SHAPE = Block.box(0D,0D,0D,16D,0.5D,16D);
     public SporePad(Properties properties) {
         super(properties);
     }

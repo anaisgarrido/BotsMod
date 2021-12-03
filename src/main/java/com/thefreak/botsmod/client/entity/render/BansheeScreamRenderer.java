@@ -18,19 +18,19 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 public class BansheeScreamRenderer extends GeoEntityRenderer<BansheeScreamEntity> {
     public BansheeScreamRenderer(EntityRendererManager renderManager) {
         super(renderManager, new BansheeScreamModel());
-        this.shadowSize = 0F;
+        this.shadowRadius = 0F;
 
     }
 
 
     @Override
     public RenderType getRenderType(BansheeScreamEntity animatable, float partialTicks, MatrixStack stack,IRenderTypeBuffer renderTypeBuffer,IVertexBuilder vertexBuilder, int packedLightIn, ResourceLocation textureLocation) {
-        return RenderType.getEyes(new ResourceLocation("botsmod:textures/entities/banshee_scream.png"));
+        return RenderType.eyes(new ResourceLocation("botsmod:textures/entities/banshee_scream.png"));
     }
 
 
     @Override
-    public ResourceLocation getEntityTexture(BansheeScreamEntity entity) {
+    public ResourceLocation getTextureLocation(BansheeScreamEntity entity) {
         return null;
     }
 

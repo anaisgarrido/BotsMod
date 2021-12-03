@@ -60,45 +60,49 @@ public class BotsMod
     private void setup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() -> {
-            GlobalEntityTypeAttributes.put(ModEntityTypes.GIANT_TARDIGRADE.get(), GiantTardigradeEntity.setCustomAttributes().create());
-            GlobalEntityTypeAttributes.put(ModEntityTypes.WANDERING_SPECTER.get(), WanderingSpecterEntity.setCustomAttributes().create());
-            GlobalEntityTypeAttributes.put(ModEntityTypes.BANSHEE_SCREAM.get(), BansheeScreamEntity.setCustomAttributes().create());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.GIANT_TARDIGRADE.get(), GiantTardigradeEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.WANDERING_SPECTER.get(), WanderingSpecterEntity.setCustomAttributes().build());
+            GlobalEntityTypeAttributes.put(ModEntityTypes.BANSHEE_SCREAM.get(), BansheeScreamEntity.setCustomAttributes().build());
 
         });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUBBLE_MUSHROOM.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORE_PAD.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUSH.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.BRONZE_ALLOY_CRYSTAL.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_SPIKY_LONGUS.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_SPIKY_LONGUS_PLANT.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MOSS_GRASS.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_BULB.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES_TOP.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED.get(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED_LEAVES.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED_PLANKS.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.SPROUTED_MUD.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.LONG_SPROUTED_MUD.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_BUSH.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_CROP.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.MOLDENWOOD_DOOR.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.AUTUMN_TREE_LEAVES.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.STRECHED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_STRECHED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_STRECHED_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_GROWTH.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_HALF_GROWN.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_SPROUT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_TINY_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
-        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_TINY_PEPON_FRUIT.get(), RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUBBLE_MUSHROOM.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORE_PAD.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MOGROVE_BUSH.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.BRONZE_ALLOY_CRYSTAL.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_SPIKY_LONGUS.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_SPIKY_LONGUS_PLANT.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MOSS_GRASS.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_BULB.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES_TOP.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPORIAN_MANGROVE_TREE_VINES.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED_LEAVES.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MUD_REED_PLANKS.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.SPROUTED_MUD.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.LONG_SPROUTED_MUD.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_BUSH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TUBER_CROP.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.MOLDENWOOD_DOOR.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.AUTUMN_TREE_LEAVES.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.STRECHED_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_STRECHED_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_STRECHED_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_GROWTH.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_HALF_GROWN.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TINY_PEPON_FRUIT_SPROUT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.CARVED_TINY_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.GLOWING_TINY_PEPON_FRUIT.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.BAUMEA_LEAVES.get(), RenderType.cutoutMipped());
+        RenderTypeLookup.setRenderLayer(BlockInitNew.TAR_TORCH.get(), RenderType.cutoutMipped());
+
+
 
 
         ModelLoader.addSpecialModel(new ResourceLocation("botsmod:item/delta_crystal_shard_model"));
@@ -115,7 +119,7 @@ public class BotsMod
         final IForgeRegistry<Item> registry = event.getRegistry();
 
         BlockInitNew.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-            final Item.Properties properties = new Item.Properties().group(BotsItemGroup.instance);
+            final Item.Properties properties = new Item.Properties().tab(BotsItemGroup.instance);
             final BlockItem blockItem = new BlockItem(block, properties);
             blockItem.setRegistryName(block.getRegistryName());
             registry.register(blockItem);
@@ -126,7 +130,7 @@ public class BotsMod
     
     public static class BotsItemGroup extends ItemGroup
     {
-    	public static final BotsItemGroup instance = new BotsItemGroup(ItemGroup.GROUPS.length, "botstab");
+    	public static final BotsItemGroup instance = new BotsItemGroup(ItemGroup.TABS.length, "botstab");
     	
     	private BotsItemGroup(int index, String label)
     	{
@@ -134,7 +138,7 @@ public class BotsMod
     	}
     
     	@Override
-    	public ItemStack createIcon()
+    	public ItemStack makeIcon()
     	{
     		return new ItemStack(BlockInitNew.BRONZE_ALLOY_BRICKS.get());
     	}

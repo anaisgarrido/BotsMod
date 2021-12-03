@@ -12,14 +12,16 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class CarvedTinyPeponFruit extends RotationalFallingBlock {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-    protected static final VoxelShape SHAPE = Block.makeCuboidShape(13.0D, 0.0D, 13.0D, 3.0D, 13, 3.0D);
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    protected static final VoxelShape SHAPE = Block.box(13.0D, 0.0D, 13.0D, 3.0D, 13, 3.0D);
 
 
     public CarvedTinyPeponFruit(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 
     }
 
@@ -32,7 +34,7 @@ public class CarvedTinyPeponFruit extends RotationalFallingBlock {
     public boolean isFlammable(BlockState state, IBlockReader world, BlockPos pos, Direction face) {
         return true;
     }
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 

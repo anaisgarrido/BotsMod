@@ -21,6 +21,8 @@ import org.lwjgl.system.CallbackI;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class ColdDebris extends Block {
 
     public ColdDebris(Properties properties) {
@@ -28,9 +30,9 @@ public class ColdDebris extends Block {
     }
 
     @Override
-    public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-            player.addPotionEffect(new EffectInstance(Effects.HASTE,100,2));
-        super.onBlockHarvested(worldIn, pos, state, player);
+    public void playerWillDestroy(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
+            player.addEffect(new EffectInstance(Effects.DIG_SPEED,100,2));
+        super.playerWillDestroy(worldIn, pos, state, player);
     }
 
 }

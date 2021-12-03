@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "botsmod:blocks/polished_oxyne_rock",
+    "top": "botsmod:blocks/polished_oxyne_rock",
+    "side": "botsmod:blocks/polished_oxyne_rock"
+  }
+}

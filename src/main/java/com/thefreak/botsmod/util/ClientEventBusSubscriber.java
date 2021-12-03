@@ -3,7 +3,9 @@ package com.thefreak.botsmod.util;
 import com.thefreak.botsmod.BotsMod;
 import com.thefreak.botsmod.client.entity.render.BansheeScreamRenderer;
 import com.thefreak.botsmod.client.entity.render.GiantTardigradeRender;
+import com.thefreak.botsmod.client.entity.render.SaltedArrowRenderer;
 import com.thefreak.botsmod.client.entity.render.WanderingSpecterRender;
+import com.thefreak.botsmod.entities.Projectile.SaltedArrow;
 import com.thefreak.botsmod.entities.WanderingSpecterEntity;
 import com.thefreak.botsmod.init.ModContainerTypes;
 
@@ -22,7 +24,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = BotsMod.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class ClientEventBusSubscriber {
-    private static final EntityRendererManager renderManager = Minecraft.getInstance().getRenderManager();
+    private static final EntityRendererManager renderManager = Minecraft.getInstance().getEntityRenderDispatcher();
 
     @SubscribeEvent
     public static void clientSetup (FMLClientSetupEvent event) {
@@ -33,7 +35,7 @@ public class ClientEventBusSubscriber {
 
                                         //      SPECIAL       //
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BANSHEE_SCREAM.get(), BansheeScreamRenderer::new);
-
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SALTED_ARROW.get(), SaltedArrowRenderer::new);
 
                                         //      ITEMS       //
 

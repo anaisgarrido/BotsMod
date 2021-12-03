@@ -24,25 +24,27 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SporianMangroveTreeRootTop extends AbstractTopPlantBlock {
     int a;
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
+    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
     public SporianMangroveTreeRootTop(Properties properties) {
         super(properties, Direction.UP, SHAPE, false, 0.001D);
     }
 
     @Override
-    public boolean ticksRandomly(BlockState state) {
+    public boolean isRandomlyTicking(BlockState state) {
         return true;
     }
 
     @Override
-    protected int getGrowthAmount(Random rand) { return 0; }
+    protected int getBlocksToGrowWhenBonemealed(Random rand) { return 0; }
 
     @Override
-    protected boolean canGrowIn(BlockState state) { return PlantBlockHelper.isAir(state); }
+    protected boolean canGrowInto(BlockState state) { return PlantBlockHelper.isValidGrowthState(state); }
 
     @Override
-    protected Block getBodyPlantBlock() { return BlockInitNew.SPORIAN_MANGROVE_TREE_ROOT.get(); }
+    protected Block getBodyBlock() { return BlockInitNew.SPORIAN_MANGROVE_TREE_ROOT.get(); }
 
 }

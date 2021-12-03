@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "botsmod:block/oxyne_rock_slab"
+    },
+    "type=double": {
+      "model": "botsmod:block/oxyne_rock"
+    },
+    "type=top": {
+      "model": "botsmod:block/oxyne_rock_slab_top"
+    }
+  }
+}

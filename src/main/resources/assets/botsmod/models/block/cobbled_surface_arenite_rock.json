@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "down": "botsmod:blocks/arenite_rock",
+        "up": "botsmod:blocks/cobbled_arenite_rock",
+        "side": "botsmod:blocks/cobbled_surface_arenite_rock"
+    }
+}

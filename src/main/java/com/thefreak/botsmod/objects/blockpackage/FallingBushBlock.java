@@ -12,6 +12,8 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class FallingBushBlock extends Block implements net.minecraftforge.common.IPlantable {
     public FallingBushBlock(Properties properties) {
         super(properties);
@@ -23,14 +25,14 @@ public class FallingBushBlock extends Block implements net.minecraftforge.common
     }
 
 
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        return !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        return !stateIn.canSurvive(worldIn, currentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 
 
     @Override
-    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.up();
+    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        BlockPos blockpos = pos.above();
         if (state.getBlock() == this)
             return worldIn.getBlockState(blockpos).canSustainPlant(worldIn, blockpos, Direction.UP, this);
         return this.isValidGround(worldIn.getBlockState(blockpos), worldIn, blockpos);
@@ -40,15 +42,15 @@ public class FallingBushBlock extends Block implements net.minecraftforge.common
         return true;
     }
     @Override
-    public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
-        return type == PathType.AIR && !this.canCollide ? true : super.allowsMovement(state, worldIn, pos, type);
+    public boolean isPathfindable(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
+        return type == PathType.AIR && !this.hasCollision ? true : super.isPathfindable(state, worldIn, pos, type);
     }
 
 
     @Override
     public BlockState getPlant(IBlockReader world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
-        if (state.getBlock() != this) return getDefaultState();
+        if (state.getBlock() != this) return defaultBlockState();
         return state;
     }
 }

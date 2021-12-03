@@ -7,6 +7,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.IPlantable;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class SustainablePlantType extends Block {
     public SustainablePlantType(Properties properties) {
         super(properties);

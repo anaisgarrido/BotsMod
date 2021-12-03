@@ -20,6 +20,8 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class MogroveBush extends BushBlock implements IGrowable {
     public static IntegerProperty AGE = IntegerProperty.create("age",1,2);
 
@@ -27,46 +29,46 @@ public class MogroveBush extends BushBlock implements IGrowable {
         super(properties);
     }
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        int i = state.get(AGE);
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        int i = state.getValue(AGE);
         boolean t = i == 2;
-        if (!t && player.getHeldItem(handIn).getItem() == Items.BONE_MEAL) {
+        if (!t && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
         } else if (i == 2) {
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemInitNew.MOGROVE_VIOLET.get(), 2));
-            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(1)), 2);
+            popResource(worldIn, pos, new ItemStack(ItemInitNew.MOGROVE_VIOLET.get(), 2));
+            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
         }
-        return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+        return super.use(state, worldIn, pos, player, handIn, hit);
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         super.tick(state, worldIn, pos, rand);
-        int i = state.get(AGE);
+        int i = state.getValue(AGE);
         if (i < 2 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(10) == 0)) {
-            worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i + 1)), 2);
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
         }
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        super.fillStateContainer(builder.add(AGE));
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder.add(AGE));
     }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(AGE) < 2;
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return state.getValue(AGE) < 2;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
-        int i = Math.min(2, state.get(AGE) + 1);
-        worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i)), 2);
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+        int i = Math.min(2, state.getValue(AGE) + 1);
+        worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i)), 2);
     }
 }

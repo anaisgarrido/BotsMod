@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "botsmod:block/baumea_nest_log" },
+        "axis=z":   { "model": "botsmod:block/baumea_nest_log", "x": 90 },
+        "axis=x":   { "model": "botsmod:block/baumea_nest_log", "x": 90, "y": 90 }
+    }
+}

@@ -11,27 +11,29 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class ConnectedTexturePillar extends RotatedPillarBlock {
     public static final BooleanProperty C_UP = BooleanProperty.create("c_up");
     public static final BooleanProperty C_DOWN = BooleanProperty.create("c_down");
 
     public ConnectedTexturePillar(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(C_UP, false).with(C_DOWN, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(C_UP, false).setValue(C_DOWN, false));
     }
 
 
 
     @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos pos, BlockPos facingPos) {
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos pos, BlockPos facingPos) {
 
-        boolean vertical = stateIn.get(AXIS) == Direction.Axis.Y;
-        boolean horizontalx = stateIn.get(AXIS) == Direction.Axis.X;
-        boolean horizontalz = stateIn.get(AXIS) == Direction.Axis.Z;
+        boolean vertical = stateIn.getValue(AXIS) == Direction.Axis.Y;
+        boolean horizontalx = stateIn.getValue(AXIS) == Direction.Axis.X;
+        boolean horizontalz = stateIn.getValue(AXIS) == Direction.Axis.Z;
 
 
-        BlockPos up = pos.up();
-        BlockPos down = pos.down();
+        BlockPos up = pos.above();
+        BlockPos down = pos.below();
         BlockPos north = pos.north();
         BlockPos south = pos.south();
         BlockPos east = pos.east();
@@ -40,52 +42,52 @@ public class ConnectedTexturePillar extends RotatedPillarBlock {
         //                              Y-AXIS                                      //
         if (vertical && isConnectedAt(up,worldIn) && !isConnectedAt(down, worldIn)) {
             System.out.println(pos.toString()+ ": BOTTOM part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, true), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, true), 2);
         } else if (vertical && !isConnectedAt(up, worldIn) && isConnectedAt(down, worldIn)) {
             System.out.println(pos.toString() + ": TOP part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, true).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, true).setValue(C_DOWN, false), 2);
         } else if (vertical && !isConnectedAt(up, worldIn) && !isConnectedAt(down, worldIn)) {
             System.out.println(pos.toString() + ": MIDDLE part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, false), 2);
         } else if (vertical && isConnectedAt(up, worldIn) && isConnectedAt(down, worldIn)) {
             System.out.println(pos.toString() + ": MIDDLE part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, false), 2);
         }
 
 
         //                              Z-AXIS                                      //
         if (horizontalz && isConnectedAt(north,worldIn) && !isConnectedAt(south, worldIn)) {
             System.out.println(pos.toString()+ ": BOTTOM part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, true), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, true), 2);
         } else if (horizontalz && !isConnectedAt(north, worldIn) && isConnectedAt(south, worldIn)) {
             System.out.println(pos.toString() + ": TOP part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, true).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, true).setValue(C_DOWN, false), 2);
         } else if (horizontalz && !isConnectedAt(north, worldIn) && !isConnectedAt(south, worldIn)) {
             System.out.println(pos.toString() + ": MIDDLE part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, false), 2);
         } else if (horizontalz && isConnectedAt(north, worldIn) && isConnectedAt(south, worldIn)) {
             System.out.println(pos.toString() + ": MIDDLE part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, false), 2);
         }
 
         //                              X-AXIS                                      //
         if (horizontalx && isConnectedAt(east,worldIn) && !isConnectedAt(west, worldIn)) {
             System.out.println(pos.toString()+ ": BOTTOM part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, true), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, true), 2);
         } else if (horizontalx && !isConnectedAt(east, worldIn) && isConnectedAt(west, worldIn)) {
             System.out.println(pos.toString() + ": TOP part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, true).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, true).setValue(C_DOWN, false), 2);
         } else if (horizontalx && !isConnectedAt(east, worldIn) && !isConnectedAt(west, worldIn)) {
             System.out.println(pos.toString() + ": MIDDLE part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, false), 2);
         } else if (horizontalx && isConnectedAt(east, worldIn) && isConnectedAt(west, worldIn)) {
             System.out.println(pos.toString() + ": MIDDLE part detected");
-            worldIn.setBlockState(pos, stateIn.with(C_UP, false).with(C_DOWN, false), 2);
+            worldIn.setBlock(pos, stateIn.setValue(C_UP, false).setValue(C_DOWN, false), 2);
         }
-        return super.updatePostPlacement(stateIn, facing, facingState, worldIn, pos, facingPos);
+        return super.updateShape(stateIn, facing, facingState, worldIn, pos, facingPos);
     }
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(C_DOWN).add(C_UP).add(AXIS);
     }
 

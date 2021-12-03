@@ -26,74 +26,74 @@ import java.util.Random;
 
 public class SporianSpikyLongusTop extends AbstractTopPlantBlock implements IGrowable {
     int a;
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
+    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
     public static final BooleanProperty FRUIT = BooleanProperty.create("fruit");
 
     public SporianSpikyLongusTop(AbstractBlock.Properties properties) {
         super(properties, Direction.UP, SHAPE, false, 0.1D);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FRUIT, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FRUIT, false));
     }
 
     @Override
     public boolean isLadder(BlockState state, IWorldReader world, BlockPos pos, LivingEntity entity) { return true; }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         EntityType Entity = entityIn.getType();
 
         if (Entity == EntityType.PLAYER) {
-            entityIn.attackEntityFrom(DamageSource.CACTUS, 1F);
+            entityIn.hurt(DamageSource.CACTUS, 1F);
 
         }
-        super.onEntityCollision(state, worldIn, pos, entityIn);
+        super.entityInside(state, worldIn, pos, entityIn);
     }
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) { super.fillStateContainer(builder.add(FRUIT)); }
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder.add(FRUIT)); }
 
     @Override
-    public boolean ticksRandomly(BlockState state) {
+    public boolean isRandomlyTicking(BlockState state) {
         return true;
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        boolean a = state.get(FRUIT);
+        boolean a = state.getValue(FRUIT);
         if (a == false && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(5) == 0)) {
-            worldIn.setBlockState(pos, state.with(FRUIT, true), 2);
+            worldIn.setBlock(pos, state.setValue(FRUIT, true), 2);
         }
         super.tick(state, worldIn, pos, rand);
     }
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (state.get(FRUIT) == true) {
-            worldIn.setBlockState(pos, state.with(FRUIT, false), 2);
-            spawnAsEntity(worldIn, pos, new ItemStack(ItemInitNew.SPORIAN_SPIKY_LONGUS_FRUIT.get(), 1));
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        if (state.getValue(FRUIT) == true) {
+            worldIn.setBlock(pos, state.setValue(FRUIT, false), 2);
+            popResource(worldIn, pos, new ItemStack(ItemInitNew.SPORIAN_SPIKY_LONGUS_FRUIT.get(), 1));
 
         }
-        return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+        return super.use(state, worldIn, pos, player, handIn, hit);
     }
     @Override
-    protected int getGrowthAmount(Random rand) { return 0; }
+    protected int getBlocksToGrowWhenBonemealed(Random rand) { return 0; }
 
     @Override
-    protected boolean canGrowIn(BlockState state) { return PlantBlockHelper.isAir(state); }
+    protected boolean canGrowInto(BlockState state) { return PlantBlockHelper.isValidGrowthState(state); }
 
     @Override
-    protected Block getBodyPlantBlock() { return BlockInitNew.SPORIAN_SPIKY_LONGUS_PLANT.get(); }
+    protected Block getBodyBlock() { return BlockInitNew.SPORIAN_SPIKY_LONGUS_PLANT.get(); }
 
     @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(FRUIT) != true;
+    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+        return state.getValue(FRUIT) != true;
     }
 
     @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 
-        worldIn.setBlockState(pos, state.with(FRUIT, true), 2);
+        worldIn.setBlock(pos, state.setValue(FRUIT, true), 2);
     }
 }

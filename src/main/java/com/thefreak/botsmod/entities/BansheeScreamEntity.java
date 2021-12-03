@@ -37,35 +37,35 @@ public class BansheeScreamEntity extends LivingEntity implements IAnimatable {
     public static AttributeModifierMap.MutableAttribute setCustomAttributes()
     {
 
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 1D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 0D)
-                .createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 0D);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 1D)
+                .add(Attributes.MOVEMENT_SPEED, 0D)
+                .add(Attributes.ATTACK_DAMAGE, 0D)
+                .add(Attributes.ATTACK_KNOCKBACK, 0D);
     }
 
 
-    public boolean attackEntityFrom(DamageSource source, float amount) {
+    public boolean hurt(DamageSource source, float amount) {
         return false;
     }
 
     @Override
-    public Iterable<ItemStack> getArmorInventoryList() {
+    public Iterable<ItemStack> getArmorSlots() {
         return null;
     }
 
     @Override
-    public ItemStack getItemStackFromSlot(EquipmentSlotType slotIn) {
+    public ItemStack getItemBySlot(EquipmentSlotType slotIn) {
         return null;
     }
 
     @Override
-    public void setItemStackToSlot(EquipmentSlotType slotIn, ItemStack stack) {
+    public void setItemSlot(EquipmentSlotType slotIn, ItemStack stack) {
 
     }
 
     @Override
-    public HandSide getPrimaryHand() {
+    public HandSide getMainArm() {
         return null;
     }
 
@@ -85,7 +85,7 @@ public class BansheeScreamEntity extends LivingEntity implements IAnimatable {
     }
 
     @Override
-    public boolean canCollide(Entity entity) {
+    public boolean canCollideWith(Entity entity) {
         return false;
     }
 

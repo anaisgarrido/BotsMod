@@ -36,13 +36,13 @@ public class TargetNearestWhenPossesed<T extends LivingEntity> extends TargetGoa
         super(goalOwnerIn, checkSight, nearbyOnlyIn);
         this.targetClass = targetClassIn;
         this.targetChance = targetChanceIn;
-        this.setMutexFlags(EnumSet.of(Goal.Flag.TARGET));
-        this.targetEntitySelector = (new EntityPredicate()).setDistance(this.getTargetDistance()).setCustomPredicate(targetPredicate);
+        this.setFlags(EnumSet.of(Goal.Flag.TARGET));
+        this.targetEntitySelector = (new EntityPredicate()).range(this.getFollowDistance()).selector(targetPredicate);
     }
     private static boolean entityHasEffect(LivingEntity entity, Effect effect) {
-        Collection<EffectInstance> entityEffects = entity.getActivePotionEffects();
+        Collection<EffectInstance> entityEffects = entity.getActiveEffects();
         for (EffectInstance entityEffect : entityEffects) {
-            if (entityEffect.getPotion() == effect) {
+            if (entityEffect.getEffect() == effect) {
                 return true;
             }
         }
@@ -53,9 +53,9 @@ public class TargetNearestWhenPossesed<T extends LivingEntity> extends TargetGoa
      * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
      * method as well.
      */
-    public boolean shouldExecute() {
-        if (entityHasEffect((LivingEntity) this.goalOwner.getEntity(), EffectInitNew.POSSESION.get())) {
-            if (this.targetChance > 0 && this.goalOwner.getRNG().nextInt(this.targetChance) != 0) {
+    public boolean canUse() {
+        if (entityHasEffect((LivingEntity) this.mob.getEntity(), EffectInitNew.POSSESION.get())) {
+            if (this.targetChance > 0 && this.mob.getRandom().nextInt(this.targetChance) != 0) {
                 return false;
             } else {
                 this.findNearestTarget();
@@ -65,14 +65,14 @@ public class TargetNearestWhenPossesed<T extends LivingEntity> extends TargetGoa
     }
 
     protected AxisAlignedBB getTargetableArea(double targetDistance) {
-        return this.goalOwner.getBoundingBox().grow(targetDistance, 4.0D, targetDistance);
+        return this.mob.getBoundingBox().inflate(targetDistance, 4.0D, targetDistance);
     }
 
     protected void findNearestTarget() {
         if (this.targetClass != PlayerEntity.class && this.targetClass != ServerPlayerEntity.class) {
-            this.nearestTarget = this.goalOwner.world.func_225318_b(this.targetClass, this.targetEntitySelector, this.goalOwner, this.goalOwner.getPosX(), this.goalOwner.getPosYEye(), this.goalOwner.getPosZ(), this.getTargetableArea(this.getTargetDistance()));
+            this.nearestTarget = this.mob.level.getNearestLoadedEntity(this.targetClass, this.targetEntitySelector, this.mob, this.mob.getX(), this.mob.getEyeY(), this.mob.getZ(), this.getTargetableArea(this.getFollowDistance()));
         } else {
-            this.nearestTarget = this.goalOwner.world.getClosestPlayer(this.targetEntitySelector, this.goalOwner, this.goalOwner.getPosX(), this.goalOwner.getPosYEye(), this.goalOwner.getPosZ());
+            this.nearestTarget = this.mob.level.getNearestPlayer(this.targetEntitySelector, this.mob, this.mob.getX(), this.mob.getEyeY(), this.mob.getZ());
         }
 
     }
@@ -80,9 +80,9 @@ public class TargetNearestWhenPossesed<T extends LivingEntity> extends TargetGoa
     /**
      * Execute a one shot task or start executing a continuous task
      */
-    public void startExecuting() {
-        this.goalOwner.setAttackTarget(this.nearestTarget);
-        super.startExecuting();
+    public void start() {
+        this.mob.setTarget(this.nearestTarget);
+        super.start();
     }
 
     public void setNearestTarget(@Nullable LivingEntity target) {

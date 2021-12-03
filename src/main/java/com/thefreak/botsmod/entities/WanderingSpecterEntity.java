@@ -41,10 +41,12 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import java.util.EnumSet;
 import java.util.Random;
 
+import net.minecraft.entity.ai.goal.Goal.Flag;
+
 public class WanderingSpecterEntity extends CreatureEntity implements IAnimatable {
-    protected static final DataParameter<Boolean> SPECTER_TRANSPARENT = EntityDataManager.createKey(WanderingSpecterEntity.class, DataSerializers.BOOLEAN);
-    protected static final DataParameter<Boolean> SPECTER_HAUNTING = EntityDataManager.createKey(WanderingSpecterEntity.class, DataSerializers.BOOLEAN);
-    protected static final DataParameter<Boolean> SPECTER_POSSES_MONSTER = EntityDataManager.createKey(WanderingSpecterEntity.class, DataSerializers.BOOLEAN);
+    protected static final DataParameter<Boolean> SPECTER_TRANSPARENT = EntityDataManager.defineId(WanderingSpecterEntity.class, DataSerializers.BOOLEAN);
+    protected static final DataParameter<Boolean> SPECTER_HAUNTING = EntityDataManager.defineId(WanderingSpecterEntity.class, DataSerializers.BOOLEAN);
+    protected static final DataParameter<Boolean> SPECTER_POSSES_MONSTER = EntityDataManager.defineId(WanderingSpecterEntity.class, DataSerializers.BOOLEAN);
 
 
     private final AnimationFactory factory = new AnimationFactory(this);
@@ -56,48 +58,48 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
 
     public WanderingSpecterEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
-        this.moveController = new WanderingSpecterEntity.MoveHelperController(this);
+        this.moveControl = new WanderingSpecterEntity.MoveHelperController(this);
     }
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes()
     {
 
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 10.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2D)
-                .createMutableAttribute(Attributes.ATTACK_KNOCKBACK, 0D);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0D)
+                .add(Attributes.ATTACK_DAMAGE, 2D)
+                .add(Attributes.ATTACK_KNOCKBACK, 0D);
     }
     public void tick() {
-        BlockPos blockPos = WanderingSpecterEntity.this.getPosition();
-        World world = WanderingSpecterEntity.this.world;
+        BlockPos blockPos = WanderingSpecterEntity.this.blockPosition();
+        World world = WanderingSpecterEntity.this.level;
         if (world.getBlockState(blockPos).getBlock() != Blocks.AIR && getSpecterTransparentState() == false) {
             setSpecterTransparentState(true);
         } else if(world.getBlockState(blockPos).getBlock() == Blocks.AIR && getSpecterTransparentState() == true){
             setSpecterTransparentState(false);
         }
-        this.noClip = true;
+        this.noPhysics = true;
         super.tick();
-        this.noClip = false;
+        this.noPhysics = false;
         this.setNoGravity(true);
 
     }
 
 
     public Boolean getSpecterTransparentState() {
-        return this.dataManager.get(SPECTER_TRANSPARENT);
+        return this.entityData.get(SPECTER_TRANSPARENT);
     }
 
     public void setSpecterTransparentState(Boolean transparentState) {
-        this.dataManager.set(SPECTER_TRANSPARENT, transparentState);
+        this.entityData.set(SPECTER_TRANSPARENT, transparentState);
     }
 
     @Override
-    protected void registerData() {
-        super.registerData();
-        this.dataManager.register(SPECTER_TRANSPARENT, false);
-        this.dataManager.register(SPECTER_HAUNTING, false);
-        this.dataManager.register(SPECTER_POSSES_MONSTER, false);
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(SPECTER_TRANSPARENT, false);
+        this.entityData.define(SPECTER_HAUNTING, false);
+        this.entityData.define(SPECTER_POSSES_MONSTER, false);
     }
 
     @Override
@@ -111,9 +113,9 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
         AnimationBuilder anim = IDLE_ANIM;
         if (event.isMoving()) {
             anim = MOVING_ANIM;
-        } if (WanderingSpecterEntity.this.dataManager.get(SPECTER_HAUNTING) == true && WanderingSpecterEntity.this.dataManager.get(SPECTER_POSSES_MONSTER) == false) {
+        } if (WanderingSpecterEntity.this.entityData.get(SPECTER_HAUNTING) == true && WanderingSpecterEntity.this.entityData.get(SPECTER_POSSES_MONSTER) == false) {
             anim = HAUNT_ANIM;
-        } if (WanderingSpecterEntity.this.dataManager.get(SPECTER_POSSES_MONSTER) == true) {
+        } if (WanderingSpecterEntity.this.entityData.get(SPECTER_POSSES_MONSTER) == true) {
             anim = POSSES_ANIM;
         }
         controller.setAnimation(anim);
@@ -134,12 +136,12 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        Entity entity = source.getImmediateSource();
+    public boolean hurt(DamageSource source, float amount) {
+        Entity entity = source.getDirectEntity();
         if (entity != null) {
-            World world = entity.getEntityWorld();
+            World world = entity.getCommandSenderWorld();
             if (entity instanceof ArrowEntity) {
-                BlockPos EntityPos = entity.getPosition();
+                BlockPos EntityPos = entity.blockPosition();
                 entity.remove();
                 for (int i = 0; i < 20; i++) {
                     world.addParticle(ParticleTypes.CLOUD, EntityPos.getX(), EntityPos.getY(), EntityPos.getZ(), 0D, 0D, 0D);
@@ -153,12 +155,12 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
 
 
     @Override
-    public boolean canCollide(Entity entity) {
+    public boolean canCollideWith(Entity entity) {
         return false;
     }
     public void move(MoverType typeIn, Vector3d pos) {
         super.move(typeIn, pos);
-        this.doBlockCollisions();
+        this.checkInsideBlocks();
     }
 
     @Override
@@ -172,23 +174,23 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
         }
 
         public void tick() {
-            if (this.action == MovementController.Action.MOVE_TO) {
-                Vector3d vector3d = new Vector3d(this.posX - WanderingSpecterEntity.this.getPosX(), this.posY - WanderingSpecterEntity.this.getPosY(), this.posZ - WanderingSpecterEntity.this.getPosZ());
+            if (this.operation == MovementController.Action.MOVE_TO) {
+                Vector3d vector3d = new Vector3d(this.wantedX - WanderingSpecterEntity.this.getX(), this.wantedY - WanderingSpecterEntity.this.getY(), this.wantedZ - WanderingSpecterEntity.this.getZ());
                 double d0 = vector3d.length();
-                if (d0 < WanderingSpecterEntity.this.getBoundingBox().getAverageEdgeLength()) {
-                    this.action = MovementController.Action.WAIT;
-                    WanderingSpecterEntity.this.setMotion(WanderingSpecterEntity.this.getMotion().scale(0.5D));
+                if (d0 < WanderingSpecterEntity.this.getBoundingBox().getSize()) {
+                    this.operation = MovementController.Action.WAIT;
+                    WanderingSpecterEntity.this.setDeltaMovement(WanderingSpecterEntity.this.getDeltaMovement().scale(0.5D));
                 } else {
-                    WanderingSpecterEntity.this.setMotion(WanderingSpecterEntity.this.getMotion().add(vector3d.scale(this.speed * 0.05D / d0)));
-                    if (WanderingSpecterEntity.this.getAttackTarget() == null) {
-                        Vector3d vector3d1 = WanderingSpecterEntity.this.getMotion();
-                        WanderingSpecterEntity.this.rotationYaw = -((float) MathHelper.atan2(vector3d1.x, vector3d1.z)) * (180F / (float)Math.PI);
-                        WanderingSpecterEntity.this.renderYawOffset = WanderingSpecterEntity.this.rotationYaw;
+                    WanderingSpecterEntity.this.setDeltaMovement(WanderingSpecterEntity.this.getDeltaMovement().add(vector3d.scale(this.speedModifier * 0.05D / d0)));
+                    if (WanderingSpecterEntity.this.getTarget() == null) {
+                        Vector3d vector3d1 = WanderingSpecterEntity.this.getDeltaMovement();
+                        WanderingSpecterEntity.this.yRot = -((float) MathHelper.atan2(vector3d1.x, vector3d1.z)) * (180F / (float)Math.PI);
+                        WanderingSpecterEntity.this.yBodyRot = WanderingSpecterEntity.this.yRot;
                     } else {
-                        double d2 = WanderingSpecterEntity.this.getAttackTarget().getPosX() - WanderingSpecterEntity.this.getPosX();
-                        double d1 = WanderingSpecterEntity.this.getAttackTarget().getPosZ() - WanderingSpecterEntity.this.getPosZ();
-                        WanderingSpecterEntity.this.rotationYaw = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
-                        WanderingSpecterEntity.this.renderYawOffset = WanderingSpecterEntity.this.rotationYaw;
+                        double d2 = WanderingSpecterEntity.this.getTarget().getX() - WanderingSpecterEntity.this.getX();
+                        double d1 = WanderingSpecterEntity.this.getTarget().getZ() - WanderingSpecterEntity.this.getZ();
+                        WanderingSpecterEntity.this.yRot = -((float)MathHelper.atan2(d2, d1)) * (180F / (float)Math.PI);
+                        WanderingSpecterEntity.this.yBodyRot = WanderingSpecterEntity.this.yRot;
                     }
                 }
 
@@ -198,19 +200,19 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
     class Posses extends Goal {
 
         @Override
-        public boolean shouldExecute() {
+        public boolean canUse() {
             Random random = new Random();
-            return WanderingSpecterEntity.this.getAttackTarget() != null && random.nextInt(1000) == 17;
+            return WanderingSpecterEntity.this.getTarget() != null && random.nextInt(1000) == 17;
         }
 
 
         @Override
-        public void startExecuting() {
-            WanderingSpecterEntity.this.moveController.setMoveTo((double) WanderingSpecterEntity.this.getAttackTarget().getPosition().getX(), (double) WanderingSpecterEntity.this.getAttackTarget().getPosition().getY(), (double) WanderingSpecterEntity.this.getAttackTarget().getPosition().getZ(), 10);
-            WanderingSpecterEntity.this.dataManager.set(SPECTER_HAUNTING, true);
-            WanderingSpecterEntity.this.getAttackTarget().addPotionEffect(new EffectInstance(EffectInitNew.POSSESION.get(), 9999999, 1));
+        public void start() {
+            WanderingSpecterEntity.this.moveControl.setWantedPosition((double) WanderingSpecterEntity.this.getTarget().blockPosition().getX(), (double) WanderingSpecterEntity.this.getTarget().blockPosition().getY(), (double) WanderingSpecterEntity.this.getTarget().blockPosition().getZ(), 10);
+            WanderingSpecterEntity.this.entityData.set(SPECTER_HAUNTING, true);
+            WanderingSpecterEntity.this.getTarget().addEffect(new EffectInstance(EffectInitNew.POSSESION.get(), 9999999, 1));
             WanderingSpecterEntity.this.remove();
-            super.startExecuting();
+            super.start();
         }
     }
 
@@ -218,25 +220,25 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
         protected LivingEntity nearestTarget;
 
     public LookAtTargetGoal() {
-        this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE));
     }
 
         @Override
-        public boolean shouldExecute() {
+        public boolean canUse() {
             return true;
         }
 
         @Override
-        public boolean shouldContinueExecuting() {
-            this.nearestTarget = WanderingSpecterEntity.this.world.getClosestPlayer(WanderingSpecterEntity.this, 6);
+        public boolean canContinueToUse() {
+            this.nearestTarget = WanderingSpecterEntity.this.level.getNearestPlayer(WanderingSpecterEntity.this, 6);
             return nearestTarget != null ? true : false;
         }
 
         @Override
         public void tick() {
-            this.nearestTarget = WanderingSpecterEntity.this.world.getClosestPlayer(WanderingSpecterEntity.this, 6);
+            this.nearestTarget = WanderingSpecterEntity.this.level.getNearestPlayer(WanderingSpecterEntity.this, 6);
             if (this.nearestTarget != null) {
-                WanderingSpecterEntity.this.getLookController().setLookPositionWithEntity(nearestTarget,90F,90F);            }
+                WanderingSpecterEntity.this.getLookControl().setLookAt(nearestTarget,90F,90F);            }
             super.tick();
         }
     }
@@ -244,59 +246,59 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
         int timer = 0;
         static final int DURATION = 100;
         public HauntAttackGoal() {
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE, Flag.JUMP, Flag.LOOK));
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Flag.JUMP, Flag.LOOK));
         }
         @Override
-        public boolean shouldExecute() {
+        public boolean canUse() {
             Random random = new Random();
-            return WanderingSpecterEntity.this.getAttackTarget() != null && random.nextInt(550) == 17;
+            return WanderingSpecterEntity.this.getTarget() != null && random.nextInt(550) == 17;
         }
 
         @Override
-        public boolean shouldContinueExecuting() {
-            return WanderingSpecterEntity.this.getAttackTarget() != null && this.timer < DURATION;
+        public boolean canContinueToUse() {
+            return WanderingSpecterEntity.this.getTarget() != null && this.timer < DURATION;
         }
 
         @Override
-        public void resetTask() {
-            WanderingSpecterEntity.this.dataManager.set(SPECTER_HAUNTING, false);
-            super.resetTask();
+        public void stop() {
+            WanderingSpecterEntity.this.entityData.set(SPECTER_HAUNTING, false);
+            super.stop();
         }
 
         @Override
         public void tick() {
             this.timer++;
-            if (WanderingSpecterEntity.this.getAttackTarget() != null) {
-                WanderingSpecterEntity.this.getAttackTarget().addPotionEffect(new EffectInstance(Effects.NAUSEA, 200, 5));
+            if (WanderingSpecterEntity.this.getTarget() != null) {
+                WanderingSpecterEntity.this.getTarget().addEffect(new EffectInstance(Effects.CONFUSION, 200, 5));
             }
             super.tick();
         }
 
         @Override
-        public void startExecuting() {
+        public void start() {
             this.timer = 0;
-            WanderingSpecterEntity.this.dataManager.set(SPECTER_HAUNTING, true);
-            super.startExecuting();
+            WanderingSpecterEntity.this.entityData.set(SPECTER_HAUNTING, true);
+            super.start();
         }
     }
 
     class MoveRandomGoal extends Goal {
         public MoveRandomGoal() {
-            this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+            this.setFlags(EnumSet.of(Goal.Flag.MOVE));
         }
 
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
-        public boolean shouldExecute() {
-            return !WanderingSpecterEntity.this.getMoveHelper().isUpdating() && WanderingSpecterEntity.this.rand.nextInt(7) == 0;
+        public boolean canUse() {
+            return !WanderingSpecterEntity.this.getMoveControl().hasWanted() && WanderingSpecterEntity.this.random.nextInt(7) == 0;
         }
 
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
-        public boolean shouldContinueExecuting() {
+        public boolean canContinueToUse() {
             return false;
         }
 
@@ -304,23 +306,23 @@ public class WanderingSpecterEntity extends CreatureEntity implements IAnimatabl
          * Keep ticking a continuous task that has already been started
          */
         public void tick() {
-            BlockPos blockpos = WanderingSpecterEntity.this.getPosition();
+            BlockPos blockpos = WanderingSpecterEntity.this.blockPosition();
 
 
             for(int i = 0; i < 3; ++i) {
-                BlockPos blockpos1 = blockpos.add(WanderingSpecterEntity.this.rand.nextInt(15) - 7,
-                        WanderingSpecterEntity.this.rand.nextInt(11) - 5,
-                        WanderingSpecterEntity.this.rand.nextInt(15) - 7);
+                BlockPos blockpos1 = blockpos.offset(WanderingSpecterEntity.this.random.nextInt(15) - 7,
+                        WanderingSpecterEntity.this.random.nextInt(11) - 5,
+                        WanderingSpecterEntity.this.random.nextInt(15) - 7);
 
-                int y = WanderingSpecterEntity.this.world.getHeight(Heightmap.Type.WORLD_SURFACE, blockpos1.getX(), blockpos1.getZ());
-                if (WanderingSpecterEntity.this.world.isAirBlock(blockpos1) && blockpos1.getY() < y + 10D ) {
-                    WanderingSpecterEntity.this.moveController.setMoveTo((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() < y ? y + 3D :
+                int y = WanderingSpecterEntity.this.level.getHeight(Heightmap.Type.WORLD_SURFACE, blockpos1.getX(), blockpos1.getZ());
+                if (WanderingSpecterEntity.this.level.isEmptyBlock(blockpos1) && blockpos1.getY() < y + 10D ) {
+                    WanderingSpecterEntity.this.moveControl.setWantedPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() < y ? y + 3D :
                             (double) blockpos1.getY() + 0.5D, (double)blockpos1.getZ() + 0.5D, 0.25D);
 
-                    if (WanderingSpecterEntity.this.getAttackTarget() == null) {
+                    if (WanderingSpecterEntity.this.getTarget() == null) {
 
-                        WanderingSpecterEntity.this.getLookController()
-                                .setLookPosition((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D,
+                        WanderingSpecterEntity.this.getLookControl()
+                                .setLookAt((double)blockpos1.getX() + 0.5D, (double)blockpos1.getY() + 0.5D,
                                         (double)blockpos1.getZ() + 0.5D, 180.0F, 20.0F);
                     }
                     break;
